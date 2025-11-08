@@ -1,0 +1,21 @@
+from PySide6.QtWidgets import QApplication, QWidget, QHBoxLayout, QPushButton, QVBoxLayout, QGridLayout
+from PySide6.QtCore import Qt
+app = QApplication([])
+widget = QWidget()
+# widget.saveGeometry(300,300,400,200)
+# widget.setGeometry(300,300,400,200)
+layout = QGridLayout(widget)
+button1 = QPushButton("Button 1")
+button2 = QPushButton("Button 2")
+button3 = QPushButton("Button 3")
+layout.addWidget(button1, 0, 0)
+layout.addWidget(button2, 0, 1)
+layout.addWidget(button3, 1, 0, 1, 2)
+layout.setSpacing(50)
+# layout.setAlignment(button1, Qt.AlignTop | Qt.AlignLeft)
+layout.setAlignment(button1, Qt.AlignTop | Qt.AlignHCenter| Qt.AlignJustify)
+layout.setRowStretch(0,1)
+layout.setColumnStretch(1,1)
+widget.show()
+app.exec()
+
