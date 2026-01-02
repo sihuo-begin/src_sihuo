@@ -6,19 +6,23 @@ import time
 import pandas as pd
 import numpy as np
 
-from src.definition.product_mapping import voltage_v
-
 # read_folder_path = "C:\Json"
 read_folder_path = "C:\cell_logs"
 read_folder_path = "C:\Check_Result\data"
+read_folder_path = "C:\Check_Result\soc_validation"
 # read_file_path = "{}\cell_0_0x00000001_20250906_110825.log".format(read_folder_path)
 write_folder_path = "C:\Check_Result"
+write_folder_path = "C:\Check_Result\soc_validation"
 write_file_path = "{}\check_result.txt".format(write_folder_path)
 # pattern1 = "\[(.*?)\].*battery ADC:\s*(\d+)"
-pattern1 = "\[(.*?)\].*battery_voltage is:\s*(\d+)"
-pattern2 = "battery_charge is:\s*(\d+)"
+pattern1 = "\[(.*?)\].*'battery_voltage':\s*(\d+)"
+# pattern1 = "'battery_voltage':\s*(\d+)"
+pattern2 = "'battery_current':\s*(\d+)"
+pattern3 = "'battery_soc':\s*(\d+)"
 # pattern2 = "battery charge:\s*(\d+)"
-pattern3 = "read battery voltage is ([\d\.]+)"
+# pattern4 = "\[(.*?)\].*charging_status:\s*(\d+)"
+pattern4 = ".*charging_status:\s*(\d+)"
+pattern5 = ".*Reset DUT"
 
 if not os.path.exists(write_folder_path):
     os.makedirs(write_folder_path)
@@ -83,13 +87,14 @@ if not os.path.exists(write_folder_path):
 # }
 dirs = os.listdir("{}".format(read_folder_path))
 print(dirs)
-with pd.ExcelWriter('{}\\check_result_0913.xlsx'.format(write_folder_path), engine='openpyxl') as writer:
+with pd.ExcelWriter('{}\\check_result_1117.xlsx'.format(write_folder_path), engine='openpyxl') as writer:
     for sub_dir in dirs:
         data = {
             "Date_Time": [],
-            "Battery_ADC": [],
+            "Battery_voltage": [],
             "Battery_Capacity": [],
-            "Battery_Level": [],
+            "Battery_current": [],
+            "Charging_Status": [],
         }
         with open(r"{}\\{}".format(read_folder_path, sub_dir), "r") as f:
             file_content = f.readlines()
@@ -97,15 +102,20 @@ with pd.ExcelWriter('{}\\check_result_0913.xlsx'.format(write_folder_path), engi
             for line in file_content:
                 match1 = re.search(r"{}".format(pattern1), line)
                 match2 = re.search(r"{}".format(pattern2), line)
-                # match3 = re.search(r"{}".format(pattern3), line)
+                match3 = re.search(r"{}".format(pattern3), line)
+                match4 = re.search(r"{}".format(pattern4), line)
+                match5 = re.search(r"{}".format(pattern5), line)
                 if match1:
                     data["Date_Time"].append(match1[1])
-                    data["Battery_ADC"].append(int(match1[2]))
-                    data["Battery_Level"].append(int(match1[2])*0.00199)
+                    data["Battery_voltage"].append(int(match1[2]))
                 if match2:
-                    data["Battery_Capacity"].append(int(match2[1]))
-                # if match3:
-                #     data["Battery_Level"].append(float(match3[1]))
+                    data["Battery_current"].append(int(match2[1]))
+                if match3:
+                    data["Battery_Capacity"].append(int(match3[1]))
+                if match4:
+                    data["Charging_Status"].append(int(match4[1]))
+                if match5:
+                    data["Charging_Status"].append('UUT Reset, skip charging status')
             else:
                 print(data)
                 df = pd.DataFrame(data)
