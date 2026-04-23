@@ -1,0 +1,4 @@
+progress:
+  - employee_id: "10001"
+    material_id: esd_001
+    trained: true

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>{{ material.name }}</title>
+</head>
+<body>
+
+<h2>{{ material.name }}</h2>
+
+<p>
+<strong>工站名：</strong>{{ material.station }} |
+<strong>项目名称：</strong>{{ material.project }} |
+<strong>文件名：</strong>{{ material.file }}
+</p>
+
+<hr>
+
+<!-- ✅ 培训文档展示 -->
+<iframe src="/{{ material.file_path }}" width="100%" height="600px"></iframe>
+
+<hr>
+<a href="/">返回课程主页</a> |
+<a href="/exam/{{ material.id }}">开始考试</a>
+
+</body>
+</html>

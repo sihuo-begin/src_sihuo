@@ -1,0 +1,4 @@
+POWER_ISSUE:
+  POWER: 3
+  DROOP: 2
+  RESET: 1

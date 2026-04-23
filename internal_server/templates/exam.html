@@ -1,0 +1,24 @@
+<h2>{{ material.name }} - 考试</h2>
+
+<p>
+<strong>工站：</strong>{{ material.station }} |
+<strong>项目：</strong>{{ material.project }}
+</p>
+
+<form method="post">
+员工ID：
+<input name="employee_id" required>
+
+<hr>
+
+{% for q in questions %}
+<p>第 {{ loop.index }} 题：{{ q.question }}</p>
+{% for k, v in q.options.items() %}
+<input type="radio" name="q{{ loop.parent.index0 }}" value="{{ k }}" required>
+{{ k }}. {{ v }}<br>
+{% endfor %}
+<br>
+{% endfor %}
+
+<button type="submit">提交考试</button>
+</form>

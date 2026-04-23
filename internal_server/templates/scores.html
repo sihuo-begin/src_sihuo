@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>考试成绩</title>
+    <style>
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ccc; padding: 8px; }
+    </style>
+</head>
+<body>
+
+<h2>📊 考试成绩查询</h2>
+
+<form method="get">
+    员工ID：
+    <input type="text" name="employee_id">
+    <button type="submit">查询</button>
+    | /返回主页</a>
+</form>
+
+<br>
+
+<table>
+    <tr>
+        <th>员工ID</th>
+        <th>课件</th>
+        <th>工位</th>
+        <th>项目</th>
+        <th>成绩</th>
+        <th>操作</th>
+    </tr>
+
+    {% for r in results %}
+    <tr>
+        <td>{{ r.employee_id }}</td>
+        <td>{{ r.material_name }}</td>
+        <td>{{ r.station }}</td>
+        <td>{{ r.project }}</td>
+        <td>{{ r.score }} / {{ r.total }}</td>
+        <td>
+            /clear/{{ r.employee_id }}清除</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
