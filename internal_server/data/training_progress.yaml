@@ -1,0 +1,10 @@
+progress:
+- employee_id: '10001'
+  material_id: esd_001
+  trained: true
+- employee_id: '10001'
+  material_id: fix_002
+  trained: true
+- employee_id: '1005'
+  material_id: esd_001
+  trained: true
