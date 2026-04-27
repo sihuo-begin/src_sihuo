@@ -1,49 +1,174 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <title>考试成绩</title>
+
     <style>
-        table { border-collapse: collapse; width: 100%; }
-        th, td { border: 1px solid #ccc; padding: 8px; }
+        /* ===== 全局 ===== */
+        body {
+            font-family: "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            background: #f4f6f9;
+            color: #333;
+            padding: 20px;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        /* ===== 页面卡片 ===== */
+        .card {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* ===== 查询区 ===== */
+        .search-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .search-bar input {
+            padding: 6px 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .search-bar button {
+            padding: 6px 12px;
+            border: none;
+            background: #1976d2;
+            color: #fff;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .search-bar a {
+            margin-left: auto;
+            text-decoration: none;
+            color: #1976d2;
+            font-weight: 500;
+        }
+
+        /* ===== 表格 ===== */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #f0f2f5;
+            text-align: left;
+            padding: 10px;
+            font-weight: 600;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        tr:nth-child(even) {
+            background: #fafafa;
+        }
+
+        /* ===== 成绩状态 ===== */
+        .status {
+            margin-left: 8px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .pass {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .fail {
+            background: #fdecea;
+            color: #c62828;
+        }
+
+        /* ===== 操作按钮 ===== */
+        .btn-danger {
+            padding: 6px 10px;
+            border-radius: 4px;
+            background: #fbe9e7;
+            color: #d84315;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .btn-danger:hover {
+            background: #ffccbc;
+        }
     </style>
 </head>
+
 <body>
 
-<h2>📊 考试成绩查询</h2>
+<div class="card">
 
-<form method="get">
-    员工ID：
-    <input type="text" name="employee_id">
-    <button type="submit">查询</button>
-    | /返回主页</a>
-</form>
+    <h2>📊 考试成绩查询</h2>
 
-<br>
+    <!-- 查询区 -->
+    <form method="get" class="search-bar">
+        员工ID：
+        <input type="text" name="employee_id">
+        <button type="submit">查询</button>
+         <a href="/" class="btn-back">返回课程主页</a>
+    </form>
 
-<table>
-    <tr>
-        <th>员工ID</th>
-        <th>课件</th>
-        <th>工位</th>
-        <th>项目</th>
-        <th>成绩</th>
-        <th>操作</th>
-    </tr>
+    <!-- 成绩表 -->
+    <table>
+        <tr>
+            <th>员工ID</th>
+            <th>课程</th>
+            <th>工站</th>
+            <th>项目</th>
+            <th>成绩</th>
+            <th>操作</th>
+        </tr>
 
-    {% for r in results %}
-    <tr>
-        <td>{{ r.employee_id }}</td>
-        <td>{{ r.material_name }}</td>
-        <td>{{ r.station }}</td>
-        <td>{{ r.project }}</td>
-        <td>{{ r.score }} / {{ r.total }}</td>
-        <td>
-            /clear/{{ r.employee_id }}清除</a>
-        </td>
-    </tr>
-    {% endfor %}
-</table>
+        {% for r in results %}
+        <tr>
+            <td>{{ r.employee_id }}</td>
+            <td>{{ r.material_name }}</td>
+            <td>{{ r.station }}</td>
+            <td>{{ r.project }}</td>
+            <td>
+                {{ r.percentage }}
+                {% if r.passed %}
+                    <span class="status pass">✅ 通过</span>
+                {% else %}
+                    <span class="status fail">❌ 未通过</span>
+                {% endif %}
+            </td>
+            <td>
+                <a href="/clear/{{ r.employee_id }}"
+                   class="btn-danger"
+                   onclick="return confirm('确认清除该员工所有成绩吗？');">
+                    清除
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</div>
 
 </body>
 </html>

@@ -1,15 +1,19 @@
-
 scores:
-#  - employee_id: "10001"
-#    material_id: esd_001
-#    material_name: ESD安全培训
-#    station: SMT工位
-#    project: 汽车项目
-#    score: 4
-#    total: 5
-#    passed: true
-  - employee_id: "10001"
-    material_id: esd_001
-    score: 4
-    total: 5
-    passed: true
+- employee_id: '10003'
+  material_id: esd_001
+  material_name: ESD安全培训
+  passed: false
+  percentage: 0
+  project: 汽车项目
+  score: 0
+  station: SMT
+  total: 2
+- employee_id: '10004'
+  material_id: esd_001
+  material_name: ESD安全培训
+  passed: true
+  percentage: 100
+  project: 汽车项目
+  score: 2
+  station: SMT
+  total: 2

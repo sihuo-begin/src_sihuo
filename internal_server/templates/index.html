@@ -5,115 +5,184 @@
 <title>内网培训系统</title>
 
 <style>
+/* ===== 全局 ===== */
 body {
-    font-family: Arial, sans-serif;
-    background: #f4f6f8;
+    font-family: "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+    background: #f4f6f9;
+    color: #333;
+    margin: 0;
+    padding: 20px;
 }
 
+h2 {
+    margin: 0;
+}
+
+/* ===== 顶部区域 ===== */
 .header {
-    margin-bottom: 15px;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
+.header form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header input {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.header button {
+    padding: 6px 12px;
+    border: none;
+    background: #1976d2;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.header a {
+    margin-left: 10px;
+    text-decoration: none;
+    color: #1976d2;
+    font-weight: 500;
+}
+
+/* ===== 卡片网格 ===== */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 20px;
 }
 
+/* ===== 课程卡片 ===== */
 .card {
     background: #ffffff;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    padding: 15px;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
 }
 
 .card img {
     width: 100%;
     height: 140px;
     object-fit: cover;
+    border-radius: 6px;
     background: #eaeaea;
-    border-radius: 4px;
 }
 
+/* ===== 课程信息 ===== */
 .info {
     font-size: 14px;
-    margin-top: 10px;
+    margin-top: 12px;
 }
 
 .info div {
-    margin-bottom: 4px;
+    margin-bottom: 6px;
+    line-height: 1.4;
 }
 
+.info strong {
+    color: #555;
+}
+
+/* ===== 操作按钮区域 ===== */
 .actions {
-    margin-top: 12px;
+    margin-top: auto;
     display: flex;
     gap: 10px;
 }
 
-.actions a {
+.actions a,
+.actions button {
     flex: 1;
     text-align: center;
-    padding: 6px;
+    padding: 8px 0;
     border-radius: 4px;
-    text-decoration: none;
-    font-weight: bold;
-    color: #fff;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
 }
 
-.btn-train { background: #007bff; }
-.btn-exam  { background: #28a745; }
+/* 按钮样式 */
+.btn-train {
+    background: #1976d2;
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-exam {
+    background: #2e7d32;
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-disabled {
+    background: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
 </style>
 </head>
 
 <body>
 
+<!-- ===== 顶部标题与搜索 ===== -->
 <div class="header">
     <h2>📚 内网培训系统</h2>
     <form method="get">
         <input type="text" name="keyword" placeholder="按课程 / 工站 / 项目搜索">
         <button type="submit">搜索</button>
-        | <a href="/scores">成绩查询</a>
+        <a href="/scores">成绩查询</a>
     </form>
 </div>
 
+<!-- ===== 课程卡片区 ===== -->
 <div class="grid">
 
 {% for m in materials %}
 <div class="card">
 
-    <!-- ✅ 固定课程图标 -->
+    <!-- 课程图标 -->
     <img src="/static/course.png" alt="课程图标">
 
-    <!-- ✅ 课程标签信息 -->
+    <!-- 课程信息 -->
     <div class="info">
         <div><strong>课程名称：</strong>{{ m.name }}</div>
-        <div><strong>工站名：</strong>{{ m.station }}</div>
-        <div><strong>项目名称：</strong>{{ m.project }}</div>
-        <div><strong>文件名：</strong>{{ m.file }}</div>
+        <div><strong>工站：</strong>{{ m.station }}</div>
+        <div><strong>项目：</strong>{{ m.project }}</div>
+        <div><strong>文件：</strong>{{ m.file }}</div>
     </div>
 
-    <!-- ✅ 操作按钮 -->
+    <!-- 操作按钮 -->
     <div class="actions">
-<!--        <a class="btn-train" href="/training/{{ m.id }}">培训</a>-->
-        <a class="btn-train" href="/training/{{ m.id }}?employee_id={{ employee_id }}">培训</a>
-<!--        <a class="btn-exam"  href="/exam/{{ m.id }}">考试</a>-->
-<!--    </div>-->
-<!--    <div class="actions">-->
-
-<!--        /training/{{ m.id }}?employee_id={{ employee_id }}-->
-<!--            培训-->
-<!--        </a>-->
+        <a class="btn-train"
+           href="/training/{{ m.id }}?employee_id={{ employee_id }}">
+           培训
+        </a>
 
         {% if m.can_exam %}
-            /exam/{{ m.id }}?employee_id={{ employee_id }}
-                考试
+            <a class="btn-exam"
+               href="/exam/{{ m.id }}?employee_id={{ employee_id }}">
+               考试
             </a>
         {% else %}
-            <button disabled style="background:#aaa">
+            <button class="btn-disabled" disabled>
                 考试未解锁
             </button>
         {% endif %}
-
     </div>
 
 </div>

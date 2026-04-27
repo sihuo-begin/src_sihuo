@@ -1,24 +1,157 @@
-<h2>{{ material.name }} - 考试</h2>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ material.name }} - 考试</title>
+    <style>
+        /* ===== 全局 ===== */
+        body {
+            font-family: "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            background: #f4f6f9;
+            color: #333;
+            padding: 20px;
+        }
 
-<p>
-<strong>工站：</strong>{{ material.station }} |
-<strong>项目：</strong>{{ material.project }}
-</p>
+        /* ===== 页面卡片容器 ===== */
+        .card {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            max-width: 900px;
+            margin: 0 auto;
+        }
 
-<form method="post">
-员工ID：
-<input name="employee_id" required>
+        h2 {
+            margin-top: 0;
+        }
 
-<hr>
+        /* ===== 课程信息 ===== */
+        .course-info {
+            margin-bottom: 16px;
+            color: #555;
+        }
 
-{% for q in questions %}
-<p>第 {{ loop.index }} 题：{{ q.question }}</p>
-{% for k, v in q.options.items() %}
-<input type="radio" name="q{{ loop.parent.index0 }}" value="{{ k }}" required>
-{{ k }}. {{ v }}<br>
-{% endfor %}
-<br>
-{% endfor %}
+        /* ===== 错误提示 ===== */
+        .error {
+            background: #fdecea;
+            color: #c62828;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
 
-<button type="submit">提交考试</button>
-</form>
+        /* ===== 题目块 ===== */
+        .question {
+            background: #fafafa;
+            border-radius: 6px;
+            padding: 14px;
+            margin-bottom: 14px;
+        }
+
+        .question p {
+            margin: 0 0 8px 0;
+            font-weight: 600;
+        }
+
+        /* ===== 表单元素 ===== */
+        input[type="text"] {
+            padding: 6px 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-left: 6px;
+        }
+
+        input[type="radio"] {
+            margin-right: 6px;
+        }
+
+        /* ===== 按钮 ===== */
+        button {
+            padding: 8px 18px;
+            background: #1976d2;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1565c0;
+        }
+
+        /* ===== 底部链接 ===== */
+        .footer-link {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .footer-link a {
+            text-decoration: none;
+            color: #1976d2;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <h2>{{ material.name }} - 考试</h2>
+
+    <div class="course-info">
+        <strong>工站：</strong>{{ material.station }} |
+        <strong>项目：</strong>{{ material.project }}
+    </div>
+
+    {% if error %}
+        <div class="error">
+            {{ error }}
+        </div>
+    {% endif %}
+
+    <form method="post">
+
+        <p>
+            <strong>员工ID：</strong>
+            <input name="employee_id" required value="{{ employee_id or '' }}">
+        </p>
+
+        <hr>
+
+        {% for q in questions %}
+        {% set q_index = loop.index0 %}
+
+        <div class="question">
+            <p>第 {{ loop.index }} 题：{{ q.question }}</p>
+
+            {% for k, v in q.options.items() %}
+                <label>
+                    <input type="radio"
+                           name="q{{ q_index }}"
+                           value="{{ k }}"
+                           required>
+                    {{ k }}. {{ v }}
+                </label><br>
+            {% endfor %}
+        </div>
+
+        {% endfor %}
+
+        <button type="submit">提交考试</button>
+
+    </form>
+
+
+    <div class="footer-link">
+        <a href="/">返回课程主页</a>
+    </div>
+
+</div>
+
+</body>
+</html>

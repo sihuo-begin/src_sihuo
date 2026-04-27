@@ -1,27 +1,136 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<title>{{ material.name }}</title>
+    <meta charset="UTF-8">
+    <title>{{ material.name }} - 培训</title>
+
+    <style>
+        /* ===== 全局 ===== */
+        body {
+            font-family: "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+            background: #f4f6f9;
+            color: #333;
+            padding: 20px;
+        }
+
+        /* ===== 页面卡片 ===== */
+        .card {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        /* ===== 课程信息 ===== */
+        .course-info {
+            margin-bottom: 16px;
+            color: #555;
+        }
+
+        .course-info strong {
+            color: #333;
+        }
+
+        /* ===== 培训文档区域 ===== */
+        .training-frame {
+            margin-top: 16px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 650px;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            background: #fafafa;
+        }
+
+        /* ===== 按钮区 ===== */
+        .actions {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .actions a {
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .btn-back {
+            color: #1976d2;
+        }
+
+        .btn-exam {
+            background: #2e7d32;
+            color: #fff;
+        }
+
+        .btn-exam:hover {
+            background: #256628;
+        }
+
+        .notice {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+    </style>
 </head>
+
 <body>
 
-<h2>{{ material.name }}</h2>
+<div class="card">
 
-<p>
-<strong>工站名：</strong>{{ material.station }} |
-<strong>项目名称：</strong>{{ material.project }} |
-<strong>文件名：</strong>{{ material.file }}
-</p>
+    <h2>{{ material.name }} - 培训</h2>
 
-<hr>
+    <div class="course-info">
+        <strong>工站名：</strong>{{ material.station }} |
+        <strong>项目名称：</strong>{{ material.project }} |
+        <strong>文件名：</strong>{{ material.file }}
+    </div>
 
-<!-- ✅ 培训文档展示 -->
-<iframe src="/{{ material.file_path }}" width="100%" height="600px"></iframe>
+    <hr>
 
-<hr>
-<a href="/">返回课程主页</a> |
-<a href="/exam/{{ material.id }}">开始考试</a>
+    <!-- ✅ 培训文档展示 -->
+    <div class="training-frame">
+        <form method="post" style="margin-bottom: 16px;">
+            <label>
+                <strong>员工ID：</strong>
+                <input name="employee_id" value="{{ employee_id or '' }}" required>
+            </label>
+            <button type="submit">确认完成培训</button>
+        </form>
+
+        {% if message %}
+        <div class="notice">
+            {{ message }}
+        </div>
+        {% endif %}
+        <iframe src="/{{ material.file_path }}"></iframe>
+    </div>
+
+    <!-- ✅ 操作按钮 -->
+    <div class="actions">
+        <a href="/" class="btn-back">← 返回课程主页</a>
+
+        <a href="/exam/{{ material.id }}?employee_id={{ employee_id }}"
+           class="btn-exam">
+            完成培训，开始考试 →
+        </a>
+    </div>
+
+</div>
 
 </body>
 </html>

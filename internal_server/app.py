@@ -55,50 +55,52 @@ def index():
             or keyword in m['station']
             or keyword in m['project']
         ]
-    # print(materials)
     return render_template('index.html', materials=materials, employee_id=employee_id)
 
 
-@app.route('/training/<material_id>')
-# def training(material_id):
-#     materials = load_yaml(MATERIAL_FILE, {}).get('materials', [])
-#     material = next(m for m in materials if m['id'] == material_id)
-#
-#     material['file_path'] = f"{STATIC_MATERIAL_DIR}/{material['file']}"
-#     return render_template('training.html', material=material)
 
+@app.route('/training/<material_id>', methods=['GET', 'POST'])
 def training(material_id):
-    employee_id = request.args.get('employee_id')
-    if not employee_id:
-        return "缺少 employee_id", 400
-
-    progress = load_yaml(PROGRESS_FILE, {'progress': []})
-
-    exists = any(
-        p for p in progress['progress']
-        if p['employee_id'] == employee_id and p['material_id'] == material_id
-    )
-
-    if not exists:
-        progress['progress'].append({
-            'employee_id': employee_id,
-            'material_id': material_id,
-            'trained': True
-        })
-        save_yaml(PROGRESS_FILE, progress)
-
-    # 正常渲染培训页面
     materials = load_yaml(MATERIAL_FILE, {})['materials']
     material = next(m for m in materials if m['id'] == material_id)
     material['file_path'] = f"static/materials/{material['file']}"
 
-    return render_template('training.html', material=material)
+    message = None
+    employee_id = None
 
+    if request.method == 'POST':
+        employee_id = request.form.get('employee_id')
+
+        if not employee_id:
+            message = "请输入员工ID后才能记录培训"
+        else:
+            progress = load_yaml(PROGRESS_FILE, {'progress': []})
+
+            exists = any(
+                p for p in progress['progress']
+                if p['employee_id'] == employee_id and p['material_id'] == material_id
+            )
+
+            if not exists:
+                progress['progress'].append({
+                    'employee_id': employee_id,
+                    'material_id': material_id,
+                    'trained': True
+                })
+                save_yaml(PROGRESS_FILE, progress)
+
+            message = "✅ 培训已记录，可以参加考试"
+
+    return render_template(
+        'training.html',
+        material=material,
+        employee_id=employee_id,
+        message=message
+    )
 
 @app.route('/exam/<material_id>', methods=['GET', 'POST'])
 def exam(material_id):
     employee_id = request.args.get('employee_id') or request.form.get('employee_id')
-
     if not employee_id:
         return "缺少 employee_id", 400
     # ❌ 未培训 → 禁止考试
@@ -110,33 +112,23 @@ def exam(material_id):
 
     material = next(m for m in materials if m['id'] == material_id)
     qs = questions.get(material_id, [])
-
+    print(material_id)
+    # print(materials, materials, material_id)
     if request.method == 'POST':
         employee_id = request.form['employee_id']
 
-        # for idx, q in enumerate(qs):
-        #     if request.form.get(f'q{idx}') == q['answer']:
-        #         score += 1
-        #
-        # scores['scores'].append({
-        #     'employee_id': employee_id,
-        #     'material_id': material_id,
-        #     'material_name': material['name'],
-        #     'station': material['station'],
-        #     'project': material['project'],
-        #     'score': score,
-        #     'total': len(qs)
-        # })
-        #
-        # save_yaml(SCORE_FILE, scores)
         score = 0
         for idx, q in enumerate(qs):
             if request.form.get(f'q{idx}') == q['answer']:
                 score += 1
 
         total = len(qs)
-        pass_line = 0.8
-        passed = (score / total) >= pass_line
+
+        # ✅ 百分比成绩（整数，便于展示）
+        percentage = round(score / total * 100)
+
+        # ✅ 合格线 80%
+        passed = percentage >= 80
 
         # 读取已有成绩
         existing = None
@@ -150,6 +142,7 @@ def exam(material_id):
             if score > existing['score']:
                 existing['score'] = score
                 existing['total'] = total
+                existing['percentage'] = percentage
                 existing['passed'] = passed
         else:
             scores['scores'].append({
@@ -159,6 +152,7 @@ def exam(material_id):
                 'station': material['station'],
                 'project': material['project'],
                 'score': score,
+                'percentage': percentage,
                 'total': total,
                 'passed': passed
             })
@@ -191,4 +185,4 @@ def clear(employee_id):
 if __name__ == '__main__':
     os.makedirs(DATA_DIR, exist_ok=True)
     # app.run(host='0.0.0.0', port=5000, debug=True)
-    app.run(host='10.200.148.19', port=5000, debug=True)
+    app.run(host='10.200.148.30', port=5000, debug=True)
