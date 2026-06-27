@@ -1,0 +1,123 @@
+steps:
+  - name: "scan_vsn"
+    reference: "scan_vsn"
+    method: "scan_codentify"
+    pnum: "8002"
+    params:
+      color: "red"
+      module: "holder"
+      error_code: "C8002"
+    limit:
+      min: 25
+      unit: ""
+  - name: "TBBUID"
+    reference: "TBBUID"
+    method: "read_station"
+    pnum: "8003"
+    params:
+      color: "red"
+      module: "holder"
+      error_code: "C8003"
+  - name: "read_dusn_control"
+    reference: "read_dusn_control"
+    method: "read_dusn_control"
+    pnum: "8004"
+    params:
+      color: "red"
+      module: "holder"
+      error_code: "C8004"
+  - name: "read_dusn_engine"
+    reference: "read_dusn_engine"
+    method: "read_dusn_engine"
+    pnum: "8005"
+    params:
+      color: "red"
+      module: "holder"
+      bank: 1
+      error_code: "C8005"
+  - name: "read_codentify"
+    reference: "read_codentify"
+    method: "read_codentify"
+    pnum: "8006"
+    params:
+      color: "red"
+      module: "holder"
+      bank: 1
+      error_code: "C8006"
+    limit:
+      min: 25
+      unit: ""
+
+  - name: "read_event_logs"
+    reference: "read_event_logs"
+    method: "read_event_logs"
+    pnum: "8007"
+    params:
+      color: "red"
+      module: "holder"
+      bank: 1
+      error_code: "C8007"
+  - name: "check_autostart_count"
+    reference: "check_autostart_count"
+    method: "check_autostart_count"
+    pnum: "8008"
+    params:
+      color: "red"
+      module: "holder"
+      bank: 1
+      error_code: "C8008"
+  - name: "check_start_reason"
+    reference: "check_start_reason"
+    method: "check_start_reason"
+    pnum: "8009"
+    params:
+      color: "red"
+      module: "holder"
+      bank: 1
+      error_code: "C8009"
+  - name: "check_stop_reason"
+    reference: "check_stop_reason"
+    method: "check_stop_reason"
+    pnum: "8010"
+    params:
+      color: "red"
+      module: "holder"
+      bank: 1
+      error_code: "C8010"
+  - name: "check_heating_duration"
+    reference: "check_heating_duration"
+    method: "check_heating_duration"
+    pnum: "8011"
+    params:
+      color: "red"
+      module: "holder"
+      bank: 1
+      error_code: "C8011"
+  - name: "check_pause_duration"
+    reference: "check_pause_duration"
+    method: "check_pause_duration"
+    pnum: "8012"
+    params:
+      color: "red"
+      module: "holder"
+      bank: 1
+      error_code: "C8012"
+  - name: "check_raw_puff_count"
+    reference: "check_raw_puff_count"
+    method: "check_raw_puff_count"
+    pnum: "8013"
+    params:
+      color: "red"
+      module: "holder"
+      bank: 1
+      error_code: "C8013"
+  - name: "check_puff_count"
+    reference: "check_puff_count"
+    method: "check_puff_count"
+    pnum: "8014"
+    params:
+      color: "red"
+      module: "holder"
+      bank: 1
+      error_code: "C8014"
+

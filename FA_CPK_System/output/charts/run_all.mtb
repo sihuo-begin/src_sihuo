@@ -1,0 +1,33 @@
+NEW;
+
+
+READ "C:\Production_Related\B15\src_sihuo\FA_CPK_System\output\charts\all_data.csv";
+C1-C2.
+
+
+# ===== LED_RED_D303_INTENSITY =====
+
+CAPABILITY C1;
+LSL 13000.0;
+USL 65555.0.
+
+GSAVE "C:\Production_Related\B15\src_sihuo\FA_CPK_System\output\charts\LED_RED_D303_INTENSITY.png";
+JPEG.
+
+ERASE ALL;
+NEW;
+
+
+# ===== LED_AMBER_D310_INTENSITY =====
+
+CAPABILITY C2;
+LSL 4500.0;
+USL 65555.0.
+
+GSAVE "C:\Production_Related\B15\src_sihuo\FA_CPK_System\output\charts\LED_AMBER_D310_INTENSITY.png";
+JPEG.
+
+ERASE ALL;
+NEW;
+
+QUIT.

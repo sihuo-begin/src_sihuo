@@ -1,0 +1,1753 @@
+steps:
+  - name: "WT_CONNECT_TESTER"
+    reference: "WT_CONNECT_TESTER"
+    method: "wt_connect_tester"
+    pnum: "2003"
+    params:
+      error_code: "2003"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "DUT_POWER_ON"
+    reference: "DUT_POWER_ON"
+    method : "power_on"
+    pnum: ""
+    params:
+      error_code: "2004"
+
+  - name: "RT_SDK_PROGRAMMING"
+    reference: "RT_SDK_PROGRAMMING"
+    method: "power_on"
+    pnum: ""
+    params:
+      error_code: "2004"
+
+  - name: "WT_INIT_DUT"
+    reference: "WT_INIT_DUT"
+    method: "wt_init_dut"
+    pnum: "2002"
+    params:
+      error_code: "2002"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_INSERT_DUT"
+    reference: "WT_INSERT_DUT"
+    method: "wt_insert_dut"
+    pnum: "2003"
+    params:
+      error_code: "2003"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_CAL_START"
+    reference: "WT_CAL_START"
+    method: "rf_mp_init"
+    pnum: "2004"
+    params:
+      error_code: "2004"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "LOAD_PATHLOSS_TABLE"
+      reference: "LOAD_PATHLOSS_TABLE"
+      method: "load_pathloss_table_step"
+      pnum: "2107"
+      params:
+        error_code: "2107"
+        yaml_path: "./data/pathloss/eaglemono_fixture_a.yaml"
+        required_ports: [ 1 ]
+        strict: true
+      limit:
+        min: 0
+        max: 0
+        equal: ""
+      unit: ""
+
+  - name: "WT_CAL_FREQ_2442_7_54M_CHAIN0"
+    reference: "WT_CAL_FREQ_2442_7_54M_CHAIN0"
+    method: "wifi_crystal_calibration"
+    pnum: "2005"
+    params:
+      error_code: "2005"
+      channel: 7
+      freq_mhz: 2442
+      rate: "54M"
+      rf_port: 1
+      demod: 0
+      patha: 64
+      pathb: 0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_CAL_PWR_2412_1_HT40_MCS7_CHAIN0"
+    reference: "WT_CAL_PWR_2412_1_HT40_MCS7_CHAIN0"
+    method: "wifi_tx_calibration"
+    pnum: "2006"
+    params:
+      error_code: "2006"
+      channel: 1
+      freq_mhz: 2412
+      rate: "HT40-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 15.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_CAL_PWR_2427_4_HT40_MCS7_CHAIN0"
+    reference: "WT_CAL_PWR_2427_4_HT40_MCS7_CHAIN0"
+    method: "wifi_tx_calibration"
+    pnum: "2007"
+    params:
+      error_code: "2007"
+      channel: 4
+      freq_mhz: 2427
+      rate: "HT40-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 15.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_CAL_PWR_2442_7_HT40_MCS7_CHAIN0"
+    reference: "WT_CAL_PWR_2442_7_HT40_MCS7_CHAIN0"
+    method: "wifi_tx_calibration"
+    pnum: "2008"
+    params:
+      error_code: "2008"
+      channel: 7
+      freq_mhz: 2442
+      rate: "HT40-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 15.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_CAL_PWR_2457_10_HT40_MCS7_CHAIN0"
+    reference: "WT_CAL_PWR_2457_10_HT40_MCS7_CHAIN0"
+    method: "wifi_tx_calibration"
+    pnum: "2009"
+    params:
+      error_code: "2009"
+      channel: 10
+      freq_mhz: 2457
+      rate: "HT40-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 15.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_CAL_PWR_2472_13_HT40_MCS7_CHAIN0"
+    reference: "WT_CAL_PWR_2472_13_HT40_MCS7_CHAIN0"
+    method: "wifi_tx_calibration"
+    pnum: "2010"
+    params:
+      error_code: "2010"
+      channel: 13
+      freq_mhz: 2472
+      rate: "HT40-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 15.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_CAL_PWR_2442_7_54M_CHAIN0"
+    reference: "WT_CAL_PWR_2442_7_54M_CHAIN0"
+    method: "wifi_tx_calibration"
+    pnum: "2011"
+    params:
+      error_code: "2011"
+      channel: 7
+      freq_mhz: 2442
+      rate: "54M"
+      rf_port: 1
+      demod: 0
+      target_power_dbm: 15.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_CAL_PWR_2442_7_HT20_MCS7_CHAIN0"
+    reference: "WT_CAL_PWR_2442_7_HT20_MCS7_CHAIN0"
+    method: "wifi_tx_calibration"
+    pnum: "2012"
+    params:
+      error_code: "2012"
+      channel: 7
+      freq_mhz: 2442
+      rate: "HT20-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 15.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_CAL_PWR_2412_1_11M_CHAIN0"
+    reference: "WT_CAL_PWR_2412_1_11M_CHAIN0"
+    method: "wifi_tx_calibration"
+    pnum: "2013"
+    params:
+      error_code: "2013"
+      channel: 1
+      freq_mhz: 2412
+      rate: "11M"
+      rf_port: 1
+      demod: 3
+      target_power_dbm: 15.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_CAL_PWR_2427_4_11M_CHAIN0"
+    reference: "WT_CAL_PWR_2427_4_11M_CHAIN0"
+    method: "wifi_tx_calibration"
+    pnum: "2014"
+    params:
+      error_code: "2014"
+      channel: 4
+      freq_mhz: 2427
+      rate: "11M"
+      rf_port: 1
+      demod: 3
+      target_power_dbm: 15.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_CAL_PWR_2442_7_11M_CHAIN0"
+    reference: "WT_CAL_PWR_2442_7_11M_CHAIN0"
+    method: "wifi_tx_calibration"
+    pnum: "2015"
+    params:
+      error_code: "2015"
+      channel: 7
+      freq_mhz: 2442
+      rate: "11M"
+      rf_port: 1
+      demod: 3
+      target_power_dbm: 15.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_CAL_PWR_2457_10_11M_CHAIN0"
+    reference: "WT_CAL_PWR_2457_10_11M_CHAIN0"
+    method: "wifi_tx_calibration"
+    pnum: "2016"
+    params:
+      error_code: "2016"
+      channel: 10
+      freq_mhz: 2457
+      rate: "11M"
+      rf_port: 1
+      demod: 3
+      target_power_dbm: 15.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_CAL_PWR_2472_13_11M_CHAIN0"
+    reference: "WT_CAL_PWR_2472_13_11M_CHAIN0"
+    method: "wifi_tx_calibration"
+    pnum: "2017"
+    params:
+      error_code: "2017"
+      channel: 13
+      freq_mhz: 2472
+      rate: "11M"
+      rf_port: 1
+      demod: 3
+      target_power_dbm: 15.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_CAL_PWR_2484_14_11M_CHAIN0"
+    reference: "WT_CAL_PWR_2484_14_11M_CHAIN0"
+    method: "wifi_tx_calibration"
+    pnum: "2018"
+    params:
+      error_code: "2018"
+      channel: 14
+      freq_mhz: 2484
+      rate: "11M"
+      rf_port: 1
+      demod: 3
+      target_power_dbm: 15.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_CAL_PWR_5190_38_HT40_MCS7_CHAIN0"
+    reference: "WT_CAL_PWR_5190_38_HT40_MCS7_CHAIN0"
+    method: "wifi_tx_calibration"
+    pnum: "2019"
+    params:
+      error_code: "2019"
+      channel: 38
+      freq_mhz: 5190
+      rate: "HT40-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 13.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_CAL_PWR_5230_46_HT40_MCS7_CHAIN0"
+    reference: "WT_CAL_PWR_5230_46_HT40_MCS7_CHAIN0"
+    method: "wifi_tx_calibration"
+    pnum: "2020"
+    params:
+      error_code: "2020"
+      channel: 46
+      freq_mhz: 5230
+      rate: "HT40-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 13.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_CAL_PWR_5270_54_HT40_MCS7_CHAIN0"
+    reference: "WT_CAL_PWR_5270_54_HT40_MCS7_CHAIN0"
+    method: "wifi_tx_calibration"
+    pnum: "2021"
+    params:
+      error_code: "2021"
+      channel: 54
+      freq_mhz: 5270
+      rate: "HT40-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 13.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_CAL_PWR_5310_62_HT40_MCS7_CHAIN0"
+    reference: "WT_CAL_PWR_5310_62_HT40_MCS7_CHAIN0"
+    method: "wifi_tx_calibration"
+    pnum: "2022"
+    params:
+      error_code: "2022"
+      channel: 62
+      freq_mhz: 5310
+      rate: "HT40-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 13.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_CAL_PWR_5510_102_HT40_MCS7_CHAIN0"
+    reference: "WT_CAL_PWR_5510_102_HT40_MCS7_CHAIN0"
+    method: "wifi_tx_calibration"
+    pnum: "2023"
+    params:
+      error_code: "2023"
+      channel: 102
+      freq_mhz: 5510
+      rate: "HT40-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 13.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_CAL_PWR_5550_110_HT40_MCS7_CHAIN0"
+    reference: "WT_CAL_PWR_5550_110_HT40_MCS7_CHAIN0"
+    method: "wifi_tx_calibration"
+    pnum: "2024"
+    params:
+      error_code: "2024"
+      channel: 110
+      freq_mhz: 5550
+      rate: "HT40-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 13.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_CAL_PWR_5590_118_HT40_MCS7_CHAIN0"
+    reference: "WT_CAL_PWR_5590_118_HT40_MCS7_CHAIN0"
+    method: "wifi_tx_calibration"
+    pnum: "2025"
+    params:
+      error_code: "2025"
+      channel: 118
+      freq_mhz: 5590
+      rate: "HT40-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 13.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_CAL_PWR_5630_126_HT40_MCS7_CHAIN0"
+    reference: "WT_CAL_PWR_5630_126_HT40_MCS7_CHAIN0"
+    method: "wifi_tx_calibration"
+    pnum: "2026"
+    params:
+      error_code: "2026"
+      channel: 126
+      freq_mhz: 5630
+      rate: "HT40-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 13.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_CAL_PWR_5670_134_HT40_MCS7_CHAIN0"
+    reference: "WT_CAL_PWR_5670_134_HT40_MCS7_CHAIN0"
+    method: "wifi_tx_calibration"
+    pnum: "2027"
+    params:
+      error_code: "2027"
+      channel: 134
+      freq_mhz: 5670
+      rate: "HT40-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 13.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_CAL_PWR_5710_142_HT40_MCS7_CHAIN0"
+    reference: "WT_CAL_PWR_5710_142_HT40_MCS7_CHAIN0"
+    method: "wifi_tx_calibration"
+    pnum: "2028"
+    params:
+      error_code: "2028"
+      channel: 142
+      freq_mhz: 5710
+      rate: "HT40-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 13.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_CAL_PWR_5755_151_HT40_MCS7_CHAIN0"
+    reference: "WT_CAL_PWR_5755_151_HT40_MCS7_CHAIN0"
+    method: "wifi_tx_calibration"
+    pnum: "2029"
+    params:
+      error_code: "2029"
+      channel: 151
+      freq_mhz: 5755
+      rate: "HT40-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 13.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_CAL_PWR_5795_159_HT40_MCS7_CHAIN0"
+    reference: "WT_CAL_PWR_5795_159_HT40_MCS7_CHAIN0"
+    method: "wifi_tx_calibration"
+    pnum: "2030"
+    params:
+      error_code: "2030"
+      channel: 159
+      freq_mhz: 5795
+      rate: "HT40-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 13.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_CAL_PWR_5835_167_HT40_MCS7_CHAIN0"
+    reference: "WT_CAL_PWR_5835_167_HT40_MCS7_CHAIN0"
+    method: "wifi_tx_calibration"
+    pnum: "2031"
+    params:
+      error_code: "2031"
+      channel: 167
+      freq_mhz: 5835
+      rate: "HT40-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 13.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_CAL_PWR_5875_175_HT40_MCS7_CHAIN0"
+    reference: "WT_CAL_PWR_5875_175_HT40_MCS7_CHAIN0"
+    method: "wifi_tx_calibration"
+    pnum: "2032"
+    params:
+      error_code: "2032"
+      channel: 175
+      freq_mhz: 5875
+      rate: "HT40-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 13.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_CAL_PWR_5500_100_54M_CHAIN0"
+    reference: "WT_CAL_PWR_5500_100_54M_CHAIN0"
+    method: "wifi_tx_calibration"
+    pnum: "2033"
+    params:
+      error_code: "2033"
+      channel: 100
+      freq_mhz: 5500
+      rate: "54M"
+      rf_port: 1
+      demod: 0
+      target_power_dbm: 13.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_CAL_PWR_5500_100_HT20_MCS7_CHAIN0"
+    reference: "WT_CAL_PWR_5500_100_HT20_MCS7_CHAIN0"
+    method: "wifi_tx_calibration"
+    pnum: "2034"
+    params:
+      error_code: "2034"
+      channel: 100
+      freq_mhz: 5500
+      rate: "HT20-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 13.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_READ_THERMAL"
+    reference: "WT_READ_THERMAL"
+    method: "rf_preheat"
+    pnum: "2035"
+    params:
+      error_code: "2035"
+      duration_sec: 1
+      channel: 7
+      rate: "54M"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_CAL_END"
+    reference: "WT_CAL_END"
+    method: "wifi_tx_calibration_finalize"
+    pnum: "2036"
+    params:
+      error_code: "2036"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_VERIFY_TX_ALL_2412_1_11M_CHAIN0"
+    reference: "WT_VERIFY_TX_ALL_2412_1_11M_CHAIN0"
+    method: "wifi_tx_verify"
+    pnum: "2037"
+    params:
+      error_code: "2037"
+      channel: 1
+      freq_mhz: 2412
+      rate: "11M"
+      rf_port: 1
+      demod: 3
+      target_power_dbm: 15.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_VERIFY_TX_ALL_2442_7_11M_CHAIN0"
+    reference: "WT_VERIFY_TX_ALL_2442_7_11M_CHAIN0"
+    method: "wifi_tx_verify"
+    pnum: "2038"
+    params:
+      error_code: "2038"
+      channel: 7
+      freq_mhz: 2442
+      rate: "11M"
+      rf_port: 1
+      demod: 3
+      target_power_dbm: 15.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_VERIFY_TX_ALL_2472_13_11M_CHAIN0"
+    reference: "WT_VERIFY_TX_ALL_2472_13_11M_CHAIN0"
+    method: "wifi_tx_verify"
+    pnum: "2039"
+    params:
+      error_code: "2039"
+      channel: 13
+      freq_mhz: 2472
+      rate: "11M"
+      rf_port: 1
+      demod: 3
+      target_power_dbm: 15.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_VERIFY_TX_ALL_2412_1_54M_CHAIN0"
+    reference: "WT_VERIFY_TX_ALL_2412_1_54M_CHAIN0"
+    method: "wifi_tx_verify"
+    pnum: "2040"
+    params:
+      error_code: "2040"
+      channel: 1
+      freq_mhz: 2412
+      rate: "54M"
+      rf_port: 1
+      demod: 0
+      target_power_dbm: 15.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_VERIFY_TX_ALL_2442_7_54M_CHAIN0"
+    reference: "WT_VERIFY_TX_ALL_2442_7_54M_CHAIN0"
+    method: "wifi_tx_verify"
+    pnum: "2041"
+    params:
+      error_code: "2041"
+      channel: 7
+      freq_mhz: 2442
+      rate: "54M"
+      rf_port: 1
+      demod: 0
+      target_power_dbm: 15.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_VERIFY_TX_ALL_2472_13_54M_CHAIN0"
+    reference: "WT_VERIFY_TX_ALL_2472_13_54M_CHAIN0"
+    method: "wifi_tx_verify"
+    pnum: "2042"
+    params:
+      error_code: "2042"
+      channel: 13
+      freq_mhz: 2472
+      rate: "54M"
+      rf_port: 1
+      demod: 0
+      target_power_dbm: 15.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_VERIFY_TX_ALL_2412_1_HT20_MCS7_CHAIN0"
+    reference: "WT_VERIFY_TX_ALL_2412_1_HT20_MCS7_CHAIN0"
+    method: "wifi_tx_verify"
+    pnum: "2043"
+    params:
+      error_code: "2043"
+      channel: 1
+      freq_mhz: 2412
+      rate: "HT20-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 15.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_VERIFY_TX_ALL_2442_7_HT20_MCS7_CHAIN0"
+    reference: "WT_VERIFY_TX_ALL_2442_7_HT20_MCS7_CHAIN0"
+    method: "wifi_tx_verify"
+    pnum: "2044"
+    params:
+      error_code: "2044"
+      channel: 7
+      freq_mhz: 2442
+      rate: "HT20-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 15.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_VERIFY_TX_ALL_2472_13_HT20_MCS7_CHAIN0"
+    reference: "WT_VERIFY_TX_ALL_2472_13_HT20_MCS7_CHAIN0"
+    method: "wifi_tx_verify"
+    pnum: "2045"
+    params:
+      error_code: "2045"
+      channel: 13
+      freq_mhz: 2472
+      rate: "HT20-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 15.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_VERIFY_TX_ALL_2422_3_HT40_MCS7_CHAIN0"
+    reference: "WT_VERIFY_TX_ALL_2422_3_HT40_MCS7_CHAIN0"
+    method: "wifi_tx_verify"
+    pnum: "2046"
+    params:
+      error_code: "2046"
+      channel: 3
+      freq_mhz: 2422
+      rate: "HT40-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 15.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_VERIFY_TX_ALL_2437_6_HT40_MCS7_CHAIN0"
+    reference: "WT_VERIFY_TX_ALL_2437_6_HT40_MCS7_CHAIN0"
+    method: "wifi_tx_verify"
+    pnum: "2047"
+    params:
+      error_code: "2047"
+      channel: 6
+      freq_mhz: 2437
+      rate: "HT40-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 15.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_VERIFY_TX_ALL_2462_11_HT40_MCS7_CHAIN0"
+    reference: "WT_VERIFY_TX_ALL_2462_11_HT40_MCS7_CHAIN0"
+    method: "wifi_tx_verify"
+    pnum: "2048"
+    params:
+      error_code: "2048"
+      channel: 11
+      freq_mhz: 2462
+      rate: "HT40-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 15.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_VERIFY_TX_ALL_5190_38_HT40_MCS7_CHAIN0"
+    reference: "WT_VERIFY_TX_ALL_5190_38_HT40_MCS7_CHAIN0"
+    method: "wifi_tx_verify"
+    pnum: "2049"
+    params:
+      error_code: "2049"
+      channel: 38
+      freq_mhz: 5190
+      rate: "HT40-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 13.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_VERIFY_TX_ALL_5270_54_HT40_MCS7_CHAIN0"
+    reference: "WT_VERIFY_TX_ALL_5270_54_HT40_MCS7_CHAIN0"
+    method: "wifi_tx_verify"
+    pnum: "2050"
+    params:
+      error_code: "2050"
+      channel: 54
+      freq_mhz: 5270
+      rate: "HT40-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 13.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_VERIFY_TX_ALL_5510_102_HT40_MCS7_CHAIN0"
+    reference: "WT_VERIFY_TX_ALL_5510_102_HT40_MCS7_CHAIN0"
+    method: "wifi_tx_verify"
+    pnum: "2051"
+    params:
+      error_code: "2051"
+      channel: 102
+      freq_mhz: 5510
+      rate: "HT40-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 13.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_VERIFY_TX_ALL_5630_126_HT40_MCS7_CHAIN0"
+    reference: "WT_VERIFY_TX_ALL_5630_126_HT40_MCS7_CHAIN0"
+    method: "wifi_tx_verify"
+    pnum: "2052"
+    params:
+      error_code: "2052"
+      channel: 126
+      freq_mhz: 5630
+      rate: "HT40-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 13.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_VERIFY_TX_ALL_5755_151_HT40_MCS7_CHAIN0"
+    reference: "WT_VERIFY_TX_ALL_5755_151_HT40_MCS7_CHAIN0"
+    method: "wifi_tx_verify"
+    pnum: "2053"
+    params:
+      error_code: "2053"
+      channel: 151
+      freq_mhz: 5755
+      rate: "HT40-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 13.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_VERIFY_TX_ALL_5875_175_HT40_MCS7_CHAIN0"
+    reference: "WT_VERIFY_TX_ALL_5875_175_HT40_MCS7_CHAIN0"
+    method: "wifi_tx_verify"
+    pnum: "2054"
+    params:
+      error_code: "2054"
+      channel: 175
+      freq_mhz: 5875
+      rate: "HT40-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 13.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_VERIFY_TX_ALL_5180_36_HT20_MCS7_CHAIN0"
+    reference: "WT_VERIFY_TX_ALL_5180_36_HT20_MCS7_CHAIN0"
+    method: "wifi_tx_verify"
+    pnum: "2055"
+    params:
+      error_code: "2055"
+      channel: 36
+      freq_mhz: 5180
+      rate: "HT20-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 13.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_VERIFY_TX_ALL_5240_48_HT20_MCS7_CHAIN0"
+    reference: "WT_VERIFY_TX_ALL_5240_48_HT20_MCS7_CHAIN0"
+    method: "wifi_tx_verify"
+    pnum: "2056"
+    params:
+      error_code: "2056"
+      channel: 48
+      freq_mhz: 5240
+      rate: "HT20-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 13.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_VERIFY_TX_ALL_5500_100_HT20_MCS7_CHAIN0"
+    reference: "WT_VERIFY_TX_ALL_5500_100_HT20_MCS7_CHAIN0"
+    method: "wifi_tx_verify"
+    pnum: "2057"
+    params:
+      error_code: "2057"
+      channel: 100
+      freq_mhz: 5500
+      rate: "HT20-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 13.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_VERIFY_TX_ALL_5720_144_HT20_MCS7_CHAIN0"
+    reference: "WT_VERIFY_TX_ALL_5720_144_HT20_MCS7_CHAIN0"
+    method: "wifi_tx_verify"
+    pnum: "2058"
+    params:
+      error_code: "2058"
+      channel: 144
+      freq_mhz: 5720
+      rate: "HT20-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 13.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_VERIFY_TX_ALL_5885_177_HT20_MCS7_CHAIN0"
+    reference: "WT_VERIFY_TX_ALL_5885_177_HT20_MCS7_CHAIN0"
+    method: "wifi_tx_verify"
+    pnum: "2059"
+    params:
+      error_code: "2059"
+      channel: 177
+      freq_mhz: 5885
+      rate: "HT20-MCS7"
+      rf_port: 1
+      demod: 2
+      target_power_dbm: 13.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_VERIFY_TX_ALL_5180_36_54M_CHAIN0"
+    reference: "WT_VERIFY_TX_ALL_5180_36_54M_CHAIN0"
+    method: "wifi_tx_verify"
+    pnum: "2060"
+    params:
+      error_code: "2060"
+      channel: 36
+      freq_mhz: 5180
+      rate: "54M"
+      rf_port: 1
+      demod: 0
+      target_power_dbm: 13.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_VERIFY_TX_ALL_5220_44_54M_CHAIN0"
+    reference: "WT_VERIFY_TX_ALL_5220_44_54M_CHAIN0"
+    method: "wifi_tx_verify"
+    pnum: "2061"
+    params:
+      error_code: "2061"
+      channel: 44
+      freq_mhz: 5220
+      rate: "54M"
+      rf_port: 1
+      demod: 0
+      target_power_dbm: 13.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_VERIFY_TX_ALL_5300_60_54M_CHAIN0"
+    reference: "WT_VERIFY_TX_ALL_5300_60_54M_CHAIN0"
+    method: "wifi_tx_verify"
+    pnum: "2062"
+    params:
+      error_code: "2062"
+      channel: 60
+      freq_mhz: 5300
+      rate: "54M"
+      rf_port: 1
+      demod: 0
+      target_power_dbm: 13.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_VERIFY_TX_ALL_5600_120_54M_CHAIN0"
+    reference: "WT_VERIFY_TX_ALL_5600_120_54M_CHAIN0"
+    method: "wifi_tx_verify"
+    pnum: "2063"
+    params:
+      error_code: "2063"
+      channel: 120
+      freq_mhz: 5600
+      rate: "54M"
+      rf_port: 1
+      demod: 0
+      target_power_dbm: 13.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_VERIFY_TX_ALL_5825_165_54M_CHAIN0"
+    reference: "WT_VERIFY_TX_ALL_5825_165_54M_CHAIN0"
+    method: "wifi_tx_verify"
+    pnum: "2064"
+    params:
+      error_code: "2064"
+      channel: 165
+      freq_mhz: 5825
+      rate: "54M"
+      rf_port: 1
+      demod: 0
+      target_power_dbm: 13.0
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_VERIFY_RX_PER_2412_1_11M_CHAIN0"
+    reference: "WT_VERIFY_RX_PER_2412_1_11M_CHAIN0"
+    method: "wifi_rx_verify"
+    pnum: "2065"
+    params:
+      error_code: "2065"
+      channel: 1
+      rate: "11M"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_VERIFY_RX_PER_2442_7_54M_CHAIN0"
+    reference: "WT_VERIFY_RX_PER_2442_7_54M_CHAIN0"
+    method: "wifi_rx_verify"
+    pnum: "2066"
+    params:
+      error_code: "2066"
+      channel: 7
+      rate: "54M"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_VERIFY_RX_PER_2472_13_HT20_MCS7_CHAIN0"
+    reference: "WT_VERIFY_RX_PER_2472_13_HT20_MCS7_CHAIN0"
+    method: "wifi_rx_verify"
+    pnum: "2067"
+    params:
+      error_code: "2067"
+      channel: 13
+      rate: "HT20-MCS7"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_VERIFY_RX_PER_2422_3_HT40_MCS7_CHAIN0"
+    reference: "WT_VERIFY_RX_PER_2422_3_HT40_MCS7_CHAIN0"
+    method: "wifi_rx_verify"
+    pnum: "2068"
+    params:
+      error_code: "2068"
+      channel: 3
+      rate: "HT40-MCS7"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_VERIFY_RX_PER_2462_11_HT40_MCS7_CHAIN0"
+    reference: "WT_VERIFY_RX_PER_2462_11_HT40_MCS7_CHAIN0"
+    method: "wifi_rx_verify"
+    pnum: "2069"
+    params:
+      error_code: "2069"
+      channel: 11
+      rate: "HT40-MCS7"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_VERIFY_RX_PER_5180_36_54M_CHAIN0"
+    reference: "WT_VERIFY_RX_PER_5180_36_54M_CHAIN0"
+    method: "wifi_rx_verify"
+    pnum: "2070"
+    params:
+      error_code: "2070"
+      channel: 36
+      rate: "54M"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_VERIFY_RX_PER_5600_120_54M_CHAIN0"
+    reference: "WT_VERIFY_RX_PER_5600_120_54M_CHAIN0"
+    method: "wifi_rx_verify"
+    pnum: "2071"
+    params:
+      error_code: "2071"
+      channel: 120
+      rate: "54M"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_VERIFY_RX_PER_5825_165_54M_CHAIN0"
+    reference: "WT_VERIFY_RX_PER_5825_165_54M_CHAIN0"
+    method: "wifi_rx_verify"
+    pnum: "2072"
+    params:
+      error_code: "2072"
+      channel: 165
+      rate: "54M"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_VERIFY_RX_PER_5240_48_HT20_MCS7_CHAIN0"
+    reference: "WT_VERIFY_RX_PER_5240_48_HT20_MCS7_CHAIN0"
+    method: "wifi_rx_verify"
+    pnum: "2073"
+    params:
+      error_code: "2073"
+      channel: 48
+      rate: "HT20-MCS7"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_VERIFY_RX_PER_5720_144_HT20_MCS7_CHAIN0"
+    reference: "WT_VERIFY_RX_PER_5720_144_HT20_MCS7_CHAIN0"
+    method: "wifi_rx_verify"
+    pnum: "2074"
+    params:
+      error_code: "2074"
+      channel: 144
+      rate: "HT20-MCS7"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_VERIFY_RX_PER_5885_177_HT20_MCS7_CHAIN0"
+    reference: "WT_VERIFY_RX_PER_5885_177_HT20_MCS7_CHAIN0"
+    method: "wifi_rx_verify"
+    pnum: "2075"
+    params:
+      error_code: "2075"
+      channel: 177
+      rate: "HT20-MCS7"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_VERIFY_RX_PER_5270_54_HT40_MCS7_CHAIN0"
+    reference: "WT_VERIFY_RX_PER_5270_54_HT40_MCS7_CHAIN0"
+    method: "wifi_rx_verify"
+    pnum: "2076"
+    params:
+      error_code: "2076"
+      channel: 54
+      rate: "HT40-MCS7"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_VERIFY_RX_PER_5755_151_HT40_MCS7_CHAIN0"
+    reference: "WT_VERIFY_RX_PER_5755_151_HT40_MCS7_CHAIN0"
+    method: "wifi_rx_verify"
+    pnum: "2077"
+    params:
+      error_code: "2077"
+      channel: 151
+      rate: "HT40-MCS7"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_VERIFY_RX_PER_5875_175_HT40_MCS7_CHAIN0"
+    reference: "WT_VERIFY_RX_PER_5875_175_HT40_MCS7_CHAIN0"
+    method: "wifi_rx_verify"
+    pnum: "2078"
+    params:
+      error_code: "2078"
+      channel: 175
+      rate: "HT40-MCS7"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_REMOVE_DUT"
+    reference: "WT_REMOVE_DUT"
+    method: "wt_remove_dut"
+    pnum: "2079"
+    params:
+      error_code: "2079"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_INSERT_DUT_BT"
+    reference: "WT_INSERT_DUT_BT"
+    method: "wt_insert_dut_bt"
+    pnum: "2080"
+    params:
+      error_code: "2080"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_DELAY_1000"
+    reference: "WT_DELAY_1000"
+    method: "wt_delay"
+    pnum: "2081"
+    params:
+      error_code: "2081"
+      ms: 1000
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "ms"
+
+  - name: "WT_CAL_START_BT"
+    reference: "WT_CAL_START_BT"
+    method: "switch_wifi_to_bt"
+    pnum: "2082"
+    params:
+      error_code: "2082"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_CAL_RTL_PWR_BT_2440_19_BLE_CHAIN0_FLATNESS_EN"
+    reference: "WT_CAL_RTL_PWR_BT_2440_19_BLE_CHAIN0_FLATNESS_EN"
+    method: "bt_calibration"
+    pnum: "2083"
+    params:
+      error_code: "2083"
+      channel: 19
+      freq_mhz: 2440
+      target_power_dbm: 10.0
+      phy_name: "BLE1M"
+      payload: "PRBS9"
+      flatness_channels: [0, 19, 39]
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_VERIFY_BT_TX_2422_10_BLE_CHAIN0"
+    reference: "WT_VERIFY_BT_TX_2422_10_BLE_CHAIN0"
+    method: "bt_tx_verify"
+    pnum: "2084"
+    params:
+      error_code: "2084"
+      channel: 10
+      freq_mhz: 2422
+      target_power_dbm: 10.0
+      phy_name: "BLE1M"
+      payload: "PRBS9"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_VERIFY_BT_TX_2442_20_BLE_CHAIN0"
+    reference: "WT_VERIFY_BT_TX_2442_20_BLE_CHAIN0"
+    method: "bt_tx_verify"
+    pnum: "2085"
+    params:
+      error_code: "2085"
+      channel: 20
+      freq_mhz: 2442
+      target_power_dbm: 10.0
+      phy_name: "BLE1M"
+      payload: "PRBS9"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_VERIFY_BT_TX_2480_39_BLE_CHAIN0"
+    reference: "WT_VERIFY_BT_TX_2480_39_BLE_CHAIN0"
+    method: "bt_tx_verify"
+    pnum: "2086"
+    params:
+      error_code: "2086"
+      channel: 39
+      freq_mhz: 2480
+      target_power_dbm: 10.0
+      phy_name: "BLE1M"
+      payload: "PRBS9"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_VERIFY_BT_TX_2402_0_BLE_2M_CHAIN0"
+    reference: "WT_VERIFY_BT_TX_2402_0_BLE_2M_CHAIN0"
+    method: "bt_tx_verify"
+    pnum: "2087"
+    params:
+      error_code: "2087"
+      channel: 0
+      freq_mhz: 2402
+      target_power_dbm: 10.0
+      phy_name: "BLE2M"
+      payload: "PRBS9"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_VERIFY_BT_TX_2442_20_BLE_2M_CHAIN0"
+    reference: "WT_VERIFY_BT_TX_2442_20_BLE_2M_CHAIN0"
+    method: "bt_tx_verify"
+    pnum: "2088"
+    params:
+      error_code: "2088"
+      channel: 20
+      freq_mhz: 2442
+      target_power_dbm: 10.0
+      phy_name: "BLE2M"
+      payload: "PRBS9"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_VERIFY_BT_TX_2480_39_BLE_2M_CHAIN0"
+    reference: "WT_VERIFY_BT_TX_2480_39_BLE_2M_CHAIN0"
+    method: "bt_tx_verify"
+    pnum: "2089"
+    params:
+      error_code: "2089"
+      channel: 39
+      freq_mhz: 2480
+      target_power_dbm: 10.0
+      phy_name: "BLE2M"
+      payload: "PRBS9"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_VERIFY_BT_TX_2402_0_BLE_125K_CHAIN0"
+    reference: "WT_VERIFY_BT_TX_2402_0_BLE_125K_CHAIN0"
+    method: "bt_tx_verify"
+    pnum: "2090"
+    params:
+      error_code: "2090"
+      channel: 0
+      freq_mhz: 2402
+      target_power_dbm: 10.0
+      phy_name: "BLE125K"
+      payload: "PRBS9"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_VERIFY_BT_TX_2480_39_BLE_500K_CHAIN0"
+    reference: "WT_VERIFY_BT_TX_2480_39_BLE_500K_CHAIN0"
+    method: "bt_tx_verify"
+    pnum: "2091"
+    params:
+      error_code: "2091"
+      channel: 39
+      freq_mhz: 2480
+      target_power_dbm: 10.0
+      phy_name: "BLE500K"
+      payload: "PRBS9"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_VERIFY_BT_RX_PER_2402_0_BLE_CHAIN0"
+    reference: "WT_VERIFY_BT_RX_PER_2402_0_BLE_CHAIN0"
+    method: "bt_rx_verify"
+    pnum: "2092"
+    params:
+      error_code: "2092"
+      channel: 0
+      phy_name: "BLE1M"
+      payload: "PRBS9"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_VERIFY_BT_RX_PER_2442_20_BLE_CHAIN0"
+    reference: "WT_VERIFY_BT_RX_PER_2442_20_BLE_CHAIN0"
+    method: "bt_rx_verify"
+    pnum: "2093"
+    params:
+      error_code: "2093"
+      channel: 20
+      phy_name: "BLE1M"
+      payload: "PRBS9"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_VERIFY_BT_RX_PER_2480_39_BLE_CHAIN0"
+    reference: "WT_VERIFY_BT_RX_PER_2480_39_BLE_CHAIN0"
+    method: "bt_rx_verify"
+    pnum: "2094"
+    params:
+      error_code: "2094"
+      channel: 39
+      phy_name: "BLE1M"
+      payload: "PRBS9"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_VERIFY_BT_RX_PER_2402_0_BLE_2M_CHAIN0"
+    reference: "WT_VERIFY_BT_RX_PER_2402_0_BLE_2M_CHAIN0"
+    method: "bt_rx_verify"
+    pnum: "2095"
+    params:
+      error_code: "2095"
+      channel: 0
+      phy_name: "BLE2M"
+      payload: "PRBS9"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_VERIFY_BT_RX_PER_2442_20_BLE_2M_CHAIN0"
+    reference: "WT_VERIFY_BT_RX_PER_2442_20_BLE_2M_CHAIN0"
+    method: "bt_rx_verify"
+    pnum: "2096"
+    params:
+      error_code: "2096"
+      channel: 20
+      phy_name: "BLE2M"
+      payload: "PRBS9"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_VERIFY_BT_RX_PER_2480_39_BLE_2M_CHAIN0"
+    reference: "WT_VERIFY_BT_RX_PER_2480_39_BLE_2M_CHAIN0"
+    method: "bt_rx_verify"
+    pnum: "2097"
+    params:
+      error_code: "2097"
+      channel: 39
+      phy_name: "BLE2M"
+      payload: "PRBS9"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_VERIFY_BT_RX_PER_2402_0_BLE_125K_CHAIN0"
+    reference: "WT_VERIFY_BT_RX_PER_2402_0_BLE_125K_CHAIN0"
+    method: "bt_rx_verify"
+    pnum: "2098"
+    params:
+      error_code: "2098"
+      channel: 0
+      phy_name: "BLE125K"
+      payload: "PRBS9"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_VERIFY_BT_RX_PER_2480_39_BLE_500K_CHAIN0"
+    reference: "WT_VERIFY_BT_RX_PER_2480_39_BLE_500K_CHAIN0"
+    method: "bt_rx_verify"
+    pnum: "2099"
+    params:
+      error_code: "2099"
+      channel: 39
+      phy_name: "BLE500K"
+      payload: "PRBS9"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_REMOVE_DUT_BT"
+    reference: "WT_REMOVE_DUT_BT"
+    method: "wt_remove_dut_bt"
+    pnum: "2100"
+    params:
+      error_code: "2100"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_SHOW_VERIFY_SUMMARY"
+    reference: "WT_SHOW_VERIFY_SUMMARY"
+    method: "wt_show_verify_summary"
+    pnum: "2101"
+    params:
+      error_code: "2101"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_SAVE_CAL_DATA"
+    reference: "WT_SAVE_CAL_DATA"
+    method: "save_calibration_data"
+    pnum: "2102"
+    params:
+      error_code: "2102"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_WRITE_EFUSE"
+    reference: "WT_WRITE_EFUSE"
+    method: "write_efuse"
+    pnum: "2103"
+    params:
+      error_code: "2103"
+      use_default_image: Ture,
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_CHECK_EFUSE_WRITE"
+    reference: "WT_CHECK_EFUSE_WRITE"
+    method: "check_efuse_write"
+    pnum: "2104"
+    params:
+      error_code: "2104"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_FINISH"
+    reference: "WT_FINISH"
+    method: "rf_mp_finish"
+    pnum: "2105"
+    params:
+      error_code: "2105"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_DISCONNECT_TESTER"
+    reference: "WT_DISCONNECT_TESTER"
+    method: "wt_disconnect_tester"
+    pnum: "2106"
+    params:
+      error_code: "2106"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""

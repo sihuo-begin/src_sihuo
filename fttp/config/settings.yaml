@@ -1,0 +1,70 @@
+#[LogResults]
+#JSON Path = D:\P1V3\TestStand JSON Results(Control)
+#TAR Path = D:\P1V3\Tar
+#;INEXTO Path = D:\Projects\Labview\MT7\Logfiles\INEXTO
+#MapR Path = D:\P1V3\MapR
+#;Encryption Path = D:\Projects\Labview\MT7\Logfiles\encryption
+#Local Backup Main Path = D:\P1V3\Backup
+#
+#[Station]
+#PartNumber = Holder
+#Station = MT7L
+#StationID = MT7VC_3AA03AHH-02
+#TesterID = T03
+#;Set site code, EMS1=2, EMS2=4
+#SetSiteCode=4
+#;Set AutoScanning, Enable=1, Disable=0
+#AutoScanning=0
+#Product = HERMES
+#
+#[Test Sequence]
+#Main Sequence = Hermes Holder MT7L Test
+#Full Mode = Hermes Holder MT7VC Test
+#;Exit MT Mode = Hermes Holder MT7VC Test
+#;Device FW Version = 122.2.1
+#
+##[Resource]
+#;FEASA Analyser = COM10
+#;BLE Dongle = COM4
+#;Barcode Scanner = COM8
+
+DAQ: 0
+BLE: 0
+GSCX: 'COM4'
+GSCZ: 'COM5'
+GSC_BAUDRATE: '38400'
+UUT: 'COM3'
+
+XSPEED_MIN: 3500
+XSPEED_MAX: 12000
+XSPEED_TIME: 500
+
+ZSPEED_MIN: 3500
+ZSPEED_MAX: 12000
+ZSPEED_TIME: 500
+
+BUTTON0_X_ORIGIN: 36000
+BUTTON1_X_ORIGIN: 39700
+BUTTON2_X_ORIGIN: 42700
+
+BUTTON0_X_PULSE: 34000
+BUTTON1_X_PULSE: 3200
+BUTTON2_X_PULSE: 4000
+
+BUTTON0_Z_PULSE: 14050
+BUTTON1_Z_PULSE: 13850
+BUTTON2_Z_PULSE: 14050
+
+RAISE_Z_PULSE: 24750
+
+VOY_BUTTON_X_ORIGIN: 41500
+VOY_BUTTON_X_PULSE: 41500
+VOY_RAISE_Z_PULSE: 20000
+VOY_BUTTON_Z_PULSE: 8500
+
+HAPTICS_ON_TIME: 1500
+
+#[TAR_Detail]
+#Process_Name = PL_POCKET_HOLDER_HERMES_MT7VC_AUTO
+#MT_Station_ID = MT7VC_3AA03AHH-02
+#Operator_ID = tester

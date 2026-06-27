@@ -1,0 +1,140 @@
+Eaglemono_MT1:
+  pre_sequence: eagle_mono_mt1_pre_sequence.yaml
+  finalize_sequence: eagle_mono_mt1_finalize_seq.yaml
+  test_steps: "src.steps.eagle_mono_mt1_steps"
+  trs_version: "1.0"
+  trs_reference: "EAGLE MONO MANUFACTURING TESTING SPECIFICATION MT1"
+  pdims_rev: "R1"
+  fixture_id: "01"
+  layout: [1, 1]
+  codentify_code_display: True
+  fw_ver: "165.1.1"
+  device_name: 'ni_60001'
+  fixture_io:
+    uut: 'port0/line0'
+    start: 'port0/line1'
+  station: "Eaglemono_MT1"
+  allow_host: ["DMNM50872"]
+  golden_sn_path: c:/Log/golden_sn.csv
+  cells:
+    - dusn: ""
+      pid: "0x007f"
+      connection:
+        serial_dut:
+          type: "serial"
+          port: "COM9"
+          baudrate: 38400
+#        ic:
+#          type: "uart"
+#          port: "COM15"
+#          baudrate: 150000
+
+      user_config:
+        cli_path: "C:\\Program Files\\STMicroelectronics\\STM32Cube\\STM32CubeProgrammer\\bin\\STM32_Programmer_CLI.exe"
+        hex_path: "C:\\Colin\\Install\\p1-mono-rtos-ns-nonsecure\\p1-mono-rtos-ns-nonsecure.elf"
+        flex_flow: True
+        error_codes: ["C001","C002"]
+        operator: ""
+        TBBUID: "MT1_3AA02AHH"
+        fixture: "HVTE-00001"
+      customer_config:
+        product_line: "X"
+        special_mode: true
+
+
+Eaglemono_MT2:
+  pre_sequence: wifi_bt_pre_sequence.yaml
+  finalize_sequence: wifi_bt_finalize_seq.yaml
+  test_steps: "src.steps.wifi_bt_mp_steps_v2"
+  trs_version: "1.0"
+  trs_reference: "EAGLE MONO MANUFACTURING TESTING SPECIFICATION MT2"
+  pdims_rev: "R1"
+  fixture_id: "01"
+  layout: [1, 1]
+  codentify_code_display: True
+  device_name: 'ni_60001'
+  fixture_io:
+    uut: 'port0/line0'
+    start: 'port0/line1'
+  station: "Eaglemono_MT2"
+  allow_host: ["DMNM10278"]
+  golden_sn_path: c:/Log/golden_sn.csv
+  cells:
+    - dusn: ""
+      pid: "0x007f"
+      connection:
+        dut:
+          type: "serial"
+          port: "COM11"
+          baudrate: 38400
+#        ic:
+#          type: "uart"
+#          port: "COM15"
+#          baudrate: 150000
+      user_config:
+        auto_scan: true
+        operator: ""
+      customer_config:
+        ps_port: "COM3"
+        sdk_exe_path: "C:\\tools\\AmebaZII_PGTool.exe"
+        product_line: "X"
+        special_mode: true
+        TBBUID: "MT2_3AA02AHH"
+
+Eaglemono_MT10:
+  pre_sequence: eaglemono_mt10_pre_sequence.yaml
+  finalize_sequence: eaglemono_mt10_finalize_seq.yaml
+  test_steps: "src.steps.eaglemono_mt10_steps"
+  trs_version: "1.0"
+  trs_reference: "EAGLE MONO TEST REQUIREMENTS SPECIFICATION_REV01"
+  pdims_rev: "R1"
+  fixture_id: "01"
+  layout: [1, 1]
+  codentify_code_display: True
+  device_name: 'ni_60001'
+  platform_code: 0x0045
+  product_code: 0x007F
+  site_code: 0x0004
+  hardware_version: 0x01
+  fixture_io:
+    uut: 'port0/line0'
+    start: 'port0/line1'
+  station: "Eaglemono_MT10"
+  allow_host: ["DMNM10278", "DMNM50812"]
+  golden_sn_path: c:/Log/golden_sn.csv
+  cells:
+    - dusn: ""
+      pid: "0x006c"
+      connection:
+        serial_dut:
+          type: "serial"
+          port: "COM4"
+          baudrate: 9600
+#        usb:
+#          type: "usb"
+#          path: ''
+#          pid: "0x0005"
+#          vid: "0x2759"
+#          idle_time: 0.3
+#        ic:
+#          type: "uart"
+#          port: "COM15"
+#          baudrate: 150000
+
+      user_config:
+        auto_scan: true
+        operator: ""
+        customer_config:
+        product_line: "X"
+        special_mode: true
+        picture_path: "C:\\Users\\Pictures"
+        TBBUID: "MT10_3AA02AHH"
+
+
+#  groups:
+#    groupA: [0, 1, 2, 3]
+#    groupB: [4, 5, 6, 7]
+
+
+# 可选并发限制
+max_concurrent: 2

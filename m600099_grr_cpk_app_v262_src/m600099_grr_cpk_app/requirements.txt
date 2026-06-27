@@ -1,0 +1,22 @@
+# M600099 GRR & CPK Analyzer
+# Python dependencies (Python 3.9+)
+
+# GUI
+PyQt5>=5.15.10
+
+# Data processing
+numpy>=1.24.0
+pandas>=2.0.0
+scipy>=1.11.0
+openpyxl>=3.1.0
+xlrd>=2.0.1
+
+# Report generation
+python-docx>=1.1.0
+
+# PPTX / PowerPoint automation (for Minitab XPPOINT workflow)
+python-pptx>=0.6.21
+pywin32>=306   # provides win32com.client for PowerPoint COM access
+
+# Executable packaging
+pyinstaller>=6.0.0

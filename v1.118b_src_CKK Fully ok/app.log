@@ -1,0 +1,67 @@
+2026-06-04 13:50:44,220 [INFO] root: M600099 GRR & CPK Analyzer v1.1.0 (PyQt5 backend) starting…
+2026-06-04 13:50:45,007 [INFO] ui.main_window: Select a data source and click Run Analysis.
+2026-06-04 13:51:01,404 [INFO] ui.main_window: Folder set: C:/Users/dmnsihuo/OneDrive - Flex/Desktop/GRR
+2026-06-04 13:51:01,408 [INFO] ui.main_window: ==================================================
+2026-06-04 13:51:01,411 [INFO] ui.main_window: [Step 1/2] Parsing Jason logs: C:/Users/dmnsihuo/OneDrive - Flex/Desktop/GRR
+2026-06-04 13:51:01,413 [INFO] ui.main_window:   Structure: 10 parts x 3 ops x 3 trials
+2026-06-04 13:51:01,491 [INFO] core.json_parser: Found 90 JSON files in C:\Users\dmnsihuo\OneDrive - Flex\Desktop\GRR
+2026-06-04 13:51:01,698 [INFO] core.json_parser: Parsed 90 records, 251 columns
+2026-06-04 13:51:01,730 [INFO] core.json_parser: export_to_excel: dropping LSL/USL cols ['DETECT_DUT_lsl', 'DETECT_DUT_usl', 'INITIALIZE_CONFIGS_lsl', 'INITIALIZE_CONFIGS_usl', 'QR_SCAN_lsl', 'QR_SCAN_usl', 'TBB_UID_lsl', 'TBB_UID_usl', 'READ_DUSN_lsl', 'READ_DUSN_usl', 'SOFTWARE_REVISION_lsl', 'SOFTWARE_REVISION_usl', 'READ_MODEL_NUMBER_lsl', 'READ_MODEL_NUMBER_usl', 'DGS_BATTERY_DATA_lsl', 'DGS_BATTERY_DATA_usl', 'READ_MT_MODE_lsl', 'READ_MT_MODE_usl', 'APPLICATION_ID_(MT)_lsl', 'APPLICATION_ID_(MT)_usl', 'RETRIEVE_SBL_MAJOR_ID_lsl', 'RETRIEVE_SBL_MAJOR_ID_usl', 'HOLDER_PRESENCE_lsl', 'HOLDER_PRESENCE_usl', 'USB_C_INFO_lsl', 'USB_C_INFO_usl', 'USB_ORIENTATION_A_lsl', 'USB_ORIENTATION_A_usl', 'USB_CC_ADC_SIDE_A_TEST_lsl', 'USB_CC_ADC_SIDE_A_TEST_usl', 'USB_ORIENTATION_B_lsl', 'USB_ORIENTATION_B_usl', 'USB_CC_ADC_SIDE_B_TEST_lsl', 'USB_CC_ADC_SIDE_B_TEST_usl', 'BIST_TEST_lsl', 'BIST_TEST_usl', 'KEY_LENGTH_lsl', 'KEY_LENGTH_usl', 'KEY_DATA_lsl', 'KEY_DATA_usl', 'LED_LOCATION_1_OFF_lsl', 'LED_LOCATION_1_OFF_usl', 'LED_LOCATION_2_OFF_lsl', 'LED_LOCATION_2_OFF_usl', 'LED_LOCATION_3_OFF_lsl', 'LED_LOCATION_3_OFF_usl', 'LED_LOCATION_4_OFF_lsl', 'LED_LOCATION_4_OFF_usl', 'LED_LOCATION_5_OFF_lsl', 'LED_LOCATION_5_OFF_usl', 'LED_RED_D303_INTENSITY_lsl', 'LED_RED_D303_INTENSITY_usl', 'LED_RED_D303_RED_lsl', 'LED_RED_D303_RED_usl', 'LED_RED_D303_GREEN_lsl', 'LED_RED_D303_GREEN_usl', 'LED_RED_D303_BLUE_lsl', 'LED_RED_D303_BLUE_usl', 'LED_RED_D304_INTENSITY_lsl', 'LED_RED_D304_INTENSITY_usl', 'LED_RED_D304_RED_lsl', 'LED_RED_D304_RED_usl', 'LED_RED_D304_GREEN_lsl', 'LED_RED_D304_GREEN_usl', 'LED_RED_D304_BLUE_lsl', 'LED_RED_D304_BLUE_usl', 'LED_WHITE_D305_INTENSITY_lsl', 'LED_WHITE_D305_INTENSITY_usl', 'LED_WHITE_D305_RED_lsl', 'LED_WHITE_D305_RED_usl', 'LED_WHITE_D305_GREEN_lsl', 'LED_WHITE_D305_GREEN_usl', 'LED_WHITE_D305_BLUE_lsl', 'LED_WHITE_D305_BLUE_usl', 'LED_WHITE_D306_INTENSITY_lsl', 'LED_WHITE_D306_INTENSITY_usl', 'LED_WHITE_D306_RED_lsl', 'LED_WHITE_D306_RED_usl', 'LED_WHITE_D306_GREEN_lsl', 'LED_WHITE_D306_GREEN_usl', 'LED_WHITE_D306_BLUE_lsl', 'LED_WHITE_D306_BLUE_usl', 'LED_WHITE_D307_INTENSITY_lsl', 'LED_WHITE_D307_INTENSITY_usl', 'LED_WHITE_D307_RED_lsl', 'LED_WHITE_D307_RED_usl', 'LED_WHITE_D307_GREEN_lsl', 'LED_WHITE_D307_GREEN_usl', 'LED_WHITE_D307_BLUE_lsl', 'LED_WHITE_D307_BLUE_usl', 'LED_WHITE_D308_INTENSITY_lsl', 'LED_WHITE_D308_INTENSITY_usl', 'LED_WHITE_D308_RED_lsl', 'LED_WHITE_D308_RED_usl', 'LED_WHITE_D308_GREEN_lsl', 'LED_WHITE_D308_GREEN_usl', 'LED_WHITE_D308_BLUE_lsl', 'LED_WHITE_D308_BLUE_usl', 'LED_WHITE_D309_INTENSITY_lsl', 'LED_WHITE_D309_INTENSITY_usl', 'LED_WHITE_D309_RED_lsl', 'LED_WHITE_D309_RED_usl', 'LED_WHITE_D309_GREEN_lsl', 'LED_WHITE_D309_GREEN_usl', 'LED_WHITE_D309_BLUE_lsl', 'LED_WHITE_D309_BLUE_usl', 'LED_AMBER_D310_INTENSITY_lsl', 'LED_AMBER_D310_INTENSITY_usl', 'LED_AMBER_D310_RED_lsl', 'LED_AMBER_D310_RED_usl', 'LED_AMBER_D310_GREEN_lsl', 'LED_AMBER_D310_GREEN_usl', 'LED_AMBER_D310_BLUE_lsl', 'LED_AMBER_D310_BLUE_usl', 'LED_WHITE_D311_INTENSITY_lsl', 'LED_WHITE_D311_INTENSITY_usl', 'LED_WHITE_D311_RED_lsl', 'LED_WHITE_D311_RED_usl', 'LED_WHITE_D311_GREEN_lsl', 'LED_WHITE_D311_GREEN_usl', 'LED_WHITE_D311_BLUE_lsl', 'LED_WHITE_D311_BLUE_usl', 'BLE_DISCOVERY_lsl', 'BLE_DISCOVERY_usl', 'BLE_MAC_ADDRESS_RETRIEVE_lsl', 'BLE_MAC_ADDRESS_RETRIEVE_usl', 'RETRIEVE_BLE_STACK_VERSION_lsl', 'RETRIEVE_BLE_STACK_VERSION_usl', 'SET_BATTERY_CONFIGURATION_lsl', 'SET_BATTERY_CONFIGURATION_usl', 'BUTTON_RELEASE_TEST_lsl', 'BUTTON_RELEASE_TEST_usl', 'BUTTON_PRESS_TEST_lsl', 'BUTTON_PRESS_TEST_usl', 'HARD_RESET_TEST_lsl', 'HARD_RESET_TEST_usl', 'CODENTIFY_CODE_INTO_DUT_lsl', 'CODENTIFY_CODE_INTO_DUT_usl', 'BATTERY_SN_INTO_DUT_lsl', 'BATTERY_SN_INTO_DUT_usl', 'BATTERY_SN_IN_DUT_lsl', 'BATTERY_SN_IN_DUT_usl', 'RESET_DUT_lsl', 'RESET_DUT_usl', 'USB_ORIENTATION_B_(EXIT_MT)_lsl', 'USB_ORIENTATION_B_(EXIT_MT)_usl', 'UTC_TIME_SYNC_lsl', 'UTC_TIME_SYNC_usl', 'USB_ORIENTATION_A_(EXIT_MT)_lsl', 'USB_ORIENTATION_A_(EXIT_MT)_usl', 'APPLICATION_ID_(EXIT_MT)_lsl', 'APPLICATION_ID_(EXIT_MT)_usl', 'CODENTIFY_CODE_IN_DUT_lsl', 'CODENTIFY_CODE_IN_DUT_usl', 'READ_DEVICE_BATTERY_CONFIG_lsl', 'READ_DEVICE_BATTERY_CONFIG_usl', 'DEVICE_SYSTEM_ERROR_lsl', 'DEVICE_SYSTEM_ERROR_usl', 'BLE_STATUS_lsl', 'BLE_STATUS_usl', 'OVERALL_TEST_RESULT_lsl', 'OVERALL_TEST_RESULT_usl']
+2026-06-04 13:51:02,343 [INFO] core.json_parser: Exported to C:\output\raw_data---20260604135101.xlsx
+2026-06-04 13:51:02,487 [INFO] core.json_parser: Specs sidecar written: C:\output\raw_data---20260604135101.xlsx.specs.json
+2026-06-04 13:51:02,489 [INFO] ui.main_window: [Step 1/2] Intermediate Excel: C:\output\raw_data---20260604135101.xlsx
+2026-06-04 13:51:02,490 [INFO] ui.main_window: [Step 2/2] Loading parsed Excel to detect items...
+2026-06-04 13:51:03,171 [INFO] core.data_loader: Sheet [log_20260604135101]: 90 rows x 91 cols
+2026-06-04 13:51:03,171 [INFO] core.data_loader: Detected format: MT7_LOG
+2026-06-04 13:51:03,325 [INFO] ui.main_window: Sheet 'log_20260604135101': 64 test items detected.
+2026-06-04 13:51:03,334 [INFO] ui.main_window: [Step 2/2] Done. Found 64 items.
+2026-06-04 13:51:12,638 [INFO] ui.main_window: Minitab set: C:/Program Files/Minitab/Minitab 22/Mtb.exe
+2026-06-04 13:51:42,408 [INFO] ui.main_window: [Step 3/3] Running analysis for 9 item(s)  [GRR=False, CPK=True]
+2026-06-04 13:51:42,591 [INFO] ui.main_window: Loaded 162 specs from sidecar
+2026-06-04 13:51:42,591 [INFO] ui.main_window: [Step 3/3] Starting CPK batch (9 items)…
+2026-06-04 13:51:42,594 [INFO] ui.main_window: Running CPK (batch mode)…
+2026-06-04 13:51:43,785 [INFO] core.cpk_analyzer: MTB written: C:\Users\dmnsihuo\cpk_charts\cpk_batch_1780552302593.mtb
+2026-06-04 13:51:43,785 [INFO] core.cpk_analyzer: MTB preview:
+NAME C1 "LED_AMBER_D310_INTENSITY"
+SET C1
+22692.0 22339.0 22160.0 22516.0 22160.0 22160.0 22692.0 22160.0 22160.0 19686.0 19686.0 19686.0
+19686.0 19686.0 19686.0 19686.0 19686.0 19686.0 18862.0 19071.0 19071.0 18862.0 19071.0 18862.0
+18862.0 19071.0 19071.0 17336.0 17783.0 17783.0 17336.0 17561.0 17561.0 17561.0 17561.0 17783.0
+22160.0 22160.0 22339.0 22160.0 22160.0 22339.0 22160.0 22339.0 22339.
+2026-06-04 13:52:13,890 [WARNING] core.cpk_analyzer: Minitab run failed: Command '['C:/Program Files/Minitab/Minitab 22/Mtb.exe', 'C:\\Users\\dmnsihuo\\cpk_charts\\cpk_batch_1780552302593.mtb']' timed out after 30.0 seconds
+2026-06-04 13:52:13,891 [INFO] ui.main_window:   CPK batch done in 31.3s
+2026-06-04 13:52:13,891 [INFO] ui.main_window:   GRR batch skipped (no minitab path)
+2026-06-04 13:52:13,892 [INFO] core.cpk_analyzer: CPK LED_AMBER_D310_INTENSITY: Cpk=2.18  |  Ppk=2.18  |  Mean=21313.8  |  σ(within)=2566.2  |  Out_of_spec=0.0%  |  Grade: World-class 🌟
+2026-06-04 13:52:13,894 [INFO] ui.main_window: CPK batch done.
+2026-06-04 13:52:13,895 [INFO] core.cpk_analyzer: CPK LED_RED_D303_INTENSITY: Cpk=5.32  |  Ppk=5.32  |  Mean=30862.7  |  σ(within)=1118.5  |  Out_of_spec=0.0%  |  Grade: World-class 🌟
+2026-06-04 13:52:13,899 [INFO] ui.main_window:   CPK: LED_AMBER_D310_INTENSITY
+2026-06-04 13:52:13,900 [INFO] core.cpk_analyzer: CPK LED_RED_D304_INTENSITY: Cpk=4.44  |  Ppk=4.44  |  Mean=34310.5  |  σ(within)=1976.5  |  Out_of_spec=0.0%  |  Grade: World-class 🌟
+2026-06-04 13:52:13,900 [INFO] core.cpk_analyzer: CPK LED_WHITE_D305_INTENSITY: Cpk=4.74  |  Ppk=4.74  |  Mean=31270.1  |  σ(within)=1388.8  |  Out_of_spec=0.0%  |  Grade: World-class 🌟
+2026-06-04 13:52:13,911 [INFO] ui.main_window: Done: LED_AMBER_D310_INTENSITY
+2026-06-04 13:52:13,912 [INFO] core.cpk_analyzer: CPK LED_WHITE_D306_INTENSITY: Cpk=5.88  |  Ppk=5.88  |  Mean=36951.0  |  σ(within)=1442.6  |  Out_of_spec=0.0%  |  Grade: World-class 🌟
+2026-06-04 13:52:13,913 [INFO] core.cpk_analyzer: CPK LED_WHITE_D307_INTENSITY: Cpk=4.44  |  Ppk=4.44  |  Mean=34440.8  |  σ(within)=1460.0  |  Out_of_spec=0.0%  |  Grade: World-class 🌟
+2026-06-04 13:52:13,914 [INFO] core.cpk_analyzer: CPK LED_WHITE_D308_INTENSITY: Cpk=13.68  |  Ppk=13.68  |  Mean=41148.6  |  σ(within)=594.5  |  Out_of_spec=0.0%  |  Grade: World-class 🌟
+2026-06-04 13:52:13,915 [INFO] ui.main_window:   CPK: LED_RED_D303_INTENSITY
+2026-06-04 13:52:13,916 [INFO] core.cpk_analyzer: CPK LED_WHITE_D309_INTENSITY: Cpk=6.85  |  Ppk=6.85  |  Mean=41785.5  |  σ(within)=1156.6  |  Out_of_spec=0.0%  |  Grade: World-class 🌟
+2026-06-04 13:52:13,919 [INFO] ui.main_window: Done: LED_RED_D303_INTENSITY
+2026-06-04 13:52:13,920 [INFO] ui.main_window:   CPK: LED_RED_D304_INTENSITY
+2026-06-04 13:52:13,923 [INFO] ui.main_window: Done: LED_RED_D304_INTENSITY
+2026-06-04 13:52:13,924 [INFO] ui.main_window:   CPK: LED_WHITE_D305_INTENSITY
+2026-06-04 13:52:13,925 [INFO] core.cpk_analyzer: CPK LED_WHITE_D311_INTENSITY: Cpk=6.63  |  Ppk=6.63  |  Mean=38998.0  |  σ(within)=1206.2  |  Out_of_spec=0.0%  |  Grade: World-class 🌟
+2026-06-04 13:52:13,934 [INFO] ui.main_window: Done: LED_WHITE_D305_INTENSITY
+2026-06-04 13:52:13,935 [INFO] ui.main_window:   CPK: LED_WHITE_D306_INTENSITY
+2026-06-04 13:52:13,937 [INFO] ui.main_window: Done: LED_WHITE_D306_INTENSITY
+2026-06-04 13:52:13,938 [INFO] ui.main_window:   CPK: LED_WHITE_D307_INTENSITY
+2026-06-04 13:52:13,941 [INFO] ui.main_window: Done: LED_WHITE_D307_INTENSITY
+2026-06-04 13:52:13,942 [INFO] ui.main_window:   CPK: LED_WHITE_D308_INTENSITY
+2026-06-04 13:52:13,948 [INFO] ui.main_window: Done: LED_WHITE_D308_INTENSITY
+2026-06-04 13:52:13,949 [INFO] ui.main_window:   CPK: LED_WHITE_D309_INTENSITY
+2026-06-04 13:52:13,952 [INFO] ui.main_window: Done: LED_WHITE_D309_INTENSITY
+2026-06-04 13:52:13,953 [INFO] ui.main_window:   CPK: LED_WHITE_D311_INTENSITY
+2026-06-04 13:52:13,955 [INFO] ui.main_window: Done: LED_WHITE_D311_INTENSITY
+2026-06-04 13:52:13,956 [INFO] ui.main_window: Analysis complete!
+2026-06-04 13:52:13,956 [INFO] ui.main_window: Generating CPK Excel report (9 items)…
+2026-06-04 13:52:15,971 [INFO] report.cpk_excel_report_generator: CPK Excel report saved: C:\output\CPK_20260604_135215.xlsx
+2026-06-04 13:52:15,971 [INFO] ui.main_window: CPK Report saved: C:\output\CPK_20260604_135215.xlsx
+2026-06-04 13:54:31,779 [INFO] root: M600099 GRR & CPK Analyzer v1.1.0 (PyQt5 backend) starting…
+2026-06-04 13:54:33,015 [INFO] ui.main_window: Select a data source and click Run Analysis.

@@ -1,0 +1,17 @@
+steps:
+  - name: "TBB_XUID"
+    reference: "TBB_XUID"
+    method: "read_xuid"
+    pnum: "128"
+    limit:
+      min: 0
+      max: 0
+      unit: "TBBUID"
+  - name: "PCB_IDENTIFIER"
+    reference: "PCB_IDENTIFIER"
+    method: "read_pcb"
+    pnum: "136"
+    limit:
+      min: 0
+      max: 0
+      unit: "PCB"

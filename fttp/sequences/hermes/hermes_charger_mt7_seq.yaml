@@ -1,0 +1,888 @@
+steps:
+#  - name: "Device_Barcode"
+#    reference: "Device_Barcode"
+#    method: "scan_device_barcode"
+#    pnum: "7003"
+#    params:
+#      error_code: "0001"
+#    limit:
+#      min: 14
+#      max: 14
+#      unit: ""
+  - name: "QR_Scan"
+    reference: "QR_Scan"
+    method: "qr_scan"
+    pnum: "4004"
+    params:
+      error_code: "0001"
+      scan_infor: "codentify_code"
+    limit:
+      equal: ""
+      unit: ""
+  - name: "TBB_UID"
+    reference: "TBB_UID"
+    method: "read_station_id"
+    pnum: "4005"
+    params:
+      error_code: "0048"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+  - name: "Read_DUSN"
+    reference: "Read_DUSN"
+    method: "read_dusn"
+    pnum: "4006"
+    params:
+      error_code: "0002"
+      first_time_read: True
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+      unit: ""
+  - name: "Read_MT_Mode"
+    reference: "Read_MT_Mode"
+    method: "read_mt_mode"
+    pnum: "4007"
+    params:
+      error_code: "0050"
+    unit: ""
+  - name: "Software_Revision"
+    reference: "Software_Revision"
+    method: "read_fw_id"
+    pnum: "4008"
+    params:
+      error_code: "0003"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+  - name: "Application_ID_(MT)"
+    reference: "Application_ID_(MT)"
+    method: "read_app_id"
+    pnum: "4009"
+    params:
+      error_code: "0055"
+    limit:
+      min: 0
+      max: 0
+      equal: "10"
+    unit: ""
+  - name: "Retrieve_Sbl_Major_ID"
+    reference: "Retrieve_Sbl_Major_ID"
+    method: "retrieve_sbl_major_id"
+    pnum: "4086"
+    limit:
+      min: 0
+      max: 0
+      unit: ""
+  - name: "Holder_Presence"
+    reference: "Holder_Presence"
+    method: "holder_presence_detection"
+    pnum: "4010"
+    params:
+      error_code: "0053"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+  - name: "USB_C_Info"
+    reference: "USB_C_Info"
+    method: "read_usb_c_infors"
+    pnum: "4011"
+    params:
+      error_code: "004B"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+  - name: "USB_Orientation_A"
+    reference: "USB_Orientation_A"
+    method: "usb_orientation_a_test"
+    pnum: "4012"
+    params:
+      error_code: "0005"
+    limit:
+      min: 0
+      max: 0
+      equal: "0x0"
+    unit: ""
+  - name: "USB_CC_ADC_Side_A_Test"
+    reference: "USB_CC_ADC_Side_A_Test"
+    method: "usb_c_adc_side_a_test"
+    pnum: "4013"
+    params:
+      error_code: "004C"
+    limit:
+      min: 0
+      max: 0
+      equal: "0x0"
+    unit: ""
+  - name: "USB_Orientation_B"
+    reference: "USB_Orientation_B"
+    method: "usb_orientation_b_test"
+    pnum: "4014"
+    params:
+      error_code: "0006"
+    limit:
+      min: 0
+      max: 0
+      equal: "0x0"
+      unit: ""
+  - name: "USB_CC_ADC_Side_B_Test"
+    reference: "USB_CC_ADC_Side_B_Test"
+    method: "usb_c_adc_side_b_test"
+    pnum: "4016"
+    params:
+      error_code: "004D"
+    limit:
+      min: 0
+      max: 0
+      equal: "0x0"
+      unit: ""
+  - name: "BIST_Test"
+    reference: "BIST_Test"
+    method: "bist_test"
+    pnum: "4016"
+    params:
+      error_code: "0007"
+    limit:
+      min: 0
+      max: 0
+      equal: "0x0"
+      unit: ""
+  - name: "Key_Length"
+    reference: "Key_Length"
+    method: "read_rwk_key_length"
+    pnum: "4017"
+    params:
+      error_code: "0008"
+    limit:
+      min: 0
+      max: 0
+      equal: "0x0"
+      unit: ""
+  - name: "Key_Data"
+    reference: "Key_Data"
+    method: "read_rwk_key"
+    pnum: "4018"
+    params:
+      error_code: "0009"
+    limit:
+      min: 0
+      max: 0
+      equal: "0x0"
+      unit: ""
+  - name: "LED_Location_1_Off"
+    reference: "LED_Location_1_Off"
+    method: "led_off"
+    pnum: "4019"
+    params:
+      module: "holder"
+      bank: 0
+      error_code: "000A"
+      led_number: 01
+      capture: True
+      intensity_min: 0
+      intensity_max: 50
+    limit:
+      min: 0
+      max: 0
+      unit: ""
+  - name: "LED_Location_2_Off"
+    reference: "LED_Location_2_Off"
+    method: "led_off"
+    pnum: "4020"
+    params:
+      module: "holder"
+      bank: 1
+      error_code: "000B"
+      led_number: 03
+      capture: False
+      intensity_min: 0
+      intensity_max: 50
+    limit:
+      min: 0
+      max: 0
+      unit: ""
+  - name: "LED_Location_3_Off"
+    reference: "LED_Location_3_Off"
+    method: "led_off"
+    pnum: "4021"
+    params:
+      module: "charger"
+      bank: 2
+      error_code: "000C"
+      led_number: 03
+      capture: False
+      intensity_min: 0
+      intensity_max: 50
+    limit:
+      min: 0
+      max: 0
+      unit: ""
+  - name: "LED_Location_4_Off"
+    reference: "LED_Location_4_Off"
+    method: "led_off"
+    pnum: "4022"
+    params:
+      module: "charger"
+      bank: 3
+      error_code: "000D"
+      led_number: 04
+      capture: False
+      intensity_min: 0
+      intensity_max: 80
+    limit:
+      min: 0
+      max: 0
+      unit: ""
+  - name: "LED_Location_5_Off"
+    reference: "LED_Location_5_Off"
+    method: "led_off"
+    pnum: "4023"
+    params:
+      module: "charger"
+      bank: 4
+      error_code: "000E"
+      led_number: 05
+      capture: False
+      intensity_min: 0
+      intensity_max: 2000
+    limit:
+      min: 0
+      max: 0
+      unit: ""
+  - name: "LED_Red_D303_Intensity"
+    reference: "LED_Red_D303_Intensity"
+    method: "ui_led_test"
+    pnum: "4024"
+    params:
+      capture: True
+      rgb_item: "intensity"
+      color: "red"
+      module: "holder"
+      bank: 0
+      cmd_hex: 0xa3
+      channel: 01
+      capture_brihgtness: 1
+      error_code: "000F"
+  - name: "LED_Red_D303_Red"
+    reference: "LED_Red_D303_Red"
+    method: "ui_led_test"
+    pnum: "4025"
+    params:
+      capture: False
+      rgb_item: "red"
+      error_code: "0010"
+  - name: "LED_Red_D303_Green"
+    reference: "LED_Red_D303_Green"
+    method: "ui_led_test"
+    pnum: "4026"
+    params:
+      capture: False
+      rgb_item: "green"
+      error_code: "0011"
+  - name: "LED_Red_D303_Blue"
+    reference: "LED_Red_D303_Blue"
+    method: "ui_led_test"
+    pnum: "4027"
+    params:
+      capture: False
+      rgb_item: "blue"
+      error_code: "0012"
+  - name: "LED_Red_D304_Intensity"
+    reference: "LED_Red_D304_Intensity"
+    method: "ui_led_test"
+    pnum: "4028"
+    params:
+      capture: True
+      rgb_item: "intensity"
+      error_code: "0013"
+      color: "red"
+      module: "charger"
+      bank: 1
+      cmd_hex: 0xa4
+      channel: 05
+      capture_brihgtness: 3
+  - name: "LED_Red_D304_Red"
+    reference: "LED_Red_D304_Red"
+    method: "ui_led_test"
+    pnum: "4029"
+    params:
+      capture: False
+      rgb_item: "red"
+      error_code: "0014"
+  - name: "LED_Red_D304_Green"
+    reference: "LED_Red_D304_Green"
+    method: "ui_led_test"
+    pnum: "4030"
+    params:
+      capture: False
+      rgb_item: "green"
+      error_code: "0015"
+  - name: "LED_Red_D304_Blue"
+    reference: "LED_Red_D304_Blue"
+    method: "ui_led_test"
+    pnum: "4031"
+    params:
+      capture: False
+      rgb_item: "blue"
+      error_code: "0016"
+  - name: "LED_White_D305_Intensity"
+    reference: "LED_White_D305_Intensity"
+    method: "ui_led_test"
+    pnum: "4032"
+    params:
+      capture: True
+      rgb_item: "intensity"
+      error_code: "002B"
+      color: "white"
+      module: "charger"
+      bank: 1
+      cmd_hex: 0xa5
+      channel: 05
+      capture_brihgtness: 3
+  - name: "LED_White_D305_Red"
+    reference: "LED_White_D305_Red"
+    method: "ui_led_test"
+    pnum: "4033"
+    params:
+      capture: False
+      rgb_item: "red"
+      error_code: "002C"
+  - name: "LED_White_D305_Green"
+    reference: "LED_White_D305_Green"
+    method: "ui_led_test"
+    pnum: "4034"
+    params:
+      capture: False
+      rgb_item: "green"
+      error_code: "002D"
+  - name: "LED_White_D305_Blue"
+    reference: "LED_White_D305_Blue"
+    method: "ui_led_test"
+    pnum: "4035"
+    params:
+      capture: False
+      rgb_item: "blue"
+      error_code: "002E"
+  - name: "LED_White_D306_Intensity"
+    reference: "LED_White_D306_Intensity"
+    method: "ui_led_test"
+    pnum: "4036"
+    params:
+      capture: True
+      rgb_item: "intensity"
+      error_code: "0027"
+      color: "white"
+      module: "charger"
+      bank: 2
+      cmd_hex: 0xa6
+      channel: 04
+      capture_brihgtness: 1
+  - name: "LED_White_D306_Red"
+    reference: "LED_White_D306_Red"
+    method: "ui_led_test"
+    pnum: "4037"
+    params:
+      capture: False
+      rgb_item: "red"
+      error_code: "0028"
+  - name: "LED_White_D306_Green"
+    reference: "LED_White_D306_Green"
+    method: "ui_led_test"
+    pnum: "4038"
+    params:
+      capture: False
+      rgb_item: "green"
+      error_code: "0029"
+  - name: "LED_White_D306_Blue"
+    reference: "LED_White_D306_Blue"
+    method: "ui_led_test"
+    pnum: "4039"
+    params:
+      capture: False
+      rgb_item: "blue"
+      error_code: "002A"
+  - name: "LED_White_D307_Intensity"
+    reference: "LED_White_D307_Intensity"
+    method: "ui_led_test"
+    pnum: "4040"
+    params:
+      capture: True
+      rgb_item: "intensity"
+      error_code: "0023"
+      color: "white"
+      module: "charger"
+      bank: 3
+      cmd_hex: 0xa7
+      channel: 03
+      capture_brihgtness: 1
+  - name: "LED_White_D307_Red"
+    reference: "LED_White_D307_Red"
+    method: "ui_led_test"
+    pnum: "4041"
+    params:
+      capture: False
+      rgb_item: "red"
+      error_code: "0024"
+  - name: "LED_White_D307_Green"
+    reference: "LED_White_D307_Green"
+    method: "ui_led_test"
+    pnum: "4042"
+    params:
+      capture: False
+      rgb_item: "green"
+      error_code: "0025"
+  - name: "LED_White_D307_Blue"
+    reference: "LED_White_D307_Blue"
+    method: "ui_led_test"
+    pnum: "4043"
+    params:
+      capture: False
+      rgb_item: "blue"
+      error_code: "0026"
+  - name: "LED_White_D308_Intensity"
+    reference: "LED_White_D308_Intensity"
+    method: "ui_led_test"
+    pnum: "4044"
+    params:
+      capture: True
+      rgb_item: "intensity"
+      error_code: "001F"
+      color: "white"
+      module: "charger"
+      bank: 4
+      cmd_hex: 0xa8
+      channel: 02
+      capture_brihgtness: 1
+  - name: "LED_White_D308_Red"
+    reference: "LED_White_D308_Red"
+    method: "ui_led_test"
+    pnum: "4045"
+    params:
+      capture: False
+      rgb_item: "red"
+      error_code: "0020"
+  - name: "LED_White_D308_Green"
+    reference: "LED_White_D308_Green"
+    method: "ui_led_test"
+    pnum: "4046"
+    params:
+      capture: False
+      rgb_item: "green"
+      error_code: "0021"
+  - name: "LED_White_D308_Blue"
+    reference: "LED_White_D308_Blue"
+    method: "ui_led_test"
+    pnum: "4047"
+    params:
+      capture: False
+      rgb_item: "blue"
+      error_code: "0022"
+  - name: "LED_White_D309_Intensity"
+    reference: "LED_White_D309_Intensity"
+    method: "ui_led_test"
+    pnum: "4048"
+    params:
+      capture: True
+      rgb_item: "intensity"
+      error_code: "001B"
+      color: "white"
+      module: "holder"
+      bank: 1
+      cmd_hex: 0xc1
+      channel: 01
+      capture_brihgtness: 1
+  - name: "LED_White_D309_Red"
+    reference: "LED_White_D309_Red"
+    method: "ui_led_test"
+    pnum: "4049"
+    params:
+      capture: False
+      rgb_item: "red"
+      error_code: "001C"
+  - name: "LED_White_D309_Green"
+    reference: "LED_White_D309_Green"
+    method: "ui_led_test"
+    pnum: "4050"
+    params:
+      capture: False
+      rgb_item: "green"
+      error_code: "001D"
+  - name: "LED_White_D309_Blue"
+    reference: "LED_White_D309_Blue"
+    method: "ui_led_test"
+    pnum: "4051"
+    params:
+      capture: False
+      rgb_item: "blue"
+      error_code: "001E"
+  - name: "LED_Amber_D310_Intensity"
+    reference: "LED_Amber_D310_Intensity"
+    method: "ui_led_test"
+    pnum: "4052"
+    params:
+      capture: True
+      rgb_item: "intensity"
+      error_code: "002F"
+      color: "amber"
+      module: "charger"
+      bank: 01
+      capture_brihgtness: 1
+      cmd_hex: 0xaa
+      channel: 05
+  - name: "LED_Amber_D310_Red"
+    reference: "LED_Amber_D310_Red"
+    method: "ui_led_test"
+    pnum: "4053"
+    params:
+      capture: False
+      rgb_item: "red"
+      error_code: "0030"
+  - name: "LED_Amber_D310_Green"
+    reference: "LED_Amber_D310_Green"
+    method: "ui_led_test"
+    pnum: "4054"
+    params:
+      capture: False
+      rgb_item: "green"
+      error_code: "0031"
+  - name: "LED_Amber_D310_Blue"
+    reference: "LED_Amber_D310_Blue"
+    method: "ui_led_test"
+    pnum: "4055"
+    params:
+      capture: False
+      rgb_item: "blue"
+      error_code: "0032"
+  - name: "LED_White_D311_Intensity"
+    reference: "LED_White_D311_Intensity"
+    method: "ui_led_test"
+    pnum: "4056"
+    params:
+      capture: True
+      rgb_item: "intensity"
+      error_code: "0017"
+      color: "white"
+      module: "holder"
+      bank: 0
+      cmd_hex: 0xa9
+      channel: 01
+      capture_brihgtness: 1
+  - name: "LED_White_D311_Red"
+    reference: "LED_White_D311_Red"
+    method: "ui_led_test"
+    pnum: "4057"
+    params:
+      capture: False
+      rgb_item: "red"
+      error_code: "0018"
+  - name: "LED_White_D311_Green"
+    reference: "LED_White_D311_Green"
+    method: "ui_led_test"
+    pnum: "4058"
+    params:
+      capture: False
+      rgb_item: "green"
+      error_code: "0019"
+  - name: "LED_White_D311_Blue"
+    reference: "LED_White_D311_Blue"
+    method: "ui_led_test"
+    pnum: "4059"
+    params:
+      capture: False
+      rgb_item: "blue"
+      error_code: "001A"
+  - name: "BLE_Mac_Address_Retrieve"
+    reference: "BLE_Mac_Address_Retrieve"
+    method: "read_ble_mac"
+    pnum: "4060"
+    params:
+      error_code: "0043"
+    limit:
+      min: 0
+      max: 0
+      unit: ""
+  - name: "Retrieve_Ble_Stack_Version"
+    reference: "Retrieve_Ble_Stack_Version"
+    method: "retrieve_ble_stack_version"
+    pnum: "4086"
+    limit:
+      min: 0
+      max: 0
+      unit: ""
+  - name: "Read_Model_Number"
+    reference: "Read_Model_Number"
+    method: "read_model_number"
+    pnum: "7061"
+    params:
+      error_code: "0054"
+    limit:
+      min: 0
+      max: 0
+      equal: "0x0"
+      unit: ""
+  - name: "DGS_Battery_Data"
+    reference: "DGS_Battery_Data"
+    method: "retrieve_battery_data"
+    pnum: "7062"
+    params:
+      error_code: "0045"
+    limit:
+      min: 0
+      max: 0
+      equal: "0x0"
+      unit: ""
+  - name: "Set_Battery_Configuration"
+    reference: "Set_Battery_Configuration"
+    method: "set_battery_configuration"
+    pnum: "4063"
+    params:
+      error_code: "0033"
+    limit:
+      min: 0
+      max: 0
+      equal: "0x0"
+      unit: ""
+  - name: "Read_Device_Battery_Config"
+    reference: "Read_Device_Battery_Config"
+    method: "read_battery_configuration"
+    pnum: "4064"
+    params:
+      error_code: "0046"
+    limit:
+      min: 0
+      max: 0
+      equal: "0x0"
+      unit: ""
+  - name: "Button_Release_Test"
+    reference: "Button_Release_Test"
+    method: "release_button_test"
+    pnum: "4065"
+    params:
+      error_code: "0034"
+    limit:
+      min: 0
+      max: 0
+      equal: "0x0"
+      unit: ""
+  - name: "Button_Press_Test"
+    reference: "Button_Press_Test"
+    method: "press_button_test"
+    pnum: "4066"
+    params:
+      error_code: "0035"
+    limit:
+      min: 0
+      max: 0
+      equal: "0x0"
+      unit: ""
+  - name: "Hard_Reset_Test"
+    reference: "Hard_Reset_Test"
+    method: "hard_reset_test"
+    pnum: "4067"
+    params:
+      error_code: "0042"
+    limit:
+      min: 0
+      max: 0
+      equal: "0x0"
+      unit: ""
+  - name: "Codentify_Code_into_DUT"
+    reference: "Codentify_Code_into_DUT"
+    method: "codentify_code_into_dut"
+    pnum: "4068"
+    params:
+      error_code: "0036"
+    limit:
+      min: 0
+      max: 0
+      equal: "0x0"
+      unit: ""
+  - name: "Battery_SN_into_DUT"
+    reference: "Battery_SN_into_DUT"
+    method: "battery_sn_into_dut"
+    pnum: "4069"
+    params:
+      error_code: "0055"
+    limit:
+      min: 0
+      max: 0
+      equal: "0x0"
+      unit: ""
+  - name: "UTC_Time_Sync"
+    reference: "UTC_Time_Sync"
+    method: "utc_time_sync"
+    pnum: "4070"
+    params:
+      error_code: "003F"
+    limit:
+      min: 0
+      max: 0
+      equal: "0x0"
+      unit: ""
+  - name: "Battery_Level_(in_MT_Mode)"
+    reference: "Battery_Level_(in_MT_Mode)"
+    method: "read_battery_level"
+    pnum: "4071"
+    params:
+      error_code: "003D"
+    limit:
+      min: 0
+      max: 0
+      equal: "0x0"
+  - name: "Battery_SN_in_DUT"
+    reference: "Battery_SN_in_DUT"
+    method: "verify_battery_sn"
+    pnum: "4072"
+    params:
+      error_code: "0056"
+    limit:
+      min: 0
+      max: 0
+      equal: "0x0"
+      unit: ""
+#  - name: "Set_Device_in_MT_Mode"
+#    reference: "Set_Device_in_MT_Mode"
+#    method: "exit_mt_mode"
+#    pnum: "4073"
+#    params:
+#      error_code: "0038"
+#    limit:
+#      min: 0
+#      max: 0
+#      equal: "0000"
+  - name: "Reset_DUT"
+    reference: "Reset_DUT"
+    method: "reset_dut"
+    pnum: "4074"
+    params:
+      error_code: "0039"
+    limit:
+      min: 0
+      max: 0
+      equal: "0000"
+  - name: "Application_ID_(Exit_MT)"
+    reference: "Application_ID_(Exit_MT)"
+    method: "read_app_id"
+    pnum: "4075"
+    limit:
+      min: 0
+      max: 0
+      equal: "10"
+#  - name: "MT_Mode_Status"
+#    reference: "MT_Mode_Status"
+#    method: "check_exit_mt_mode"
+#    pnum: "4076"
+#    params:
+#      error_code: "003B"
+#    limit:
+#      min: 0
+#      max: 0
+#      equal: "0"
+  - name: "USB_Orientation_B_(Exit_MT)"
+    reference: "USB_Orientation_B_(Exit_MT)"
+    method: "usb_orientation_b_test"
+    pnum: "4077"
+    params:
+      error_code: "0052"
+    limit:
+      min: 0
+      max: 0
+      equal: "0x0"
+  - name: "USB_Orientation_A_(Exit_MT)"
+    reference: "USB_Orientation_A_(Exit_MT)"
+    method: "usb_orientation_a_test"
+    pnum: "4078"
+    params:
+      error_code: "00051"
+    limit:
+      min: 0
+      max: 0
+      equal: "0x0"
+      unit: ""
+#  - name: "Holder_Charging_Status"
+#    reference: "Holder_Charging_Status"
+#    method: "check_charging_status"
+#    pnum: "4079"
+#    params:
+#      error_code: "003E"
+#    limit:
+#      min: 0
+#      max: 0
+#      equal: "0x0"
+#      unit: ""
+  - name: "Codentify_Code_in_DUT"
+    reference: "Codentify_Code_in_DUT"
+    method: "check_codentify_code"
+    pnum: "4080"
+    params:
+      error_code: "004A"
+    limit:
+      min: 0
+      max: 0
+      equal: "0x0"
+      unit: ""
+  - name: "Device_System_Error"
+    reference: "Device_System_Error"
+    method: "check_device_system_error"
+    pnum: "4081"
+    params:
+      error_code: "003C"
+    limit:
+      min: 0.
+      max: 0
+      equal: "0"
+      unit: ""
+  - name: "Battery_Percentage"
+    reference: "Battery_Percentage"
+    method: "read_battery_percentage"
+    pnum: "4082"
+    params:
+      error_code: "0049"
+    limit:
+      min: 0
+      max: 0
+      equal: "0x0"
+      unit: ""
+  - name: "Battery_Level_(Exit_MT)"
+    reference: "Battery_Level_(Exit_MT)"
+    method: "read_battery_level"
+    pnum: "4083"
+    params:
+      error_code: "003D"
+    limit:
+      min: 0
+      max: 0
+      equal: "0"
+      unit: ""
+  - name: "BLE_Status"
+    reference: "BLE_Status"
+    method: "read_ble_status"
+    pnum: "4084"
+    params:
+      ble_status: enable
+      error_code: "0047"
+    limit:
+      min: 0
+      max: 0
+      unit: ""
+#  - name: "Device_Ship_Status"
+#    reference: "Device_Ship_Status"
+#    method: "set_device_ship_mode"
+#    pnum: "4087"
+#    params:
+#      error_code: "0041"
+#      read_only: False
+#    limit:
+#      min: 0
+#      max: 0
+#      equal: "0x0"
+#      unit: ""

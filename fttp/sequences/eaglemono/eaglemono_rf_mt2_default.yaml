@@ -1,0 +1,236 @@
+steps:
+  - name: "DUT_POWER_ON"
+    reference: "DUT_POWER_ON"
+    method : "power_on"
+    pnum: ""
+    params:
+      error_code: "2003"
+
+  - name: "DUT_CHIP_PROGRAMMING"
+    reference: "DUT_CHIP_PROGRAMMING"
+    method: "sdk_programming"
+    pnum: ""
+    params:
+      error_code: "2003"
+
+  - name: "DUT_POWER_CYCLE"
+    reference: "DUT_POWER_CYCLE"
+    method: "power_cycle"
+    pnum: ""
+    params:
+      error_code: "2003"
+
+  - name: "WT_CAL_START"
+    reference: "WT_CAL_START"
+    method: "rf_mp_init"
+    pnum: "2004"
+    params:
+      error_code: "2004"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_SAVE_CAL_DATA"
+    reference: "WT_SAVE_CAL_DATA"
+    method: "save_calibration_data"
+    pnum: "2102"
+    params:
+      error_code: "2102"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_WRITE_EFUSE"
+    reference: "WT_WRITE_EFUSE"
+    method: "write_efuse"
+    pnum: "2103"
+    params:
+      error_code: "2103"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_CHECK_EFUSE_WRITE"
+    reference: "WT_CHECK_EFUSE_WRITE"
+    method: "check_efuse_write"
+    pnum: "2104"
+    params:
+      error_code: "2104"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_FINISH"
+    reference: "WT_FINISH"
+    method: "rf_mp_finish"
+    pnum: "2105"
+    params:
+      error_code: "2105"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_WIFI_CONNECT"
+    reference: "WT_WIFI_CONNECT"
+    method: "wt_wifi_connect"
+    pnum: "2201"
+    params:
+      ssid: "Eagle_Mono_WIFI"
+      password: "12345678"
+      error_code: "2201"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_WIFI_GET_RSSI"
+    reference: "WT_WIFI_GET_RSSI"
+    method: "wt_wifi_get_rssi"
+    pnum: "2202"
+    params:
+      error_code: "2202"
+    limit:
+      min: -90
+      max: -20
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_WIFI_CONNECT"
+    reference: "WT_WIFI_CONNECT"
+    method: "wt_wifi_connect"
+    pnum: "2201"
+    params:
+      ssid: "Eagle_Mono_WIFI"
+      password: "12345678"
+      error_code: "2201"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_WIFI_GET_RSSI"
+    reference: "WT_WIFI_GET_RSSI"
+    method: "wt_wifi_get_rssi"
+    pnum: "2202"
+    params:
+      error_code: "2202"
+    limit:
+      min: -90
+      max: -20
+      equal: ""
+    unit: "dBm"
+
+  - name: "WT_WIFI_DISCONNECT"
+    reference: "WT_WIFI_DISCONNECT"
+    method: "wt_wifi_disconnect"
+    pnum: "2203"
+    params:
+      error_code: "2203"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_BT_PERIPHERAL_START"
+    reference: "WT_BT_PERIPHERAL_START"
+    method: "wt_bt_peripheral_start"
+    pnum: "2301"
+    params:
+      error_code: "2301"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_BT_CENTRAL_START"
+    reference: "WT_BT_CENTRAL_START"
+    method: "wt_bt_central_start"
+    pnum: "2302"
+    params:
+      error_code: "2302"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_BT_CONNECT"
+    reference: "WT_BT_CONNECT"
+    method: "wt_bt_connect"
+    pnum: "2303"
+    params:
+      error_code: "2303"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_BT_CHECK_LINK"
+    reference: "WT_BT_CHECK_LINK"
+    method: "wt_bt_check_link"
+    pnum: "2304"
+    params:
+      error_code: "2304"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_BT_DISCONNECT"
+    reference: "WT_BT_DISCONNECT"
+    method: "wt_bt_disconnect"
+    pnum: "2305"
+    params:
+      error_code: "2305"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_BT_STOP"
+    reference: "WT_BT_STOP"
+    method: "wt_bt_stop"
+    pnum: "2306"
+    params:
+      error_code: "2306"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "DUT_POWER_ON"
+    reference: "DUT_POWER_ON"
+    method : "power_off"
+    pnum: ""
+    params:
+      error_code: "2307"
+
+  - name: "WT_DISCONNECT_TESTER"
+    reference: "WT_DISCONNECT_TESTER"
+    method: "wt_disconnect_tester"
+    pnum: "2106"
+    params:
+      error_code: "2106"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""

@@ -1,0 +1,99 @@
+steps:
+  - name: "CONTROL_PCA_DUSN"
+    reference: "CONTROL_PCA_DUSN"
+    method: "check_dusn"
+    board_type: 'all'
+    pnum: "5003"
+    params:
+      error_code: "C0004"
+  - name: "ENGINE_PCA_DUSN"
+    reference: "ENGINE_PCA_DUSN"
+    method: "check_dusn_engine"
+    board_type: 'all'
+    pnum: "5004"
+    params:
+      error_code: "N0004"
+  - name: "CHECK_CODENTIFY_CODE_CONTROL"
+    reference: "CHECK_CODENTIFY_CODE_CONTROL"
+    method: "check_codentify_code_mt11c"
+    board_type: 'all'
+    pnum: "5005"
+    params:
+      error_code: "C0003"
+  - name: "CHECK_CODENTIFY_CODE_ENGINE"
+    reference: "CHECK_CODENTIFY_CODE_ENGINE"
+    method: "check_codentify_code_mt11c_engine"
+    board_type: 'all'
+    pnum: "5006"
+    params:
+      error_code: "N0003"
+  - name: "CONTROL_PCA_SW_ID"
+    reference: "CONTROL_PCA_SW_ID"
+    board_type: 'all'
+    method: "check_firmware_control"
+    pnum: "5007"
+    params:
+      error_code: "C0005"
+  - name: "ENGINE_PCA_SW_ID"
+    reference: "ENGINE_PCA_SW_ID"
+    method: "check_firmware_engine"
+    board_type: 'all'
+    pnum: "5008"
+    params:
+      error_code: "N0005"
+  - name: "CONTROL_PCA_MT_STATUS"
+    reference: "CONTROL_PCA_MT_STATUS"
+    method: "check_mt_mode_mt11c_control"
+    board_type: 'control'
+    pnum: "5009"
+    params:
+      error_code: "C0006"
+  - name: "ENGINE_PCA_MT_STATUS"
+    reference: "ENGINE_PCA_MT_STATUS"
+    method: "check_mt_mode_mt11c_engine"
+    board_type: 'engine'
+    pnum: "5010"
+    params:
+      error_code: "N0006"
+  - name: "CONTROL_LOCK_MODE_BEFORE"
+    reference: "CONTROL_LOCK_MODE_BEFORE"
+    method: "check_unlock_status_level"
+    board_type: 'control'
+    pnum: "5011"
+    params:
+      error_code: "C0007"
+  - name: "BATTERY_LEVEL_CHECK"
+    reference: "BATTERY_LEVEL_CHECK"
+    method: "battery_heating_soc"
+    board_type: 'control'
+    pnum: "5012"
+    params:
+      error_code: "C000A"
+#  - name: "STOP_CHARGING"
+#    reference: "STOP_CHARGING"
+#    method: "stop_charger_charging"
+#    board_type: 'control'
+#    pnum: "5013"
+#    params:
+#      error_code: "C0009"
+#  - name: "BATTERY_LEVEL"
+#    reference: "BATTERY_LEVEL"
+#    method: "query_battery_fg_rsoc"
+#    board_type: 'control'
+#    pnum: "5014"
+#    params:
+#      error_code: "C000A"
+  - name: "CONTROL_PCA_TIME_SYNCHRONIZATION"
+    reference: "CONTROL_PCA_TIME_SYNCHRONIZATION"
+    method: "time_sync"
+    board_type: 'control'
+    pnum: "5013"
+    params:
+      error_code: "C000D"
+  - name: "CONTROL_SHIP_MODE_AFTER"
+    reference: "CONTROL_SHIP_MODE_AFTER"
+    method: "set_ship_mode"
+    board_type: 'control'
+    pnum: "5014"
+    params:
+      error_code: "C000B"

@@ -1,0 +1,6 @@
+steps:
+  - name: "OVERALL_TEST_RESULT"
+    method: 'overall_test_result'
+    board_type: 'all'
+    pnum: "5199"
+    unit: ''

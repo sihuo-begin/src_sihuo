@@ -1,0 +1,37 @@
+steps:
+  - name: "WT_CONNECT_TESTER"
+    method: "wt_connect_tester"
+    params:
+      error_code: "PL001"
+
+  - name: "WT_INIT_DUT"
+    method: "wt_init_dut"
+    params:
+      error_code: "PL002"
+
+  - name: "PATHLOSS_CALIBRATION"
+      method: "pathloss_calibration_step"
+      params:
+        error_code: "PL003"
+        output_yaml: "./data/pathloss/eaglemono_fixture_a.yaml"
+        ports: [ 1 ]
+        wifi_cal_power_dbm: 4.0
+        bt_cal_power_dbm: 2.0
+        overwrite: true
+        wifi_port_map:
+          1:
+            tx_port: 0
+            rx_port: 1
+          bt_port_map:
+            1:
+              tx_port: 0
+              rx_port: 1
+        plan:
+          wifi:
+            11M: [ 2412, 2442, 2472 ]
+            54M: [ 2412, 2442, 2472, 5500 ]
+            HT20-MCS7: [ 2412, 2442, 5500 ]
+            HT40-MCS7: [ 2422, 2452, 5510 ]
+          bt:
+            BLE1M: [ 2402, 2442, 2480 ]
+            BLE2M: [ 2402, 2442, 2480 ]

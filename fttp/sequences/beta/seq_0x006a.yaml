@@ -1,0 +1,268 @@
+steps:
+#  - name: "red_led_holder_bank"
+#    reference: "red_led_holder_bank"
+#    method: "ui_led_test"
+#    board_type: 'control/engine'
+#    pnum: "7003"
+#    stop_on_error: False
+#    retry: 1
+#    params:
+#      color: "red"
+#      module: "holder"
+#      bank: 0
+#    limit:
+#      min: 0
+#      max: 0
+#      unit: ""
+#  - name: "red_led_charger_bank1"
+#    reference: "red_led_charger_bank1"
+#    method: "ui_led_test"
+#    pnum: "7004"
+#    params:
+#      color: "red"
+#      module: "charger"
+#      bank: 1
+#    limit:
+#      min: 0
+#      max: 0
+#      unit: ""
+#  - name: "white_led_charger_bank1"
+#    reference: "white_led_charger_bank1"
+#    method: "ui_led_test"
+#    pnum: "7005"
+#    params:
+#      color: "white"
+#      module: "charger"
+#      bank: 1
+#    limit:
+#      min: 0
+#      max: 0
+#      unit: ""
+#  - name: "white_led_charger_bank4"
+#    reference: "white_led_charger_bank4"
+#    method: "ui_led_test"
+#    pnum: "7006"
+#    params:
+#      color: "white"
+#      module: "charger"
+#      bank: 4
+#    limit:
+#      min: 0
+#      max: 0
+#      unit: ""
+#  - name: "white_led_charger_bank2"
+#    reference: "white_led_charger_bank2"
+#    method: "ui_led_test"
+#    pnum: "7007"
+#    params:
+#      color: "white"
+#      module: "charger"
+#      bank: 2
+#    limit:
+#      min: 0
+#      max: 0
+#      unit: ""
+#  - name: "white_led_charger_bank3"
+#    reference: "red_led_holder_back"
+#    method: "ui_led_test"
+#    pnum: "7008"
+#    params:
+#      color: "white"
+#      module: "charger"
+#      bank: 3
+#    limit:
+#      min: 0
+#      max: 0
+#      unit: ""
+#  - name: "white_led_holder_bank"
+#    reference: "white_led_holder_bank"
+#    method: "ui_led_test"
+#    pnum: "7009"
+#    params:
+#      color: "white"
+#      module: "holder"
+#      bank: 0
+#    limit:
+#      min: 0
+#      max: 0
+#      unit: ""
+#  - name: "amber_led_charger_bank1"
+#    reference: "amber_led_charger_bank1"
+#    method: "ui_led_test"
+#    pnum: "7010"
+#    params:
+#      color: "amber"
+#      module: "charger"
+#      bank: 1
+#    limit:
+#      min: 0
+#      max: 0
+#      unit: ""
+#  - name: "white_led_holder_bank1"
+#    reference: "white_led_holder_bank1"
+#    method: "ui_led_test"
+#    pnum: "7011"
+#    params:
+#      color: "white"
+#      module: "holder"
+#      bank: 1
+#    limit:
+#      min: 0
+#      max: 0
+#      unit: ""
+#  - name: "led_off"
+#    reference: "led_off"
+#    method: "led_off"
+#    pnum: "7002"
+#    limit:
+#      min: 0
+#      max: 0
+#      unit: ""
+#  - name: 'scan2'
+#    reference: "scan2"
+#    method: "scan"
+#    pnum: "7011"
+  - name: "enable_ble_broadcast"
+    reference: "enable_ble_broadcast"
+    method: "enable_ble_broadcast"
+    pnum: "7013"
+    limit:
+      min: 0
+      max: 0
+      unit: ""
+  - name: "read_ble_mac"
+    reference: "read_ble_mac"
+    method: "read_ble_mac"
+    pnum: "7003"
+    limit:
+      min: 0
+      max: 0
+      unit: ""
+#  - name: "ble_tx_ch0_neg20dB"
+#    reference: "ble_tx_ch0_neg20"
+#    method: "ble_tx_test"
+#    pnum: "7016"
+#    params:
+#      freq: 2404
+#      ch: "ch0"
+#      power: -20
+#      serial_port: "COM3"
+#    limit:
+#      min: 0
+#      max: 0
+#      unit: ""
+#  - name: "ble_tx_ch0_6dB"
+#    reference: "ble_tx_ch0_6dB"
+#    method: "ble_tx_test"
+#    pnum: "7016"
+#    params:
+#      freq: 2404
+#      ch: "ch0"
+#      power: 6
+#      serial_port: "COM3"
+#    limit:
+#      min: 0
+#      max: 0
+#      unit: ""
+#  - name: "ble_tx_ch18_neg20dB"
+#    reference: "ble_tx_ch18_neg20dB"
+#    method: "ble_tx_test"
+#    pnum: "7016"
+#    params:
+#      freq: 2442
+#      ch: "ch18"
+#      power: -20
+#      serial_port: "COM3"
+#    limit:
+#      min: 0
+#      max: 0
+#      unit: ""
+#  - name: "ble_tx_ch18_6dB"
+#    reference: "ble_tx_ch18_6dB"
+#    method: "ble_tx_test"
+#    pnum: "7016"
+#    params:
+#      freq: 2442
+#      ch: "ch0"
+#      power: 6
+#      serial_port: "COM3"
+#    limit:
+#      min: 0
+#      max: 0
+#      unit: ""
+#  - name: "ble_tx_ch36_neg20dB"
+#    reference: "ble_tx_ch36_neg20dB"
+#    method: "ble_tx_test"
+#    pnum: "7016"
+#    params:
+#      freq: 2478
+#      ch: "ch18"
+#      power: -20
+#      serial_port: "COM3"
+#    limit:
+#      min: 0
+#      max: 0
+#      unit: ""
+#  - name: "ble_tx_ch18_6dB"
+#    reference: "ble_tx_ch18_6dB"
+#    method: "ble_tx_test"
+#    pnum: "7016"
+#    params:
+#      freq: 2478
+#      ch: "ch0"
+#      power: 6
+#      serial_port: "COM3"
+#    limit:
+#      min: 0
+#      max: 0
+#      unit: ""
+#  - name: "ble_rx"
+#    reference: "ble_rx"
+#    method: "ble_rx_test"
+#    pnum: "7016"
+#    params:
+#      freq: 2404
+#      power: 0
+#      serial_port: "COM3"
+#    limit:
+#      min: 0
+#      max: 0
+#      unit: ""
+#  - name: "read_ble_status"
+#    reference: "read_ble_status"
+#    method: "read_ble_status"
+#    pnum: "7004"
+#    limit:
+#      min: 0
+#      max: 0
+#      unit: ""
+#  - name: "read_rssi"
+#    reference: "read_rssi"
+#    method: "read_rssi"
+#    pnum: "7005"
+#    params:
+#      serial_port: "COM6"
+#    limit:
+#      min: 0
+#      max: 0
+#      unit: ""
+#  - name: "read_ble_rf_status"
+#    reference: "read_ble_rf_status"
+#    method: "read_ble_rf_status"
+#    pnum: "7015"
+#    limit:
+#      min: 0
+#      max: 0
+#      unit: ""
+#  - name: "End_RF"
+#    reference: "End_RF"
+#    method: "end_rf"
+#    pnum: "7016"
+#    params:
+#      freq: 2404
+#      power: 0
+#      serial_port: "COM3"
+#    limit:
+#      min: 0
+#      max: 0
+#      unit: ""

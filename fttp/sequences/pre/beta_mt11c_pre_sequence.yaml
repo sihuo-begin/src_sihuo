@@ -1,0 +1,38 @@
+steps:
+  - name: "Detect_Dut"
+    reference: "Detect_Dut"
+    method: "detect_dut"
+#    method: "check_battery_capacity_a"
+    params:
+      error_code: "1400"
+    pnum: "5002"
+    limit:
+      equal: ""
+      unit: ""
+  - name: "Initialize_Configs"
+    reference: "Initialize_Configs"
+    method: "initialize_configs"
+    pnum: "5001"
+    limit:
+      min: 0
+      max: 0
+      unit: ""
+#  - name: "QR_SCAN"
+#    reference: "QR_SCAN"
+#    method: "scan_device_barcode"
+#    pnum: "5025"
+#    params:
+#      error_code: "0022"
+#    limit:
+#      min: 17
+#      max: 17
+#      equal: 17
+#      unit: ""
+  - name: "READ_CHARGER_PCBA_CODENTIFIER"
+    reference: "READ_CHARGER_PCBA_CODENTIFIER"
+    method: "check_codentify_code"
+    pnum: "5004"
+    params:
+      error_code: "0002"
+    retry: 5
+    unit: ""

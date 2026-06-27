@@ -1,0 +1,101 @@
+steps:
+  - name: "Eeprom_Blank_Check"
+    reference: "Eeprom_Blank_Check"
+    method: "eeprom_blank_check"
+    pnum: "1002"
+    params:
+      error_code: "0002"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+  - name: "Write_Dusn"
+    reference: "Write_Dusn"
+    method: "device_serialization"
+    pnum: "1003"
+    params:
+      error_code: "0003"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+  - name: "Write_HW_Reversion"
+    reference: "Write_HW_Reversion"
+    method: "write_hw_reversion"
+    pnum: "1004"
+    params:
+      error_code: "0004"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+  - name: "write_auth_key"
+    reference: "write_auth_key"
+    method: "write_auth_key"
+    pnum: "1005"
+    params:
+      error_code: "0005"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+  - name: "Reset_DUT"
+    reference: "Reset_DUT"
+    method: "reset_dut"
+    pnum: "1006"
+    params:
+      error_code: "0006"
+    limit:
+      min: 0
+      max: 0
+      equal: "0000"
+  - name: "Read_DUSN"
+    reference: "Read_DUSN"
+    method: "read_dusn"
+    pnum: "1007"
+    params:
+      error_code: "0007"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+      unit: ""
+  - name: "read_auth_response0"
+    reference: "read_auth_response0"
+    method: "read_auth_response"
+    pnum: "1008"
+    params:
+      index: 0
+      error_code: "0008"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+      unit: ""
+  - name: "read_auth_response1"
+    reference: "read_auth_response1"
+    method: "read_auth_response"
+    pnum: "1009"
+    params:
+      index: 1
+      error_code: "0009"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+      unit: ""
+  - name: "Verify_HW_revision"
+    reference: "Verify_HW_revision"
+    method: "verify_hw_revision"
+    pnum: "1010"
+    params:
+      error_code: "0010"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+      unit: ""

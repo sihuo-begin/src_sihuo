@@ -1,0 +1,7 @@
+items:
+  - LED_RED_D303_INTENSITY
+  - LED_RED_D304_INTENSITY
+  - LED_WHITE_D305_INTENSITY
+
+minitab:
+  output_dir: C:\Production_Related\B15\src_sihuo\FA_CPK_System\output\charts

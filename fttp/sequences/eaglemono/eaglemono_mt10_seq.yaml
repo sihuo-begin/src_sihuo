@@ -1,0 +1,96 @@
+steps:
+  - name: "POWER_ON_SELF_TEST"
+    reference: "POWER_ON_SELF_TEST"
+    method: "power_on_self_test"
+    pnum: "8003"
+    params:
+      error_code: "8003"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "BATTERY_CHARGING"
+    reference: "BATTERY_CHARGING"
+    method: "Battery_charging"
+    pnum: "8004"
+    params:
+      error_code: "8004"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "HEATING_WITH_TOKEN"
+    reference: "HEATING_WITH_TOKEN"
+    method: "heating_with_token"
+    pnum: "8005"
+    params:
+      error_code: "8005"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "PUFF_TEST"
+    reference: "PUFF_TEST"
+    method: "puff_test"
+    pnum: "8006"
+    params:
+      error_code: "8006"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "USAGE_LOG_CHECK"
+    reference: "USAGE_LOG_CHECK"
+    method: "usage_log_check"
+    pnum: "8007"
+    params:
+        error_code: "8007"
+    limit:
+        min: 0
+        max: 0
+        equal: ""
+    unit: ""
+
+  - name: "MANUAL_DISPLAY_CHECK"
+    reference: "MANUAL_DISPLAY_CHECK"
+    method: "manual_display_check"
+    pnum: "8007"
+    params:
+        error_code: "8007"
+    limit:
+        min: 0
+        max: 0
+        equal: ""
+    unit: ""
+
+  - name: "MANUAL_WIFI_BLUETOOTH_TEST"
+    reference: "MANUAL_WIFI_BLUETOOTH_TEST"
+    method: "manual_wifi_bluetooth_test"
+    pnum: "8008"
+    params:
+      error_code: "8008"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "HEATING_TEST_WITH_TOKEN"
+    reference: "HEATING_TEST_WITH_TOKEN"
+    method: "heat_test_with_token"
+    pnum: "8009"
+    params:
+      error_code: "8009"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""

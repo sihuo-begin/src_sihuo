@@ -1,0 +1,13 @@
+steps:
+  - name: "detect_dut"
+    method: "detect_dut"
+    pnum: "7001"
+    limit:
+      equal: ""
+      unit: ""
+  - name: "scan"
+    method: "scan"
+    pnum: "7002"
+    limit:
+      equal: ""
+      unit: ""

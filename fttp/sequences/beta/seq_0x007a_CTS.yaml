@@ -1,0 +1,53 @@
+steps:
+  - name: "scan_barcode"
+    reference: "scan_barcode"
+    method: "scan_barcode"
+    pnum: "7002"
+    params:
+      color: "red"
+      module: "holder"
+      error_code: "C7002"
+  - name: "TBBUID"
+    reference: "TBBUID"
+    method: "read_station"
+    pnum: "7003"
+    params:
+      color: "red"
+      module: "holder"
+      error_code: "C7003"
+  - name: "dusn_control"
+    reference: "dusn_control"
+    method: "read_dusn_control"
+    pnum: "7004"
+    params:
+      color: "red"
+      module: "holder"
+      error_code: "C7004"
+  - name: "screen_touch"
+    reference: "screen_touch"
+    method: "screen_touch"
+    pnum: "7005"
+    params:
+      color: "red"
+      module: "holder"
+      error_code: "C7005"
+    limit:
+      min: 25
+      unit: ""
+  - name: "led_r"
+    reference: "led_r"
+    method: "led_r"
+    pnum: "7006"
+    params:
+      color: "red"
+      module: "holder"
+      error_code: "C7006"
+  - name: "led_l"
+    reference: "led_l"
+    method: "led_l"
+    pnum: "7007"
+    params:
+      color: "red"
+      module: "holder"
+      bank: 1
+      error_code: "C7007"

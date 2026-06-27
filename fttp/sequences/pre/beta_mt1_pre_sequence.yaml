@@ -1,0 +1,28 @@
+steps:
+  - name: "Detect_Dut"
+    reference: "Detect_Dut"
+    method: "detect_dut"
+    params:
+      error_code: "1400"
+    pnum: "1000"
+    limit:
+      equal: ""
+      unit: ""
+  - name: "Initialize_Configs"
+    reference: "Initialize_Configs"
+    method: "initialize_configs"
+    pnum: "1001"
+    limit:
+      min: 0
+      max: 0
+      unit: ""
+  - name: "Scan_Dusn"
+    reference: "Scan_Dusn"
+    method: "scan"
+    pnum: "1011"
+    params:
+      error_code: "0001"
+      scan_content: "device_number"
+    limit:
+      equal: ""
+      unit: ""

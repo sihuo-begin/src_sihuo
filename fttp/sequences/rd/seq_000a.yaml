@@ -1,0 +1,15 @@
+steps:
+  - name: "loop_get_value"
+    reference: "loop_get_value"
+    method: "loop_get_touch_value"
+    pnum: "1"
+    params:
+      # 支持输入"3f08c044..."或"3f 08 c0..."格式
+      cmd : ["3f08c0010015"]
+      loop: 10
+      hop_count: 1
+      delay: 1.0
+    limit:
+      min: 0
+      max: 0
+      unit: "lp"

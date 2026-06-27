@@ -1,0 +1,64 @@
+calibration:
+  pre_sequence: wifi_bt_pre_sequence.yaml
+  finalize_sequence: wifi_bt_finalize_seq.yaml
+  test_steps: "src.steps.wifi_bt_mp_steps_v2"
+  trs_version: "1.0"
+  trs_reference: "EAGLE MONO MANUFACTURING TESTING SPECIFICATION MT2"
+  pdims_rev: "R1"
+  fixture_id: "01"
+  layout: [1, 1]
+  codentify_code_display: True
+  device_name: 'ni_60001'
+  fixture_io:
+    uut: 'port0/line0'
+    start: 'port0/line1'
+  station: "Eaglemono_MT2"
+  allow_host: ["DMNM10278"]
+  golden_sn_path: c:/Log/golden_sn.csv
+  wt:
+    ip: "192.168.1.100"
+  pathloss:
+    wifi_port_map:
+      1:
+        tx_port: 0
+        rx_port: 1
+      2:
+        tx_port: 2
+        rx_port: 3
+
+    bt_port_map:
+      1:
+        tx_port: 0
+        rx_port: 1
+      2:
+        tx_port: 2
+        rx_port: 3
+  cells:
+    - dusn: ""
+      pid: "0x006c"
+      connection:
+        usb:
+          type: "usb"
+          path: ''
+          pid: "0x0003"
+          vid: "0x2759"
+          idle_time: 0.1
+#        ic:
+#          type: "uart"
+#          port: "COM15"
+#          baudrate: 150000
+
+      user_config:
+        auto_scan: true
+        operator: ""
+        customer_config:
+        product_line: "X"
+        special_mode: true
+        TBBUID: "MT2_3AA02AHH"
+#  groups:
+#    groupA: [0, 1, 2, 3]
+#    groupB: [4, 5, 6, 7]
+
+
+# 可选并发限制
+max_concurrent: 2

@@ -1,0 +1,109 @@
+steps:
+#  - name: "TBBUID"
+#    reference: "TBBUID"
+#    method: "read_station"
+#    board_type: 'control'
+#    pnum: "1002"
+#    params:
+#     error_code: "C0002"
+#  - name: "TBBUID"
+#    reference: "TBBUID"
+#    method: "read_station"
+#    board_type: 'engine'
+#    pnum: "1003"
+#    params:
+#      error_code: "N0002"
+  - name: "mt1_ask_question"
+    method: "mt1_ask_question"
+    pnum: "1003"
+    board_type: 'control'
+    params:
+      error_code: "C0003"
+  - name: "fuel_program"
+    reference: "fuel_program"
+    method: "fuel_program"
+    board_type: 'control'
+    pnum: "1004"
+    params:
+      error_code: "C0004"
+  - name: "fuel_functional_test"
+    reference: "fuel_functional_test"
+    method: "fuel_functional_test"
+    board_type: 'control'
+    pnum: "1005"
+    params:
+      error_code: "C0005"
+  - name: "write_dusn_control"
+    reference: "write_dusn_control"
+    method: "write_dusn_control"
+    board_type: 'control'
+    pnum: "1006"
+    params:
+      error_code: "C0006"
+  - name: "write_dusn_engine"
+    reference: "write_dusn_engine"
+    method: "write_dusn_engine"
+    board_type: 'engine'
+    pnum: "1007"
+    params:
+      error_code: "N0006"
+  - name: "write_authentication_key_control"
+    reference: "write_authentication_key_control"
+    method: "write_authentication_key_control"
+    board_type: 'control'
+    pnum: "1008"
+    params:
+      error_code: "C0007"
+  - name: "write_authentication_key_engine"
+    reference: "write_authentication_key_engine"
+    method: "write_authentication_key_engine"
+    board_type: 'engine'
+    pnum: "1009"
+    params:
+      error_code: "N0007"
+  - name: "check_authentication_control_key0"
+    reference: "check_authentication_control_key0"
+    method: "check_authentication_control_key0"
+    board_type: 'control'
+    pnum: "1010"
+    params:
+      error_code: "C0008"
+  - name: "check_authentication_control_key1"
+    reference: "check_authentication_control_key1"
+    method: "check_authentication_control_key1"
+    board_type: 'control'
+    pnum: "1011"
+    params:
+      error_code: "C0009"
+  - name: "check_authentication_engine_key0"
+    reference: "check_authentication_engine_key0"
+    method: "check_authentication_engine_key0"
+    board_type: 'engine'
+    pnum: "1012"
+    params:
+      error_code: "N0008"
+  - name: "check_authentication_engine_key1"
+    reference: "check_authentication_engine_key1"
+    method: "check_authentication_engine_key1"
+    board_type: 'engine'
+    pnum: "1013"
+    params:
+      error_code: "N0009"
+#  - name: "write_codentify_code_control"     # product EVT build not this steps
+#    reference: "write_codentify_code_control"
+#    method: "write_codentify_code_control"
+#    pnum: "1009"
+#    limit:
+#      min: 0
+#      max: 0
+#      unit: ""
+#  - name: "write_codentify_code_engine"     # product EVT build not this steps
+#    reference: "write_codentify_code_engine"
+#    method: "write_codentify_code_engine"
+#    pnum: "1010"
+#    limit:
+#      min: 0
+#      max: 0
+#      unit: ""
+#
+

@@ -1,0 +1,91 @@
+sequence:
+  - name: rf_mp_init
+    module: src.steps.wifi_bt_mp_steps
+    method: rf_mp_init
+
+  - name: rf_preheat
+    module: src.steps.wifi_bt_mp_steps
+    method: rf_preheat
+    args:
+      channel: 6
+      bandwidth: "40M-1,shortGI=0"
+      rate: "108"
+      patha: 64
+      pathb: 0
+      period: 200
+      length: 1500
+      heating_time_s: 5
+
+  - name: wifi_crystal_calibration
+    module: src.steps.wifi_bt_mp_steps
+    method: wifi_crystal_calibration
+    args:
+      init_xcap: 63
+      channel: 7
+      freq_mhz: 2442
+      rate: "54M"
+      patha: 64
+
+  - name: wifi_tx_cal_2g_ht40_ch1
+    module: src.steps.wifi_bt_mp_steps
+    method: wifi_tx_calibration
+    args:
+      band: "2.4G"
+      channel: 1
+      freq_mhz: 2412
+      rate: "HT40-MCS7"
+      dut_rate: "135"
+      bandwidth: "40M-1,shortGI=0"
+      init_index: 95
+      target_power_dbm: 17.0
+
+  - name: wifi_tx_cal_2g_11m_ch14
+    module: src.steps.wifi_bt_mp_steps
+    method: wifi_tx_calibration
+    args:
+      band: "2.4G"
+      channel: 14
+      freq_mhz: 2484
+      rate: "11M"
+      dut_rate: "11"
+      bandwidth: "20M"
+      init_index: 105
+      target_power_dbm: 19.0
+
+  - name: wifi_tx_calibration_finalize
+    module: src.steps.wifi_bt_mp_steps
+    method: wifi_tx_calibration_finalize
+
+  - name: switch_wifi_to_bt
+    module: src.steps.wifi_bt_mp_steps
+    method: switch_wifi_to_bt
+
+  - name: bt_calibration
+    module: src.steps.wifi_bt_mp_steps
+    method: bt_calibration
+    args:
+      target_power_dbm: 4.5
+      center_channel: 19
+      center_freq_mhz: 2440
+      mode: "BLE"
+      flatness_points:
+        - [4, 2410]
+        - [15, 2432]
+        - [25, 2452]
+        - [35, 2472]
+
+  - name: save_calibration_data
+    module: src.steps.wifi_bt_mp_steps
+    method: save_calibration_data
+
+  - name: write_efuse
+    module: src.steps.wifi_bt_mp_steps
+    method: write_efuse
+
+  - name: check_efuse_write
+    module: src.steps.wifi_bt_mp_steps
+    method: check_efuse_write
+
+  - name: rf_mp_finish
+    module: src.steps.wifi_bt_mp_steps
+    method: rf_mp_finish

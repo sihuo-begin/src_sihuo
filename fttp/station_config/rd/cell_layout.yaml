@@ -1,0 +1,175 @@
+Rd_MT0:
+  pre_sequence: rd_pre_sequence.yaml
+  finalize_sequence: rd_finialize.yaml
+  test_steps: "src.steps.rd_debug_steps"
+  layout: [3, 1]
+  station: "rd_MT0"
+  allow_host: ["DMNM10278"]
+  golden_sn_path: "C:\\temp\\golden_sn.csv"
+  cells:
+    - dusn1: ""
+      pid: "0x007b"
+      connection:
+#        uart:
+#          type: "uart"
+#          port: 'COM14'
+        hid:
+          type: "usb"
+          path: "6&2d0543aa"
+          pid: "0x0003"
+          vid: "0x2759"
+          idle_time: 0.1
+      user_config:
+        operator: ""
+      customer_config:
+        connection_type: "hid"
+    - dusn2: ""
+      pid: "0x007b"
+      connection:
+        hid:
+          type: "usb"
+          path: "7&2082685&"
+          pid: "0x0003"
+          vid: "0x2759"
+          idle_time: 0.1
+      user_config:
+        operator: ""
+      customer_config:
+        connection_type: "uart"
+    - dusn3: ""
+      pid: "0x007b"
+      connection:
+        hid:
+          type: "usb"
+          path: "8&1ce02b36&"
+          pid: "0x0003"
+          vid: "0x2759"
+          idle_time: 0.1
+      user_config:
+        operator: ""
+      customer_config:
+        connection_type: "uart"
+    - dusn4: ""
+      pid: "0x007b"
+      connection:
+        uart:
+          type: "uart"
+          port: 'COM4'
+      user_config:
+        operator: ""
+      customer_config:
+        connection_type: "uart"
+    - dusn5: ""
+      pid: "0x007b"
+      connection:
+        uart:
+          type: "uart"
+          port: 'COM5'
+      user_config:
+        operator: ""
+      customer_config:
+        connection_type: "uart"
+    - dusn6: ""
+      pid: "0x007b"
+      connection:
+        uart:
+          type: "uart"
+          port: 'COM6'
+      user_config:
+        operator: ""
+      customer_config:
+        connection_type: "uart"
+    - dusn7: ""
+      pid: "0x007b"
+      connection:
+        uart:
+          type: "uart"
+          port: 'COM7'
+      user_config:
+        operator: ""
+      customer_config:
+        connection_type: "uart"
+    - dusn8: ""
+      pid: "0x007b"
+      connection:
+        uart:
+          type: "uart"
+          port: 'COM8'
+      user_config:
+        operator: ""
+      customer_config:
+        connection_type: "uart"
+    - dusn9: ""
+      pid: "0x007b"
+      connection:
+        uart:
+          type: "uart"
+          port: 'COM9'
+      user_config:
+        operator: ""
+      customer_config:
+        connection_type: "uart"
+    - dusn10: ""
+      pid: "0x007b"
+      connection:
+        uart:
+          type: "uart"
+          port: 'COM10'
+      user_config:
+        operator: ""
+      customer_config:
+        connection_type: "uart"
+    - dusn11: ""
+      pid: "0x007b"
+      connection:
+        uart:
+          type: "uart"
+          port: 'COM11'
+      user_config:
+        operator: ""
+      customer_config:
+        connection_type: "uart"
+    - dusn12: ""
+      pid: "0x007b"
+      connection:
+        uart:
+          type: "uart"
+          port: 'COM12'
+      user_config:
+        operator: ""
+      customer_config:
+        connection_type: "uart"
+BRINGUP_MT0:
+  pre_sequence: bringup_pre_sequence.yaml
+  finalize_sequence: bringup_finalize_seq.yaml
+  test_steps: "src.steps.stimulus_steps"
+  station: "BRINGUP_MT0"
+  allow_host: ["DMNM10278"]
+  layout: [1, 1]
+  cells:
+    - dusn: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          path: ""
+          pid: "0x0003"
+          vid: "0x2759"
+          idle_time: 0.1
+#        scanner:
+#          type: "uart"
+#          port: "COM15"
+#          baudrate: 115200
+#          parity: "E"
+      user_config:
+        operator: ""
+        product_line: "X"
+        special_mode: true
+
+#  groups:
+#    groupA: [0, 1, 2, 3]
+#    groupB: [4, 5, 6, 7]
+
+
+# 可选并发限制
+max_concurrent: 2

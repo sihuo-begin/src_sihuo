@@ -1,0 +1,37 @@
+steps:
+  - name: "Bringup - basic stimulus"
+    reference: "bringup_basic"
+    test_name: "bringup_basic"
+    pnum: 9001
+    method: "stimulus_flow"
+    retry: 0
+    params:
+      stimulus:
+        - action: wait
+          wait_s: 1.0
+
+        - action: send_receive
+          conn: usb
+          payload_format: hex
+          payload: "01 00 00 00 00"
+          timeout_s: 1.0
+          decode: hex
+
+        - action: send
+          conn: uart
+          payload_format: ascii
+          payload: "ENTER_MT\r\n"
+          timeout_s: 1.0
+          wait_s: 0.2
+
+        - action: send_receive
+          conn: uart
+          payload_format: ascii
+          payload: "STATUS?\r\n"
+          timeout_s: 1.0
+          decode: ascii
+
+      record:
+        artifact_dir: "c:/bringup/artifacts/bringup/new_product"
+        save_each_action: true
+        fail_on_no_rx: false

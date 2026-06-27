@@ -1,0 +1,105 @@
+steps:
+  - name: "READ_DUSN"
+    reference: "READ_DUSN"
+    method: "check_dusn"
+    pnum: "4501"
+    params:
+      error_code: "C0303"
+  - name: "PRECHECK_MT_MODE"
+    reference: "PRECHECK_MT_MODE"
+    method: "check_mt_mode"
+    pnum: "4502"
+    params:
+      error_code: "C0304"
+  - name: "READ_CODENTIFY"
+    reference: "READ_CODENTIFY"
+    method: "check_codentify_code_mt7vc"
+    pnum: "4503"
+    params:
+      error_code: "C0305"
+  - name: "BATTERY_LEVEL_TEST"
+    reference: "BATTERY_LEVEL_TEST"
+    method: "read_battery_code"
+    pnum: "4504"
+    params:
+      error_code: "C0306"
+  - name: "HAPTICS_OFF_TEST"
+    reference: "HAPTICS_OFF_TEST"
+    method: "haptics_off_test"   # POC Build Only
+#    stop_on_error: False    # POC Build Only
+    pnum: "4505"
+    params:
+      error_code: "C0308"
+  - name: "ACC_X_TEST"
+    reference: "ACC_X_TEST"
+    method: "accelerometer_x_test"
+    pnum: "4506"
+    params:
+      error_code: "C0309"
+  - name: "ACC_Y_TEST"
+    reference: "ACC_Y_TEST"
+    method: "accelerometer_y_test"
+    pnum: "4507"
+    params:
+      error_code: "C030A"
+  - name: "ACC_Z_TEST"
+    reference: "ACC_Z_TEST"
+    method: "accelerometer_z_test"
+    pnum: "4508"
+    params:
+      error_code: "C030B"
+  - name: "UNTOUCH0_TEST"
+    reference: "UNTOUCH0_TEST"
+    method: "untouch_button0_test"
+    pnum: "4509"
+    params:
+      error_code: "C0003"
+  - name: "UNTOUCH1_TEST"
+    reference: "UNTOUCH1_TEST"
+    method: "untouch_button1_test"
+    pnum: "4510"
+    params:
+      error_code: "C0004"
+  - name: "UNTOUCH2_TEST"
+    reference: "UNTOUCH2_TEST"
+    method: "untouch_button2_test"
+    pnum: "4511"
+    params:
+      error_code: "C0005"
+  - name: "BUTTON0_TEST"
+    reference: "BUTTON0_TEST"
+    method: "touch_button0_test"
+    pnum: "4512"
+    params:
+      error_code: "C030F"
+  - name: "BUTTON1_TEST"
+    reference: "BUTTON1_TEST"
+    method: "touch_button1_test"
+    pnum: "4513"
+    params:
+      error_code: "C0310"
+  - name: "BUTTON2_TEST"
+    reference: "BUTTON2_TEST"
+    method: "touch_button2_test"
+    pnum: "4514"
+    params:
+      error_code: "C0311"
+  - name: "HAPTICS_ON_TEST"
+    reference: "HAPTICS_ON_TEST"
+    method: "haptics_on_test"
+    pnum: "4515"
+    params:
+      error_code: "C0307"
+    retry: 3
+  - name: "READ_TEMPERATURE"
+    reference: "READ_TEMPERATURE"
+    method: "read_thermistor_temperature"
+    pnum: "4516"
+    params:
+      error_code: "C0006"
+#  - name: "EXIT_MT_MODE"
+#    reference: "EXIT_MT_MODE"
+#    method: "exit_mt_mode"
+#    pnum: "4517"
+#    params:
+#      error_code: "C0007"

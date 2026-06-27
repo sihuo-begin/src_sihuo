@@ -1,0 +1,18 @@
+steps:
+  - name: "scan_dut"
+    reference: "scan_dut"
+    method: "scan"
+    pnum: "2001"
+    params:
+      error_code: "2001"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+  - name: "detect_dut"
+    method: "detect_dut"
+    pnum: "2001"
+    limit:
+      equal: ""
+      unit: ""

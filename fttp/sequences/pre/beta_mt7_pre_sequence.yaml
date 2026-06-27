@@ -1,0 +1,28 @@
+steps:
+  - name: "Detect_Dut"
+    reference: "Detect_Dut"
+    method: "detect_dut"
+    pnum: "4000"
+    limit:
+      equal: ""
+      unit: ""
+  - name: "Initialize_Configs"
+    reference: "Initialize_Configs"
+    method: "initialize_configs"
+    pnum: "4001"
+    limit:
+      min: 0
+      max: 0
+      unit: ""
+  - name: "QR_Scan"
+    reference: "QR_Scan"
+    method: "qr_scan"
+    pnum: "4004"
+    params:
+      error_code: "0001"
+      scan_infor: "codentify_code"
+    limit:
+      min: 17
+      max: 17
+      equal: ""
+      unit: ""

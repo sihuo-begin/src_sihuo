@@ -1,0 +1,1072 @@
+Beta_charger_MT7BLE:
+  pre_sequence: ble_pre_sequence.yaml
+  finalize_sequence: ble_finalize_seq.yaml
+  test_steps: "src.steps.ble_steps"
+  trs_version: "1.0"
+  trs_reference: "CHARGER BETA MANUFACTURING TESTING SPECIFICATION MT7L"
+  pdims_rev: "R1"
+  fixture_id: "01"
+  layout: [1, 1]
+  codentify_code_display: True
+  device_name: 'ni_60001'
+  fixture_io:
+    uut: 'port0/line0'
+    start: 'port0/line1'
+  station: "Beta_charger_MT7BLE"
+  allow_host: ["DMNWTE51752"]
+#  allow_host: ["DMNM50872"]
+  golden_sn_path: "C:\\temp\\golden_sn.csv"
+  cells:
+    - dusn: ""
+      pid: "0x007b"
+      connection:
+        usb:
+          type: "usb"
+          path: ''
+          pid: "0x0003"
+          vid: "0x2759"
+          idle_time: 0.1
+        scanner:
+          type: "uart"
+          port: "COM5"
+          baudrate: 9600
+          parity: "E"
+
+      user_config:
+        auto_scan: true
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+        TBBUID: "MT7L_3AA02AHH"
+Beta_charger_MT7:
+  pre_sequence: beta_mt7_pre_sequence.yaml
+  finalize_sequence: mt7_finalize_seq.yaml
+  test_steps: "src.steps.charger_test_steps"
+  fixture_id: "01"
+  ble_stack_version: 0x03
+  ble_model_number: "M0046"
+  station_id:  MT7_3AA03ABC-04
+  codentify_code_display: True
+  site_code: 0x0004
+  fw_ver: "137.3.5"
+  sn_path: "C:\\P1V3"
+  trs_reference: "P1 CHARGER BETA MANUFACTURING TESTING SPECIFICATION MT7"
+  trs_version: "1.00"
+  platform_code: 0x0042
+  product_code: 0x007B
+  hardware_version: 0x01
+  layout: [1, 1]
+  ni_device: True
+  golden_unit_flag: False
+  fixture_io:
+    uut: 'port0/line0'
+    start: 'port0/line1'
+  station: "Beta_charger_MT7"
+  allow_host: ["DMNWTE51753", "DMNWTE51754", "DMNWTE51755", "DMNWTE51756",]
+  golden_sn_path: "C:\\temp\\golden_sn.csv"
+  cells:
+    - dusn: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          idle_time: 0.1
+        led_analyzer:
+          type: "uart"
+          port: "COM12" # pc on line
+#          port: "COM6"  # PC
+          baudrate: 57600
+        scanner:
+          type: "uart"
+          port: "COM9"
+          baudrate: 115200
+          parity: "E"
+Beta_MT1_charger:
+  pre_sequence: beta_mt1_pre_sequence.yaml
+  finalize_sequence: charger_mt1_finalize_seq.yaml
+  test_steps: "src.steps.charger_test_steps"
+  fixture_id: "01"
+  ble_stack_version: 0x03
+  station_id: Beta_MT7_01
+#  platform_code: 0x0033
+#  site_code: 0x0004
+#  product_code: 0x006A
+#  hardware_version: 0x05
+#  trs_reference: "HERMES MID CHARGER MANUFACTURING TESTING SPECIFICATION MT1"
+#  trs_version: "1.0.0"
+  platform_code: 0x0042
+  product_code: 0x007B
+  site_code: 0x0004
+  hardware_version: 0x01
+  trs_reference: "BETA CHARGER MANUFACTURING TESTING SPECIFICATION MT1"
+  trs_version: "1.0.0"
+  layout: [1, 1]
+  device_name: 'ni_60001'
+  fixture_io:
+    uut: 'port0/line0'
+    start: 'port0/line1'
+  station: "Beta_MT1_charger"
+  cells:
+    - dusn: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+Beta_charger_MT11C:
+  pre_sequence: beta_mt11c_pre_sequence.yaml
+  finalize_sequence: mt11c_finalize_seq.yaml
+  test_steps: "src.steps.charger_test_steps"
+  trs_reference: "P1 CHARGER BETA MANUFACTURING TESTING SPECIFICATION MT11C"
+  trs_version: "1.0.0"
+  fixture_id: "01"
+  ble_stack_version: 0x03
+  station_id: "charger_MT11c01"
+  codentify_code_display: True
+  site_code: 0x0004
+  fw_ver: "137.3.2"
+#  platform_code: 0x0033
+#  product_code: 0x006A
+#  hardware_version: 0x05
+  platform_code: 0x0042
+  product_code: 0x007B
+  hardware_version: 0x01
+  rwk_key_length: 274
+  layout: [8, 3]
+  ni_device: True
+  fixture_io:
+    uut: 'port0/line0'
+    start: 'port0/line1'
+  station: "Beta_charger_MT11C"
+  allow_host: ["DMNWTE51757", "DMNWTE51758", "DMNWTE51737", "DMNM50812"]
+  golden_sn_path: "C:\\temp\\golden_sn.csv"
+  cells:
+    - dusn1: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "8&10bb02fa&0&0000"
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn2: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "8&399c1c5c&0&0000"
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn3: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "8&26e26bb7&0&0000"
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn4: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "8&1428bb12&0&0000"
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn5: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "8&6f2044a&0&0000"
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn6: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "a&357271cf&0&0000"
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn7: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "a&24d6277d&0&0000"
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn8: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "a&121c76d8&0&0000"
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn9: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "8&3005dbc9&0&0000"
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn10: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "8&1d4c2b24&0&0000"
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn11: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "8&a927a7f&0&0000"
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn12: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "8&8273626&0&0000"
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn13: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "8&29ea4bb&0&0000"
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn14: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "a&1f4b0912&0&0000"
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn15: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "a&37ba98fc&0&0000"
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn16: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "a&2193303f&0&0000"
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn17: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "8&1eae7e7e&0&0000"
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn18: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "8&31682f23&0&0000"
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn19: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "8&88715c1&0&0000"
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn20: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "8&1b40c666&0&0000"
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn21: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "8&d013ad6&0&0000"
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn22: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "a&2a21d8f1&0&0000"
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn23: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "a&1768284c&0&0000"
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn24: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "a&4ae77a7&0&0000"
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+Beta_holder_MT7CTS:
+  pre_sequence: CTS_pre_sequence.yaml
+  finalize_sequence: CTS_finalize_seq.yaml
+  test_steps: "src.steps.cts_steps"
+  trs_version: "1.0"
+  trs_reference: "HOLDER BETA MANUFACTURING TESTING SPECIFICATION MT7CTS"
+  fixture_id: "01"
+  layout: [ 1, 1 ]
+  codentify_code_display: False
+  tester_port: "COM46"
+  fixture_io:
+    start: "S11"
+    pass: "S12"
+    fail: "S10"
+    scanner_ip: "192.168.100.100"
+  station: "Beta_holder_MT7CTS"
+  allow_host: ["DMNM10278"]
+  golden_sn_path: "c:\\temp\\golden_sn.csv"
+  TcpIpScanner: '192.168.100.100'
+  cells:
+    - dusn: ""
+      pid: "0x0066"
+      connection:
+        #        usb:
+        #          type: "usb"
+        #          pid: "0x0003"
+        #          vid: "0x2759"
+        serial_dut:
+          type: "serial"
+          port: "COM3"
+          baudrate: 38400
+      user_config:
+        product_line: "X"
+        special_mode: true
+        picture_path: "C:\\Users\\dmncolqi\\Desktop\\log\\PICS"
+        flexflow: true1
+        TBBUID: "MT7CTS_3AA02AHH"
+Beta_holder_MT7LED:
+  pre_sequence: holder_led_pre_sequence.yaml
+  finalize_sequence: holder_led_finalize_seq.yaml
+  test_steps: "src.steps.holder_led_steps"
+  trs_version: "1.0"
+  trs_reference: "HOLDER BETA MANUFACTURING TESTING SPECIFICATION MT7LED"
+  fixture_id: "01"
+  layout: [ 1, 1 ]
+  codentify_code_display: True
+  device_name: 'Dev1'
+  fixture_io:
+    start: 'port0/line0'
+    stop: 'port0/line1'
+    uut: 'port0/line2'
+    door_close: 'port0/line7'
+    fixture_in: 'port1/line1'
+    door_down: 'port1/line0'
+  scanner_ip: "192.168.100.100"
+  camera_ip: "192.168.200.200"
+  station: "Beta_holder_MT7LED"
+  allow_host: ["DMNM10278"]
+  golden_sn_path: "c:\\temp\\golden_sn.csv"
+  online: true
+  lens_color: "MID HOLDER"
+  uut_color:
+    1:
+      GARNET_RED: "0055"
+      REMIX_SILVER: "005a"
+    2:
+      BREEZE_BLUE: "0046"
+      REMIX_BLUE: "005a"
+    3:
+      MID_HOLDER: "0"
+    4:
+      MIDNIGHT_BLACK: "005a"
+    5:
+      ASPEN_GREEN: "004b"
+    6:
+      ELECTRIC_PURPLE: "005e"
+  cells:
+    - dusn: ""
+      pid: "0x007a"
+      connection:
+        serial_dut:
+          type: "serial"
+          port: "COM4"
+          baudrate: 38400
+      user_config:
+        operator: ""
+        scan_barcode: true
+        product_line: "X"
+        special_mode: true
+        TBBUID: "MT7LED_3AA01BBH-01"
+        SNPath: "c:\\P1V3\\SN"
+        SNResult: "c:\\P1V3\\SNResult"
+        SNCopy: "c:\\P1V3\\SNCopy"
+Beta_holder_Event_log_Check:
+  pre_sequence: event_pre_sequence.yaml
+  finalize_sequence: event_finalize_seq.yaml
+  test_steps: "src.steps.event_check_steps"
+  trs_version: "1.0"
+  trs_reference: "HOLDER BETA MANUFACTURING TESTING SPECIFICATION EVENT CHECK"
+  fixture_id: "01"
+  layout: [ 1, 1 ]
+  codentify_code_display: True
+  scan_barcode: true
+  station: "Beta_holder_Event_log_Check"
+  allow_host: ["DMNM10278"]
+  golden_sn_path: "c:\\temp\\golden_sn.csv"
+  cells:
+    - dusn: ""
+      pid: "0x007a"
+      connection:
+        #        usb:
+        #          type: "usb"
+        #          pid: "0x0003"
+        #          vid: "0x2759"
+        serial_dut:
+          type: "serial"
+          port: "COM5"
+          baudrate: 38400
+      user_config:
+        operator: ""
+        product_line: "X"
+        special_mode: true
+        flexflow: false
+        TBBUID: "EventLogCheck_3AT03ABH-01"
+        SNPath: "c:\\P1V3\\SN"
+        SNResult: "c:\\P1V3\\SNResult"
+        SNCopy: "c:\\P1V3\\SNCopy"
+Beta_holder_MT7VC:
+  pre_sequence: beta_holder_mt7vc_pre_seq.yaml
+  finalize_sequence: beta_holder_mt7vc_finalize_seq.yaml
+  test_steps: "src.steps.holder_test_steps"
+  codentify_code_display: True
+  site_code: '0004'
+  fixture_id: "01"
+  layout: [1, 1]
+  device_name: ''
+  trs_reference: "HOLDER BETA MANUFACTURING TESTING SPECIFICATION MT7VC"
+  trs_version: '01'
+  TBBUID: 'MT7VC_3AA01BBH-01'
+  motor: False
+  port_x: "COM5"
+  port_z: "COM6"
+  fixture_io:
+    uut: 'port0/line2'
+    start: 'port0/line0'
+  station: "Beta_holder_MT7VC"
+  allow_host: ["DMNM10271"]
+  golden_sn_path: "C:\\temp\\golden_sn.csv"
+  cells:
+    - dusn: ""
+      pid: ""
+      connection:
+        uart:
+          type: "uart"
+          port: 'COM3'
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+Beta_holder_MT11C:
+  pre_sequence: beta_holder_mt11c_pre_seq.yaml
+  finalize_sequence: beta_holder_mt11c_finalize_seq.yaml
+  test_steps: "src.steps.holder_test_steps"
+  trs_reference: "BETA HOLDER MANUFACTURING TESTING SPECIFICATION MT11C"
+  codentify_code_display: True
+  site_code: '0004'
+  TBBUID: 'HMT11C_3AT03ABH-01'
+  Fixture: "HVTE-M207646"
+  trs_version: '01'
+  fixture_id: "01"
+  layout: [8, 3]
+  device_name: ''
+  fixture_io:
+    uut: 'port0/line0'
+    start: 'port0/line1'
+  station: "Beta_holder_MT11C"
+  fw_ver: ["124.5.0", "102.6.0"]
+  allow_host: ["DMNM50813"]
+  golden_sn_path: "C:\\temp\\golden_sn.csv"
+  cells:
+    - dusn1: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "6&5311f42&0&0000"
+          idle_time: 0.4
+#        uart:
+#          type: "uart"
+#          port: 'COM3'
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn2: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "6&1c3672a&0&0000"
+          idle_time: 0.4
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn3: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "A&26D8A00&0&1"
+          idle_time: 0.4
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn4: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "6&172f066A&0&0000"
+          idle_time: 0.4
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn5: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "A&26D8A00&0&1"
+          idle_time: 0.4
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn6: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "A&26D8A00&0&1"
+          idle_time: 0.4
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn7: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "A&26D8A00&0&1"
+          idle_time: 0.4
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn8: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "A&26D8A00&0&1"
+          idle_time: 0.4
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn9: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "A&26D8A00&0&1"
+          idle_time: 0.4
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn10: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "A&26D8A00&0&1"
+          idle_time: 0.4
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn11: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "A&26D8A00&0&1"
+          idle_time: 0.4
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn12: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "A&26D8A00&0&1"
+          idle_time: 0.4
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn13: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "A&26D8A00&0&1"
+          idle_time: 0.4
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn14: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "6&1c3672a&0&0000"
+          idle_time: 0.4
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn15: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "A&26D8A00&0&1"
+          idle_time: 0.4
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn16: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "6&172f066A&0&0000"
+          idle_time: 0.4
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+        trs_reference: "BETA HOLDER MANUFACTURING TESTING SPECIFICATION MT11C"
+        TBBUID: 'HMT11C_3AT03ABH-01'
+    - dusn17: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "A&26D8A00&0&1"
+          idle_time: 0.4
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn18: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "A&26D8A00&0&1"
+          idle_time: 0.4
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn19: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "A&26D8A00&0&1"
+          idle_time: 0.4
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn20: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "A&26D8A00&0&1"
+          idle_time: 0.4
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn21: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "A&26D8A00&0&1"
+          idle_time: 0.4
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn22: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "A&26D8A00&0&1"
+          idle_time: 0.4
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn23: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "A&26D8A00&0&1"
+          idle_time: 0.4
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+    - dusn24: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+          path: "A&26D8A00&0&1"
+          idle_time: 0.4
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+Beta_MT1_holder_control:
+  pre_sequence: beta_holder_mt1_pre_seq.yaml
+  finalize_sequence: beta_holder_mt1_finalize_seq.yaml
+  test_steps: "src.steps.holder_test_steps"
+  trs_reference: "BETA CONTROL MANUFACTURING TESTING SPECIFICATION MT1"
+  trs_version: '01'
+  TBBUID: 'BB_AssyDUSN_3AA01BBH'
+  fixture_id: "01"
+  layout: [1, 1]
+  device_name: ''
+  fixture_io:
+    uut: 'port0/line0'
+    start: 'port0/line1'
+  station: "Beta_MT1_holder_control"
+  cells:
+    - dusn: ""
+      pid: ""
+      connection:
+        uart:
+          type: "uart"
+          port: 'COM7'
+#        serial:
+#          type: "serial"
+#          port: "COM5"
+#          baudrate: 38400
+      user_config:
+        operator: ""
+      customer_config:
+        product_line: "X"
+        special_mode: true
+Rd_MT0:
+  pre_sequence: rd_pre_sequence.yaml
+  finalize_sequence: rd_finialize.yaml
+  test_steps: "src.steps.rd_debug_steps"
+  layout: [1, 1]
+  station: "rd_MT0"
+  allow_host: ["DMNM10278"]
+  cells:
+    - dusn: ""
+      pid: ""
+      connection:
+#        uart:
+#          type: "uart"
+#          port: 'COM5'
+        usb:
+          type: "usb"
+          pid: "0x0003"
+          vid: "0x2759"
+      user_config:
+        operator: ""
+      customer_config:
+        connection_type: "uart"
+BRINGUP_MT0:
+  pre_sequence: bringup_pre_sequence.yaml
+  finalize_sequence: bringup_finalize_seq.yaml
+  test_steps: "src.steps.stimulus_steps"
+  station: "BRINGUP_MT0"
+  allow_host: ["DMNM10278"]
+  layout: [1, 1]
+  cells:
+    - dusn: ""
+      pid: ""
+      connection:
+        usb:
+          type: "usb"
+          path: ""
+          pid: "0x0003"
+          vid: "0x2759"
+          idle_time: 0.1
+#        scanner:
+#          type: "uart"
+#          port: "COM15"
+#          baudrate: 115200
+#          parity: "E"
+      user_config:
+        operator: ""
+        product_line: "X"
+        special_mode: true
+
+#  groups:
+#    groupA: [0, 1, 2, 3]
+#    groupB: [4, 5, 6, 7]
+
+
+# 可选并发限制
+max_concurrent: 2

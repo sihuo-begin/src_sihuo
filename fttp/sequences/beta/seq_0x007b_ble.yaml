@@ -1,0 +1,153 @@
+steps:
+  - name: "scan_vsn"
+    reference: "scan_vsn"
+    method: "scan_vsn"
+    pnum: "4302"
+    params:
+      color: "red"
+      module: "charger"
+      error_code: "C4302"
+    limit:
+      min: 25
+      unit: ""
+  - name: "read_dusn"
+    reference: "read_dusn"
+    method: "read_dusn"
+    pnum: "4303"
+    params:
+      error_code: "C4303"
+    limit:
+      min: 0
+      max: 0
+      unit: ""
+  - name: "TBBUID"
+    reference: "TBBUID"
+    method: "read_station"
+    pnum: "4304"
+    params:
+      error_code: "C4304"
+    limit:
+      min: 0
+      max: 0
+      unit: ""
+  - name: "MT_MODE"
+    reference: "MT_MODE"
+    method: "check_mtmode"
+    pnum: "4305"
+    params:
+      error_code: "C4305"
+    limit:
+      min: 0
+      max: 0
+      unit: ""
+  - name: "ble_tx_ch0_neg20dB"
+    reference: "ble_tx_ch0_neg20dB"
+    method: "ble_tx_test"
+    pnum: "4306"
+    params:
+      freq: 2404
+      ch: "ch0"
+      power: -20
+      serial_port: "COM18"
+      error_code: "C4306"
+    limit:
+      min: -90
+      max: -18
+      unit: ""
+  - name: "ble_tx_ch0_6dB"
+    reference: "ble_tx_ch0_6dB"
+    method: "ble_tx_test"
+    pnum: "4307"
+    params:
+      freq: 2404
+      ch: "ch0"
+      power: 6
+      serial_port: "COM18"
+      error_code: "C4307"
+    limit:
+      min: 0
+      max: 0
+      unit: ""
+  - name: "ble_tx_ch18_neg20dB"
+    reference: "ble_tx_ch18_neg20dB"
+    method: "ble_tx_test"
+    pnum: "4308"
+    params:
+      freq: 2442
+      ch: "ch18"
+      power: -20
+      serial_port: "COM18"
+      error_code: "C4308"
+    limit:
+      min: 0
+      max: 0
+      unit: ""
+  - name: "ble_tx_ch18_6dB"
+    reference: "ble_tx_ch18_6dB"
+    method: "ble_tx_test"
+    pnum: "4309"
+    params:
+      freq: 2442
+      ch: "ch18"
+      power: 6
+      serial_port: "COM18"
+      error_code: "C4309"
+    limit:
+      min: 0
+      max: 0
+      unit: ""
+  - name: "ble_tx_ch36_neg20dB"
+    reference: "ble_tx_ch36_neg20dB"
+    method: "ble_tx_test"
+    pnum: "4310"
+    params:
+      freq: 2478
+      ch: "ch36"
+      power: -20
+      serial_port: "COM18"
+      error_code: "C4310"
+    limit:
+      min: 0
+      max: 0
+      unit: ""
+  - name: "ble_tx_ch36_6dB"
+    reference: "ble_tx_ch36_6dB"
+    method: "ble_tx_test"
+    pnum: "4311"
+    params:
+      freq: 2478
+      ch: "ch36"
+      power: 6
+      serial_port: "COM18"
+      error_code: "C4311"
+    limit:
+      min: 0
+      max: 0
+      unit: ""
+  - name: "ble_rx"
+    reference: "ble_rx"
+    method: "ble_rx_test"
+    pnum: "4312"
+    params:
+      freq: 2404
+      power: 0
+      serial_port: "COM18"
+      error_code: "C4312"
+    limit:
+      min: 0
+      max: 0
+      unit: ""
+
+  - name: "End_RF"
+    reference: "End_RF"
+    method: "end_rf"
+    pnum: "4313"
+    params:
+      freq: 2404
+      power: 0
+      serial_port: "COM18"
+      error_code: "C4313"
+    limit:
+      min: 0
+      max: 0
+      unit: ""

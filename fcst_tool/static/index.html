@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FCST Waterfall 比对工具</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; background: #f5f7fa; color: #2c3e50; line-height: 1.6; }
+.container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+header { background: linear-gradient(135deg, #0066CC 0%, #4A90D9 100%); color: #fff; padding: 32px 24px; border-radius: 12px; margin-bottom: 24px; box-shadow: 0 4px 16px rgba(0,102,204,0.15); }
+header h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+header p { opacity: 0.92; font-size: 14px; }
+.card { background: #fff; border-radius: 10px; padding: 24px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.card h2 { font-size: 18px; color: #0066CC; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid #E8F4FD; }
+.card .hint { color: #7a8a99; font-size: 13px; margin-bottom: 16px; }
+.upload-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
+@media (max-width: 768px) { .upload-grid { grid-template-columns: 1fr; } }
+.upload-cell { border: 2px dashed #c5d6e6; border-radius: 8px; padding: 20px; text-align: center; transition: all 0.2s; cursor: pointer; position: relative; background: #fafbfc; }
+.upload-cell:hover { border-color: #0066CC; background: #f0f7ff; }
+.upload-cell.has-file { border-style: solid; border-color: #2ecc71; background: #eafaf1; }
+.upload-cell input[type=file] { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.upload-cell .icon { font-size: 32px; color: #5B9BD5; margin-bottom: 8px; }
+.upload-cell .label { font-size: 14px; font-weight: 600; color: #2c3e50; }
+.upload-cell .filename { font-size: 11px; color: #7a8a99; margin-top: 6px; word-break: break-all; }
+.upload-cell .size { font-size: 11px; color: #95a5a6; margin-top: 2px; }
+.form-row { display: flex; gap: 12px; align-items: center; margin-top: 16px; }
+.form-row label { font-size: 14px; font-weight: 600; min-width: 90px; }
+.form-row input[type=text] { flex: 1; padding: 10px 12px; border: 1px solid #d6dde5; border-radius: 6px; font-size: 14px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border: none; border-radius: 6px; font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.2s; text-decoration: none; }
+.btn-primary { background: #0066CC; color: #fff; }
+.btn-primary:hover:not(:disabled) { background: #0052a3; transform: translateY(-1px); }
+.btn-primary:disabled { background: #b3c5d6; cursor: not-allowed; }
+.btn-success { background: #27ae60; color: #fff; }
+.btn-success:hover { background: #1e8449; }
+.btn-secondary { background: #ecf0f1; color: #5a6c7d; }
+.actions { display: flex; gap: 12px; margin-top: 16px; }
+.progress-box { display: none; margin-top: 16px; padding: 16px; background: #f8fafc; border-radius: 8px; border-left: 4px solid #0066CC; }
+.progress-box.active { display: block; }
+.progress-bar { height: 8px; background: #e1e8ef; border-radius: 4px; overflow: hidden; margin-bottom: 12px; }
+.progress-bar > div { height: 100%; background: linear-gradient(90deg, #0066CC, #4A90D9); transition: width 0.3s; width: 0%; }
+.log { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 12px; background: #1e272e; color: #c8d3de; padding: 12px; border-radius: 6px; max-height: 200px; overflow-y: auto; }
+.log div { padding: 2px 0; }
+.log .err { color: #ff6b6b; }
+.log .ok { color: #51cf66; }
+.result { display: none; margin-top: 16px; padding: 20px; background: #eafaf1; border: 1px solid #2ecc71; border-radius: 8px; }
+.result.active { display: block; }
+.result h3 { color: #27ae60; margin-bottom: 12px; }
+.sheet-list { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 12px 0; }
+@media (max-width: 768px) { .sheet-list { grid-template-columns: repeat(2, 1fr); } }
+.sheet-tag { background: #fff; border: 1px solid #d6e9d6; padding: 8px 12px; border-radius: 4px; font-size: 12px; text-align: center; }
+.sheet-tag .name { font-weight: 600; color: #2c3e50; }
+.sheet-tag .desc { color: #7a8a99; font-size: 11px; margin-top: 2px; }
+footer { text-align: center; color: #95a5a6; font-size: 12px; padding: 24px 0; }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>📊 FCST Waterfall 比对工具</h1>
+    <p>上传 3 份从客户收到的 FCST 报表，自动生成 7 个维度的差异比对 (项目工程师标准格式)</p>
+  </header>
+
+  <div class="card">
+    <h2>① 上传 FCST 报表</h2>
+    <p class="hint">3 份 xlsx 文件按时间顺序上传：最早 → 中间 → 最新 (例: WK21 → WK22 → WK23)</p>
+    <div class="upload-grid">
+      <label class="upload-cell" id="cell-wk21">
+        <div class="icon">📄</div>
+        <div class="label">Snapshot 1 (最早)</div>
+        <div class="filename" id="name-wk21">点击或拖入 .xlsx</div>
+        <div class="size" id="size-wk21"></div>
+        <input type="file" accept=".xlsx" data-slot="wk21">
+      </label>
+      <label class="upload-cell" id="cell-wk22">
+        <div class="icon">📄</div>
+        <div class="label">Snapshot 2 (中间)</div>
+        <div class="filename" id="name-wk22">点击或拖入 .xlsx</div>
+        <div class="size" id="size-wk22"></div>
+        <input type="file" accept=".xlsx" data-slot="wk22">
+      </label>
+      <label class="upload-cell" id="cell-wk23">
+        <div class="icon">📄</div>
+        <div class="label">Snapshot 3 (最新)</div>
+        <div class="filename" id="name-wk23">点击或拖入 .xlsx</div>
+        <div class="size" id="size-wk23"></div>
+        <input type="file" accept=".xlsx" data-slot="wk23">
+      </label>
+    </div>
+
+    <div class="form-row">
+      <label>报表名称：</label>
+      <input type="text" id="output-name" value="FCST_Waterfall_比对" placeholder="下载时的文件名">
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-primary" id="btn-generate" disabled>
+        🚀 生成比对报表
+      </button>
+      <button class="btn btn-secondary" id="btn-clear">清空</button>
+    </div>
+  </div>
+
+  <div class="card progress-box" id="progress-box">
+    <h2>② 处理进度</h2>
+    <div class="progress-bar"><div id="progress-bar"></div></div>
+    <div class="log" id="log"></div>
+  </div>
+
+  <div class="card result" id="result">
+    <h2>③ 生成完成 ✅</h2>
+    <p>报表已生成,包含以下 8 个 Sheet：</p>
+    <div class="sheet-list" id="sheet-list"></div>
+    <div class="actions">
+      <a class="btn btn-success" id="btn-download" href="#">⬇️ 下载报表</a>
+      <button class="btn btn-secondary" id="btn-reset">生成下一份</button>
+    </div>
+  </div>
+
+  <footer>
+    FCST Waterfall Tool · 数据仅在本机处理,不上传云端 · 引擎 v1.0
+  </footer>
+</div>
+
+<script>
+const files = { wk21: null, wk22: null, wk23: null };
+
+document.querySelectorAll('.upload-cell input[type=file]').forEach(inp => {
+  inp.addEventListener('change', e => {
+    const slot = inp.dataset.slot;
+    const f = e.target.files[0];
+    if (!f) return;
+    files[slot] = f;
+    document.getElementById('name-' + slot).textContent = f.name;
+    document.getElementById('size-' + slot).textContent = (f.size / 1024).toFixed(1) + ' KB';
+    document.getElementById('cell-' + slot).classList.add('has-file');
+    checkReady();
+  });
+});
+
+function checkReady() {
+  document.getElementById('btn-generate').disabled = !(files.wk21 && files.wk22 && files.wk23);
+}
+
+document.getElementById('btn-clear').onclick = () => {
+  files.wk21 = files.wk22 = files.wk23 = null;
+  ['wk21','wk22','wk23'].forEach(s => {
+    document.getElementById('name-' + s).textContent = '点击或拖入 .xlsx';
+    document.getElementById('size-' + s).textContent = '';
+    document.getElementById('cell-' + s).classList.remove('has-file');
+    document.querySelector(`[data-slot="${s}"]`).value = '';
+  });
+  document.getElementById('btn-generate').disabled = true;
+  document.getElementById('progress-box').classList.remove('active');
+  document.getElementById('result').classList.remove('active');
+};
+
+document.getElementById('btn-generate').onclick = async () => {
+  const btn = document.getElementById('btn-generate');
+  btn.disabled = true;
+  btn.textContent = '⏳ 处理中...';
+
+  document.getElementById('progress-box').classList.add('active');
+  document.getElementById('result').classList.remove('active');
+  document.getElementById('log').innerHTML = '';
+  document.getElementById('progress-bar').style.width = '0%';
+
+  const form = new FormData();
+  form.append('wk21', files.wk21);
+  form.append('wk22', files.wk22);
+  form.append('wk23', files.wk23);
+  form.append('output_name', document.getElementById('output-name').value || 'FCST_Waterfall_比对');
+
+  try {
+    const resp = await fetch('/api/generate', { method: 'POST', body: form });
+    if (!resp.ok) {
+      const t = await resp.text();
+      throw new Error('上传失败: ' + t);
+    }
+    const { task_id } = await resp.json();
+    addLog('任务已创建: ' + task_id, 'ok');
+
+    // 轮询状态
+    const poll = setInterval(async () => {
+      try {
+        const r = await fetch('/api/status/' + task_id);
+        const s = await r.json();
+        const bar = document.getElementById('progress-bar');
+        bar.style.width = s.progress + '%';
+        renderLog(s.messages);
+
+        if (s.status === 'done') {
+          clearInterval(poll);
+          addLog('✅ 报表生成完成!', 'ok');
+          showResult(task_id, s.output_name);
+        } else if (s.status === 'error') {
+          clearInterval(poll);
+          addLog('❌ 处理失败: ' + s.error, 'err');
+          btn.disabled = false;
+          btn.textContent = '🚀 生成比对报表';
+        }
+      } catch (e) {
+        addLog('轮询错误: ' + e.message, 'err');
+      }
+    }, 800);
+  } catch (e) {
+    addLog('错误: ' + e.message, 'err');
+    btn.disabled = false;
+    btn.textContent = '🚀 生成比对报表';
+  }
+};
+
+function addLog(msg, cls='') {
+  const log = document.getElementById('log');
+  const d = document.createElement('div');
+  d.textContent = msg;
+  if (cls) d.className = cls;
+  log.appendChild(d);
+  log.scrollTop = log.scrollHeight;
+}
+
+function renderLog(messages) {
+  const log = document.getElementById('log');
+  log.innerHTML = '';
+  messages.forEach(m => {
+    const d = document.createElement('div');
+    d.textContent = m;
+    if (m.includes('✅') || m.includes('完成')) d.className = 'ok';
+    if (m.includes('❌') || m.includes('错误')) d.className = 'err';
+    log.appendChild(d);
+  });
+  log.scrollTop = log.scrollHeight;
+}
+
+function showResult(taskId, filename) {
+  document.getElementById('result').classList.add('active');
+  document.getElementById('btn-download').href = '/api/download/' + taskId;
+  document.getElementById('btn-download').textContent = '⬇️ 下载 ' + filename;
+
+  const sheets = [
+    ['Summary', '整体指标 + 索引'],
+    ['V_Kit_Holder', 'VERSION + Kit/Holder'],
+    ['V_Kit_PC', 'VERSION + Kit/PC'],
+    ['V_Kit_Holder_Color', 'V + IG + Color'],
+    ['V_Kit_PC_Color', 'V + IG + Color'],
+    ['V_Kit_Holder_Market', 'V + IG + Market'],
+    ['V_Kit_PC_Market', 'V + IG + Market'],
+    ['SKU', '按 SKU 明细'],
+  ];
+  const list = document.getElementById('sheet-list');
+  list.innerHTML = '';
+  sheets.forEach(([n, d]) => {
+    const e = document.createElement('div');
+    e.className = 'sheet-tag';
+    e.innerHTML = `<div class="name">${n}</div><div class="desc">${d}</div>`;
+    list.appendChild(e);
+  });
+
+  document.getElementById('btn-generate').textContent = '🚀 生成比对报表';
+  document.getElementById('btn-generate').disabled = false;
+  checkReady();
+}
+
+document.getElementById('btn-reset').onclick = () => {
+  document.getElementById('btn-clear').click();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+</script>
+</body>
+</html>

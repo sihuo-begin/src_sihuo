@@ -1,0 +1,12 @@
+steps:
+  - name: "detect_dut"
+    method: "detect_dut"
+    pnum: "7001"
+    params:
+      # 支持输入"3f08c044..."或"3f 08 c0..."格式
+      cmd: [ "3f08c0010015" ]
+      hop_count: 1
+      delay: 1.0
+    limit:
+      equal: ""
+      unit: ""

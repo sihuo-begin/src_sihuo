@@ -1,0 +1,42 @@
+
+pre_sequence: pre_sequence.yaml
+
+finalization_file: finalize_seq.yaml
+
+
+#product_code + station
+sequence_map:
+  Beta_charger_MT7BLE_0x006a: seq_0x006a.yaml
+  Beta_charger_MT7_006a: hermes_charger_mt7_seq.yaml
+  Beta_charger_MT7_007b: beta_charger_mt7_seq.yaml
+  Beta_MT1_charger_006a: hermes_charger_mt1_seq.yaml
+  Beta_MT1_charger_007b: beta_charger_mt1_seq.yaml
+  Beta_charger_MT11C_006a: hermes_charger_mt11c_seq.yaml
+  Beta_charger_MT11C_007b: beta_charger_mt11c_seq.yaml
+  Beta_charger_MT7BLE_007b: seq_0x007b_ble.yaml
+  Beta_charger_MT7BLE_006a: seq_0x007b_ble.yaml
+  Beta_charger_MT7BLE_0069: seq_0x007b_ble.yaml
+  Beta_holder_MT7VC_0066: beta_seq_0x007a_mt7vc_1.yaml
+  Beta_holder_MT11C_0066: beta_seq_0x007a_mt11c_evt_1.yaml
+  Beta_MT1_holder_control_007a: beta_seq_0x007a_mt1.yaml
+  Beta_holder_MT7VC_007a: beta_seq_0x007a_mt7vc.yaml
+  Beta_holder_MT11C_007a: beta_seq_0x007a_mt11c_evt.yaml
+  Beta_holder_MT7CTS_007a: seq_0x007a_CTS.yaml
+  Beta_holder_MT7CTS_0066: seq_0x007a_CTS.yaml
+  Beta_holder_Event_log_Check_007a: seq_0x007a_event_check.yaml
+  Beta_holder_Event_log_Check_0066: seq_0x007a_event_check.yaml
+  Beta_holder_MT7LED_007a: seq_0x007a_holder_led.yaml
+  Beta_holder_MT7LED_0066: seq_0x007a_holder_led.yaml
+  Beta_holder_MT7VC_0x0066: seq_0x0066vc.yaml
+  Beta_holder_MT11C_0x0066: seq_0x006611c.yaml
+  Beta_MT1_holder_control_0x007A: seq_0x0066mt3.yaml
+  Beta_holder_MT7VC_0x007a: seq_0x0066vc.yaml
+  Beta_holder_MT11C_0x007a: seq_0x006611c.yaml
+  Eaglemono_MT2_007f: eaglemono_rf_mt2_default.yaml
+  rd_MT0_000a: seq_000a.yaml
+  Eaglemono_MT1_007f: eagle_mono_mt1_sequence.yaml
+
+auto_restart: 1
+
+# 可选并发限制
+max_concurrent: 2

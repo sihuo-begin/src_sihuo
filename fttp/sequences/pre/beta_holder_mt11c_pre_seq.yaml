@@ -1,0 +1,29 @@
+steps:
+  - name: "TBBUID"
+    reference: "TBBUID"
+    method: "start_test"
+    board_type: 'control'
+    pnum: "5001"
+    params:
+      error_code: "C0004"
+  - name: "TBBUID"
+    reference: "TBBUID"
+    method: "read_station"
+    board_type: 'engine'
+    pnum: "5001"
+    params:
+      error_code: "N0004"
+  - name: "TEST_CAVITY"
+    reference: "TEST_CAVITY"
+    board_type: 'control'
+    method: "get_cell_number"
+    pnum: "5002"
+    params:
+      error_code: "C0001"
+  - name: "TEST_CAVITY"
+    reference: "TEST_CAVITY"
+    board_type: 'engine'
+    method: "get_cell_number"
+    pnum: "5002"
+    params:
+      error_code: "N0001"

@@ -1,0 +1,108 @@
+steps:
+  - name: "WT_CONNECT_TESTER"
+    reference: "WT_CONNECT_TESTER"
+    method: "wt_connect_tester"
+    pnum: "2001"
+    params:
+      error_code: "2001"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_INIT_DUT"
+    reference: "WT_INIT_DUT"
+    method: "wt_init_dut"
+    pnum: "2002"
+    params:
+      error_code: "2002"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_INSERT_DUT"
+    reference: "WT_INSERT_DUT"
+    method: "wt_insert_dut"
+    pnum: "2003"
+    params:
+      error_code: "2003"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_CAL_START"
+    reference: "WT_CAL_START"
+    method: "rf_mp_init"
+    pnum: "2004"
+    params:
+      error_code: "2004"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_SAVE_CAL_DATA"
+    reference: "WT_SAVE_CAL_DATA"
+    method: "save_calibration_data"
+    pnum: "2102"
+    params:
+      error_code: "2102"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_WRITE_EFUSE"
+    reference: "WT_WRITE_EFUSE"
+    method: "write_efuse"
+    pnum: "2103"
+    params:
+      error_code: "2103"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_CHECK_EFUSE_WRITE"
+    reference: "WT_CHECK_EFUSE_WRITE"
+    method: "check_efuse_write"
+    pnum: "2104"
+    params:
+      error_code: "2104"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_FINISH"
+    reference: "WT_FINISH"
+    method: "rf_mp_finish"
+    pnum: "2105"
+    params:
+      error_code: "2105"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+
+  - name: "WT_DISCONNECT_TESTER"
+    reference: "WT_DISCONNECT_TESTER"
+    method: "wt_disconnect_tester"
+    pnum: "2106"
+    params:
+      error_code: "2106"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""

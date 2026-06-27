@@ -1,0 +1,58 @@
+steps:
+  - name: "Bringup: Acquire Evidence Pack"
+    reference: "bringup_acquire"
+    test_name: "bringup_acquire"
+    pnum: 9001
+    method: "stimulus_flow"
+    retry: 0
+    params:
+      meta:
+        station: "BRINGUP_Beta_charger_MT7BLE"
+        product_hint: "UNKNOWN"
+        sequence_file: "bringup_pre_sequence.yaml"
+      record:
+        # 建议按 station 分目录，避免不同站位混在一起
+        artifact_dir: "artifacts/bringup/BRINGUP_Beta_charger_MT7BLE"
+        save_each_action: true
+        stop_on_infra_error: true
+      stimulus:
+        # 0) 稳定等待
+        - action: wait
+          wait_s: 1.0
+
+        # 1) USB 连接探测/握手（示例：你换成真实命令）
+        - action: send_receive
+          conn: usb
+          payload_format: hex
+          payload: "01 00 00 00 00"
+          timeout_s: 1.0
+          decode: hex
+          wait_s: 0.05
+
+        # 2) USB 读取身份信息（示例：你换成真实命令）
+        - action: send_receive
+          conn: usb
+          payload_format: hex
+          payload: "02 00 00 00 00"
+          timeout_s: 1.0
+          decode: hex
+          wait_s: 0.05
+
+        # 3) 可选：轮询直到有响应（如果设备上电后需要时间）
+        - action: poll
+          conn: usb
+          payload_format: hex
+          payload: "02 00 00 00 00"
+          timeout_s: 0.5
+          poll_timeout_s: 5.0
+          poll_interval_s: 0.2
+          decode: hex
+          wait_s: 0.05
+
+        # 4) 可选：scanner / uart（如果你有串口刺激）
+        # - action: send_receive
+        #   conn: scanner
+        #   payload_format: ascii
+        #   payload: "STATUS?\r\n"
+        #   timeout_s: 1.0
+        #   decode: ascii

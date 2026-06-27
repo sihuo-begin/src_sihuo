@@ -1,0 +1,19 @@
+steps:
+  - name: "start_test"
+    reference: "start_test"
+    method: "detect_dut"
+    pnum: "4300"
+    limit:
+      equal: ""
+      unit: ""
+#  - name: "detect_dut"
+#    reference: "detect_dut"
+#    method: "detect_dut"
+#    pnum: "4301"
+#    params:
+#      color: "red"
+#      module: "charger"
+#      error_code: "C4301"
+#    limit:
+#      min: 25
+#      unit: ""

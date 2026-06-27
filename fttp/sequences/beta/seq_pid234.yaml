@@ -1,0 +1,10 @@
+steps:
+  - name: "Check voltage"
+    method: "check_voltage"
+    params: { min: 3.1, max: 3.4 }
+  - name: "Check current"
+    method: "check_current"
+    params: { min: 0.7, max: 1.1 }
+  - name: "Long dummy test"
+    method: "dummy_long_test"
+    params: {}

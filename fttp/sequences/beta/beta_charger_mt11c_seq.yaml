@@ -1,0 +1,229 @@
+steps:
+#  - name: "SCAN_CODENTIFY_CODE"
+#    reference: "SCAN_CODENTIFY_CODE"
+#    method: "scan_device_barcode"
+#    pnum: "5025"
+#    params:
+#      error_code: "0022"
+#    limit:
+#      min: 17
+#      max: 17
+#      equal: 17
+#      unit: ""
+  - name: "TBBUID"
+    reference: "TBBUID"
+    method: "read_station_id"
+    pnum: "5003"
+    params:
+      error_code: "0020"
+    limit:
+      min: 0
+      max: 0
+      unit: ""
+#  - name: "READ_CHARGER_PCBA_CODENTIFIER"
+#    reference: "READ_CHARGER_PCBA_CODENTIFIER"
+#    method: "check_codentify_code"
+#    pnum: "5004"
+#    params:
+#      error_code: "0002"
+#    retry: 5
+#    unit: ""
+  - name: "TEST_CAVITY"
+    reference: "TEST_CAVITY"
+    method: "logging_test_cell"
+    pnum: "5005"
+    params:
+      error_code: "001E"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+#  - name: "LOG_BUILD_NUMBER"
+#    reference: "LOG_BUILD_NUMBER"
+#    method: "logging_build_number"
+#    pnum: "5006"
+#    params:
+#      error_code: "001D"
+#    limit:
+#      min: 0
+#      max: 0
+#      equal: "10"
+#    unit: ""
+  - name: "CHARGER_PCA_DUSN"
+    reference: "CHARGER_PCA_DUSN"
+    method: "read_dusn"
+    pnum: "5008"
+    params:
+      error_code: "0004"
+      first_time_read: True
+    retry: 5
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+  - name: "QUERY_CHARGER_PCBA_EXIT_MT_MODE"
+    reference: "QUERY_CHARGER_PCBA_EXIT_MT_MODE"
+    method: "check_exit_mt_mode"
+    pnum: "5009"
+    params:
+      error_code: "0018"
+    limit:
+      min: 0
+      max: 0
+      equal: "0"
+  - name: "CONTROL_UNLOCK_DEVICE"
+    reference: "CONTROL_UNLOCK_DEVICE"
+    method: "control_unlock_device"
+    pnum: "5010"
+    params:
+      error_code: "0009"
+    limit:
+      min: 0
+      max: 0
+      equal: "0"
+  - name: "CHARGER_SOFTWARE_ID_PARAMETER_LIST_VERSION"
+    reference: "CHARGER_SOFTWARE_ID_PARAMETER_LIST_VERSION"
+    method: "read_fw_id"
+    pnum: "5011"
+    params:
+      error_code: "0005"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+  - name: "CHARGER_PCA_TIME_SYNCHRONIZATION"
+    reference: "CHARGER_PCA_TIME_SYNCHRONIZATION"
+    method: "utc_time_sync"
+    pnum: "5012"
+    params:
+      error_code: "0019"
+      read_only: True
+    limit:
+      min: 0
+      max: 0
+      equal: "0x0"
+    unit: ""
+  - name: "CHARGER_PCA_DUSN_AFTER_RESET"
+    reference: "CHARGER_PCA_DUSN_AFTER_RESET"
+    method: "reset_dut"
+    pnum: "5013"
+    params:
+      error_code: "0007"
+    limit:
+      min: 0
+      max: 0
+      equal: "0000"
+  - name: "QUERY_SELF_TEST_RESULT"
+    reference: "QUERY_SELF_TEST_RESULT"
+    method: "self_test_result"
+    pnum: "5014"
+    params:
+      error_code: "0008"
+    limit:
+      min: 0
+      max: 0
+      equal: "0x0"
+    unit: ""
+  - name: "CHARGER_VBATT_VOLTAGE_INITIAL"
+    reference: "CHARGER_VBATT_VOLTAGE_INITIAL"
+    method: "read_battery_level"
+    pnum: "5015"
+    params:
+      error_code: "0012"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+  - name: "CHARGER_VBATT_VOLTAGE_PERCENT_INITIAL"
+    reference: "CHARGER_VBATT_VOLTAGE_PERCENT_INITIAL"
+    method: "read_battery_percentage"
+    pnum: "5016"
+    params:
+      error_code: "000B"
+    limit:
+      min: 0
+      max: 0
+      equal: "16"
+    unit: ""
+  - name: "VBATT_WITHIN_LIMITS_LOGGING"
+    reference: "VBATT_WITHIN_LIMITS_LOGGING"
+    method: "check_battery_capacity_validation"
+    pnum: "5019"
+    params:
+      error_code: "0010"
+    limit:
+      min: 0
+      max: 0
+      equal: "0x0"
+    unit: ""
+  - name: "MT11C_LIMITS_LOGGING"
+    reference: "MT11C_LIMITS_LOGGING"
+    method: "final_check_battery_capacity"
+    pnum: "5017"
+    params:
+      error_code: "000A"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+  - name: "CHARGER_VBATT_VOLTAGE_AFTER_INITAL"
+    reference: "CHARGER_VBATT_VOLTAGE_AFTER_INITAL"
+    method: "read_battery_level"
+    pnum: "5020"
+    params:
+      error_code: "0015"
+    limit:
+      min: 0
+      max: 0
+      equal: "0x0"
+    unit: ""
+  - name: "CHARGER_VBATT_VOLTAGE_PERCENT_AFTER_INITIAL"
+    reference: "CHARGER_VBATT_VOLTAGE_PERCENT_AFTER_INITIAL"
+    method: "final_check_battery_capacity"
+    pnum: "5021"
+    params:
+      error_code: "0017"
+    limit:
+      min: 0
+      max: 0
+      equal: "0x0"
+    unit: ""
+  - name: "CHARGER_PCA_DUSN_AFTER_TEST"
+    reference: "CHARGER_PCA_DUSN_AFTER_TEST"
+    method: "read_dusn"
+    pnum: "5022"
+    params:
+      error_code: "001A"
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+  - name: "SET_CHARGER_LOCK_SHIP_MODE"
+    reference: "SET_CHARGER_LOCK_SHIP_MODE"
+    method: "set_device_ship_mode"
+    pnum: "5023"
+    params:
+      error_code: "0014"
+      read_only: False
+    limit:
+      min: 0
+      max: 0
+      equal: ""
+    unit: ""
+  - name: "QUERY_CHARGER_LOCK_SHIP_STATUS"
+    reference: "QUERY_CHARGER_LOCK_SHIP_STATUS"
+    method: "set_device_ship_mode"
+    pnum: "5024"
+    params:
+      error_code: "001C"
+      read_only: True
+    limit:
+      min: 0
+      max: 0
+      unit: ""
