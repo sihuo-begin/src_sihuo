@@ -23,9 +23,3 @@ progress:
   material_id: esd_001
   start_time: 1778049307
   trained: true
-- duration_effective: 18
-  employee_id: '2341837'
-  end_time: 1778750384
-  material_id: esd_001
-  start_time: 1778750364
-  trained: true

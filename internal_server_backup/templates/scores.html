@@ -170,24 +170,5 @@
 
 </div>
 
-<script>
-(function requireEmployeeId() {
-    let employeeId = localStorage.getItem("employee_id");
-
-    if (!employeeId) {
-        employeeId = prompt("请输入员工ID：");
-        if (!employeeId) {
-            alert("必须输入员工ID才能使用培训系统");
-            window.location.reload();
-            return;
-        }
-        localStorage.setItem("employee_id", employeeId);
-    }
-
-    // ✅ 全局可用
-    window.EMPLOYEE_ID = employeeId;
-})();
-</script>
-
 </body>
 </html>

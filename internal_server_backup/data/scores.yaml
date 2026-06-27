@@ -17,12 +17,3 @@ scores:
   score: 2
   station: SMT
   total: 2
-- employee_id: '2341837'
-  material_id: esd_001
-  material_name: ESD安全培训
-  passed: true
-  percentage: 100
-  project: 汽车项目
-  score: 2
-  station: SMT
-  total: 2

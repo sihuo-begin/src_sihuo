@@ -1,0 +1,19 @@
+materials:
+  - id: esd_001
+    name: ESD安全培训
+    station: SMT
+    project: 汽车项目
+    file: esd.pdf
+    icon: esd.png              # ✅ 课程图标
+    required_stations:         # ✅ 哪些工站必修
+      - SMT
+      - AOI
+
+  - id: fix_002
+    name: 设备维修规范
+    station: 维修
+    project: 服务器项目
+    file: esd_1.pdf
+    icon: repair.png
+    required_stations:
+      - 维修

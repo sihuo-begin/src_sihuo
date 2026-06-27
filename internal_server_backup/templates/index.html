@@ -173,51 +173,22 @@ h2 {
            培训
         </a>
 
-        {% if m.trained %}
-        /exam/{{ m.id }}?employee_id={{ employee_id }}
-           考试
-        </a>
+        {% if m.can_exam %}
+            <a class="btn-exam"
+               href="/exam/{{ m.id }}?employee_id={{ employee_id }}">
+               考试
+            </a>
         {% else %}
-        <button class="btn-disabled" disabled>
-            请先完成培训
-        </button>
+            <button class="btn-disabled" disabled>
+                考试未解锁
+            </button>
         {% endif %}
-
-<!--        {% if m.can_exam %}-->
-<!--            <a class="btn-exam"-->
-<!--               href="/exam/{{ m.id }}?employee_id={{ employee_id }}">-->
-<!--               考试-->
-<!--            </a>-->
-<!--        {% else %}-->
-<!--            <button class="btn-disabled" disabled>-->
-<!--                考试未解锁-->
-<!--            </button>-->
-<!--        {% endif %}-->
     </div>
 
 </div>
 {% endfor %}
 
 </div>
-
-<script>
-(function requireEmployeeId() {
-    let employeeId = localStorage.getItem("employee_id");
-
-    if (!employeeId) {
-        employeeId = prompt("请输入员工ID：");
-        if (!employeeId) {
-            alert("必须输入员工ID才能使用培训系统");
-            window.location.reload();
-            return;
-        }
-        localStorage.setItem("employee_id", employeeId);
-    }
-
-    // ✅ 全局可用
-    window.EMPLOYEE_ID = employeeId;
-})();
-</script>
 
 </body>
 </html>

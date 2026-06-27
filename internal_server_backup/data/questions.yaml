@@ -1,0 +1,17 @@
+questions:
+  esd_001:
+    - question: ESD手环的阻值范围是？
+      options:
+        A: 10Ω
+        B: 100Ω
+        C: 1MΩ~10MΩ
+        D: 无限大
+      answer: C
+
+    - question: ESD主要防护对象是谁？
+      options:
+        A: 人体
+        B: 芯片
+        C: 工具
+        D: 地面
+      answer: B

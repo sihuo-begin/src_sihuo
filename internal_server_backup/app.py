@@ -33,27 +33,12 @@ def is_trained(employee_id, material_id):
     return any(p for p in progress if p["employee_id"] == employee_id and p["material_id"] == material_id)
 
 
-def get_training_status(employee_id, material_id):
-    progress = load_yaml(PROGRESS_FILE, {'progress': []})['progress']
-    record = next(
-        (p for p in progress
-         if p['employee_id'] == employee_id
-         and p['material_id'] == material_id
-         and p.get('trained')),
-        None
-    )
-    return bool(record)
-
-
 @app.route("/")
 def index():
     keyword = request.args.get("keyword", "")
-
-    employee_id = (
-            request.args.get("employee_id")
-            or request.form.get("employee_id")
-    )
     materials = load_yaml(MATERIAL_FILE, {}).get("materials", [])
+    employee_id = ""  # 示例，实际来自登录或 URL
+    # employee_id = request.form.get('employee_id')
 
     for m in materials:
         if is_trained(employee_id, m["id"]):
@@ -62,9 +47,6 @@ def index():
             m["can_exam"] = False
     for m in materials:
         m["file_path"] = f"static/materials/{m['file']}"
-
-    for m in materials:
-        m['trained'] = get_training_status(employee_id, m['id'])
 
     if keyword:
         materials = [m for m in materials if keyword in m["name"] or keyword in m["station"] or keyword in m["project"]]
@@ -83,12 +65,8 @@ def training(material_id):
 
     progress = load_yaml(PROGRESS_FILE, {"progress": []})
     message = None
+    employee_id = None
 
-    employee_id = (
-            request.args.get("employee_id")
-            or request.form.get("employee_id")
-    )
-    print("employee_id is {}".format(employee_id))
     if request.method == "POST":
         employee_id = request.form.get("employee_id")
         start_time = float(request.form.get("start_time", 0))
@@ -109,7 +87,6 @@ def training(material_id):
                 message = f"有效学习时间不足（{effective_seconds}s），至少需要 {MIN_TRAIN_SECONDS}s"
             else:
                 # ✅ 清除旧记录
-                trained = True
                 progress["progress"] = [
                     p
                     for p in progress["progress"]
@@ -225,4 +202,4 @@ def clear(employee_id):
 if __name__ == "__main__":
     os.makedirs(DATA_DIR, exist_ok=True)
     # app.run(host='0.0.0.0', port=5000, debug=True)
-    app.run(host="10.200.149.151", port=5000, debug=True)
+    app.run(host="10.200.147.42", port=5000, debug=True)
